@@ -32,7 +32,6 @@ public final class RedisUtil {
 
 
     @Autowired
-
     private StringRedisTemplate redisTemplate;
 
     // =============================common============================
