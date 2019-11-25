@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.EmpowerMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.Empower">
+        <id column="id" property="id" />
+        <result column="last_empower_tm" property="lastEmpowerTm" />
+        <result column="computer_id_new" property="computerIdNew" />
+        <result column="Empower_tm" property="empowerTm" />
+        <result column="dog_sg" property="dogSg" />
+        <result column="Version" property="Version" />
+        <result column="empower_sts" property="empowerSts" />
+        <result column="empower_cd" property="empowerCd" />
+        <result column="computer_id" property="computerId" />
+        <result column="Empower_psn" property="empowerPsn" />
+        <result column="ip" property="ip" />
+        <result column="end_tm" property="endTm" />
+        <result column="Empower_Result" property="empowerResult" />
+        <result column="system_id" property="systemId" />
+    </resultMap>
+
+</mapper>

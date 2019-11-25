@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.BizCmdparamMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.BizCmdparam">
+        <id column="Id" property="Id" />
+        <result column="SimNum" property="SimNum" />
+        <result column="ParamCode" property="ParamCode" />
+        <result column="UserId" property="UserId" />
+        <result column="ParamContent" property="ParamContent" />
+        <result column="SendTime" property="SendTime" />
+        <result column="CmdCodeFlag" property="CmdCodeFlag" />
+    </resultMap>
+
+</mapper>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.BizAlarmdata809Mapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.BizAlarmdata809">
+        <id column="Id" property="Id" />
+        <result column="BeginAltitude" property="BeginAltitude" />
+        <result column="BeginDirection" property="BeginDirection" />
+        <result column="BeginAlarmTime" property="BeginAlarmTime" />
+        <result column="BeginInOutPosId" property="BeginInOutPosId" />
+        <result column="LimitDuration" property="LimitDuration" />
+        <result column="EndDrivingPathSectionId" property="EndDrivingPathSectionId" />
+        <result column="EndSpeed" property="EndSpeed" />
+        <result column="UpdateTime" property="UpdateTime" />
+        <result column="EndMileage" property="EndMileage" />
+        <result column="EndSpeedingPosId" property="EndSpeedingPosId" />
+        <result column="BeginResidualFuel" property="BeginResidualFuel" />
+        <result column="TargetName" property="TargetName" />
+        <result column="BeginDrivingFlag" property="BeginDrivingFlag" />
+        <result column="EndExStateFlag" property="EndExStateFlag" />
+        <result column="BeginSpeedingPosType" property="BeginSpeedingPosType" />
+        <result column="InfoId" property="InfoId" />
+        <result column="SimNum" property="SimNum" />
+        <result column="EndDrivingFlag" property="EndDrivingFlag" />
+        <result column="EndResidualFuel" property="EndResidualFuel" />
+        <result column="EndADRSpeed" property="EndADRSpeed" />
+        <result column="EndDirection" property="EndDirection" />
+        <result column="MaxSpeed" property="MaxSpeed" />
+        <result column="EndAlarmTime" property="EndAlarmTime" />
+        <result column="EndInOutPosId" property="EndInOutPosId" />
+        <result column="BeginWirelessSignal" property="BeginWirelessSignal" />
+        <result column="BeginDrivingDuration" property="BeginDrivingDuration" />
+        <result column="EndTrackId" property="EndTrackId" />
+        <result column="EndLongitude" property="EndLongitude" />
+        <result column="EndLatitude" property="EndLatitude" />
+        <result column="BeginAdditionData" property="BeginAdditionData" />
+        <result column="BeginSpeedingPosId" property="BeginSpeedingPosId" />
+        <result column="MinSpeed" property="MinSpeed" />
+        <result column="MaxDeviation" property="MaxDeviation" />
+        <result column="BeginStateFlag" property="BeginStateFlag" />
+        <result column="EndDrivingDuration" property="EndDrivingDuration" />
+        <result column="EndAltitude" property="EndAltitude" />
+        <result column="LimitSpeed" property="LimitSpeed" />
+        <result column="BeginDrivingPathSectionId" property="BeginDrivingPathSectionId" />
+        <result column="UserId" property="UserId" />
+        <result column="BeginLongitude" property="BeginLongitude" />
+        <result column="BeginSpeed" property="BeginSpeed" />
+        <result column="EndWirelessSignal" property="EndWirelessSignal" />
+        <result column="TargetId" property="TargetId" />
+        <result column="BeginExStateFlag" property="BeginExStateFlag" />
+        <result column="BeginTrackId" property="BeginTrackId" />
+        <result column="BeginLatitude" property="BeginLatitude" />
+        <result column="AvgSpeed" property="AvgSpeed" />
+        <result column="BeginADRSpeed" property="BeginADRSpeed" />
+        <result column="EndAdditionData" property="EndAdditionData" />
+        <result column="AlarmFlag" property="AlarmFlag" />
+        <result column="BeginMileage" property="BeginMileage" />
+        <result column="EndSpeedingPosType" property="EndSpeedingPosType" />
+        <result column="MinDeviation" property="MinDeviation" />
+        <result column="EndStateFlag" property="EndStateFlag" />
+    </resultMap>
+
+</mapper>

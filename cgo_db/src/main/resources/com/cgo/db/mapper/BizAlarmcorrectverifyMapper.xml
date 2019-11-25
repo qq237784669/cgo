@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.BizAlarmcorrectverifyMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.BizAlarmcorrectverify">
+        <id column="AlarmId" property="AlarmId" />
+        <result column="LastVerifyUser" property="LastVerifyUser" />
+        <result column="RemindTime" property="RemindTime" />
+        <result column="UpdateTime" property="UpdateTime" />
+        <result column="IsCorrect" property="IsCorrect" />
+        <result column="LastVerifyTime" property="LastVerifyTime" />
+        <result column="AlarmFlag" property="AlarmFlag" />
+        <result column="SimNum" property="SimNum" />
+        <result column="IsPush" property="IsPush" />
+        <result column="IsNotRemind" property="IsNotRemind" />
+    </resultMap>
+
+</mapper>

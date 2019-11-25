@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.BasTransportMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.BasTransport">
+        <id column="TransportID" property="TransportID" />
+        <result column="TransportName" property="TransportName" />
+        <result column="TransportLicense" property="TransportLicense" />
+        <result column="LicenseOrgName" property="LicenseOrgName" />
+        <result column="OrgId" property="OrgId" />
+        <result column="CreateTime" property="CreateTime" />
+        <result column="UpdateTime" property="UpdateTime" />
+        <result column="Remark" property="Remark" />
+        <result column="SimNum" property="SimNum" />
+        <result column="UseState" property="UseState" />
+        <result column="UploadState" property="UploadState" />
+        <result column="pic" property="pic" />
+        <result column="evaluate" property="evaluate" />
+        <result column="TransportOrigin" property="TransportOrigin" />
+        <result column="JobLicenseExpiryTime" property="JobLicenseExpiryTime" />
+        <result column="TransportPwd" property="TransportPwd" />
+        <result column="Sex" property="Sex" />
+        <result column="TransportType" property="TransportType" />
+        <result column="ColorCode" property="ColorCode" />
+        <result column="OfficeTel" property="OfficeTel" />
+        <result column="VehicleId" property="VehicleId" />
+        <result column="TransportTelephone" property="TransportTelephone" />
+        <result column="JobLicensePic" property="JobLicensePic" />
+        <result column="ReportTime" property="ReportTime" />
+    </resultMap>
+
+</mapper>

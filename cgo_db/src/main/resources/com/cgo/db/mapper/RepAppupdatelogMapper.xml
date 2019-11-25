@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.RepAppupdatelogMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.RepAppupdatelog">
+        <id column="ID" property="id" />
+        <result column="Remark" property="Remark" />
+        <result column="PrevAppVersionName" property="PrevAppVersionName" />
+        <result column="mobAddress" property="mobAddress" />
+        <result column="AppUpdateDigest" property="AppUpdateDigest" />
+        <result column="UserId" property="UserId" />
+        <result column="UpdateStatus" property="UpdateStatus" />
+        <result column="DoneTime" property="DoneTime" />
+        <result column="mobMODEL" property="mobMODEL" />
+        <result column="mobLatitude" property="mobLatitude" />
+        <result column="UpdateAppVersionCode" property="UpdateAppVersionCode" />
+        <result column="mobLongitude" property="mobLongitude" />
+        <result column="MobileOs" property="MobileOs" />
+        <result column="PrevAppVersionCode" property="PrevAppVersionCode" />
+        <result column="CustomerCode" property="CustomerCode" />
+        <result column="mobMANUFACTURER" property="mobMANUFACTURER" />
+        <result column="mobSystemVersion" property="mobSystemVersion" />
+        <result column="UpdateAppVersionName" property="UpdateAppVersionName" />
+        <result column="UserType" property="UserType" />
+        <result column="CreateTime" property="CreateTime" />
+        <result column="IMEI" property="imei" />
+    </resultMap>
+
+</mapper>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.BizGdtaxidaymileageMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.BizGdtaxidaymileage">
+        <id column="Id" property="Id" />
+        <result column="Mileage" property="Mileage" />
+        <result column="UpdateTime" property="UpdateTime" />
+        <result column="OwnerCode" property="OwnerCode" />
+        <result column="SendTime" property="SendTime" />
+        <result column="VehicleId" property="VehicleId" />
+        <result column="EndTime" property="EndTime" />
+        <result column="RunScope" property="RunScope" />
+        <result column="Remark" property="Remark" />
+        <result column="OwnerName" property="OwnerName" />
+        <result column="Result" property="Result" />
+        <result column="BeginTime" property="BeginTime" />
+        <result column="EndMileage" property="EndMileage" />
+        <result column="Date" property="Date" />
+        <result column="CreateBy" property="CreateBy" />
+        <result column="BeginMileage" property="BeginMileage" />
+        <result column="State" property="State" />
+    </resultMap>
+
+</mapper>

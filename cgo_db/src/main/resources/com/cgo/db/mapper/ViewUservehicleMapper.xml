@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.ViewUservehicleMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.ViewUservehicle">
+        <result column="SimNum" property="SimNum" />
+        <result column="LineCode" property="LineCode" />
+        <result column="TerminalTypeId" property="TerminalTypeId" />
+        <result column="ADASEquip" property="ADASEquip" />
+        <result column="TPMSEquip" property="TPMSEquip" />
+        <result column="TransTypeCode" property="TransTypeCode" />
+        <result column="VehicleId" property="VehicleId" />
+        <result column="BSDEquip" property="BSDEquip" />
+        <result column="PlateNum" property="PlateNum" />
+        <result column="RealSimNum" property="RealSimNum" />
+        <result column="OrgId" property="OrgId" />
+        <result column="VehicleTypeCode" property="VehicleTypeCode" />
+        <result column="ColorCode" property="ColorCode" />
+        <result column="OldPlateNum" property="OldPlateNum" />
+        <result column="DSMEquip" property="DSMEquip" />
+        <result column="UserId" property="UserId" />
+    </resultMap>
+
+</mapper>

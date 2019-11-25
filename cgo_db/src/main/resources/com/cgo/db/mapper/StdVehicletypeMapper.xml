@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.StdVehicletypeMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.StdVehicletype">
+        <id column="VehicleTypeCode" property="VehicleTypeCode" />
+        <result column="VehicleTypeName" property="VehicleTypeName" />
+        <result column="ParentCode" property="ParentCode" />
+        <result column="Remark" property="Remark" />
+        <result column="IconType" property="IconType" />
+        <result column="DefaultLimitSpeed" property="DefaultLimitSpeed" />
+        <result column="TypeOrder" property="TypeOrder" />
+        <result column="NightLimitSpeed" property="NightLimitSpeed" />
+        <result column="IsNotJTB" property="IsNotJTB" />
+        <result column="UpdateTime" property="UpdateTime" />
+    </resultMap>
+
+</mapper>

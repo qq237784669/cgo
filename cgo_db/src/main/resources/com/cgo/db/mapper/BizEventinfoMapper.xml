@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.BizEventinfoMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.BizEventinfo">
+        <id column="Id" property="Id" />
+        <result column="CreateTime" property="CreateTime" />
+        <result column="MsgText" property="MsgText" />
+        <result column="MsgType" property="MsgType" />
+        <result column="Result" property="Result" />
+        <result column="FromInfo" property="FromInfo" />
+        <result column="SendTime" property="SendTime" />
+        <result column="SendType" property="SendType" />
+        <result column="ToUserList" property="ToUserList" />
+    </resultMap>
+
+</mapper>

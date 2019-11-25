@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.BizVehiclerealtripMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.BizVehiclerealtrip">
+        <id column="Id" property="Id" />
+        <result column="UnloadedLat" property="UnloadedLat" />
+        <result column="EndLat" property="EndLat" />
+        <result column="SimNum" property="SimNum" />
+        <result column="BeginLon" property="BeginLon" />
+        <result column="TripEndTime" property="TripEndTime" />
+        <result column="EndLon" property="EndLon" />
+        <result column="TripBeginTime" property="TripBeginTime" />
+        <result column="UnLoadedLon" property="UnLoadedLon" />
+        <result column="UnloadedEnd" property="UnloadedEnd" />
+        <result column="IsAlarm" property="IsAlarm" />
+        <result column="UnloadedBegin" property="UnloadedBegin" />
+        <result column="BeginLat" property="BeginLat" />
+    </resultMap>
+
+</mapper>

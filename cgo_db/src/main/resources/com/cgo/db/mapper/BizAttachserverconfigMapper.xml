@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.BizAttachserverconfigMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.BizAttachserverconfig">
+        <id column="MachineID" property="MachineID" />
+        <result column="ServerType" property="ServerType" />
+        <result column="InnerIP" property="InnerIP" />
+        <result column="TermIp" property="TermIp" />
+        <result column="TermPort" property="TermPort" />
+        <result column="TermUdpPort" property="TermUdpPort" />
+        <result column="UserIp" property="UserIp" />
+        <result column="UserPort" property="UserPort" />
+        <result column="UserUdpPort" property="UserUdpPort" />
+        <result column="UserName" property="UserName" />
+        <result column="UserPwd" property="UserPwd" />
+        <result column="LocalFolder" property="LocalFolder" />
+        <result column="VirtualPath" property="VirtualPath" />
+        <result column="IsDel" property="IsDel" />
+        <result column="UpdateTime" property="UpdateTime" />
+        <result column="Remark" property="Remark" />
+        <result column="Id" property="Id" />
+    </resultMap>
+
+</mapper>

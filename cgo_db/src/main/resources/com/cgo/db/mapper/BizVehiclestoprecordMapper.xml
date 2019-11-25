@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.BizVehiclestoprecordMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.BizVehiclestoprecord">
+        <id column="id" property="id" />
+        <result column="EndGpsTime" property="EndGpsTime" />
+        <result column="EndLongitude" property="EndLongitude" />
+        <result column="RunState" property="RunState" />
+        <result column="EndMileage" property="EndMileage" />
+        <result column="UpdateTime" property="UpdateTime" />
+        <result column="EndLatitude" property="EndLatitude" />
+        <result column="BeginSpeed" property="BeginSpeed" />
+        <result column="BeginLongitude" property="BeginLongitude" />
+        <result column="EndSpeed" property="EndSpeed" />
+        <result column="BeginLatituede" property="BeginLatituede" />
+        <result column="BeginMileage" property="BeginMileage" />
+        <result column="SimNum" property="SimNum" />
+        <result column="BeginGpsTime" property="BeginGpsTime" />
+    </resultMap>
+
+</mapper>

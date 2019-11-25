@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.BasVehicleinfocolumnMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.BasVehicleinfocolumn">
+        <id column="Id" property="Id" />
+        <result column="ColumnField" property="ColumnField" />
+        <result column="ColumnText" property="ColumnText" />
+        <result column="ColumnTypeId" property="ColumnTypeId" />
+        <result column="ColumnSpan" property="ColumnSpan" />
+        <result column="ControlTypeId" property="ControlTypeId" />
+        <result column="ExtendText" property="ExtendText" />
+        <result column="IsRequired" property="IsRequired" />
+        <result column="DataType" property="DataType" />
+        <result column="MaxValueOrLength" property="MaxValueOrLength" />
+        <result column="MinValueOrLength" property="MinValueOrLength" />
+        <result column="DropDownTextField" property="DropDownTextField" />
+        <result column="DropDownValueField" property="DropDownValueField" />
+        <result column="DropDownHasDefault" property="DropDownHasDefault" />
+        <result column="DropDownDefaultValue" property="DropDownDefaultValue" />
+        <result column="DropDownDefaultText" property="DropDownDefaultText" />
+        <result column="DropDownIsIndent" property="DropDownIsIndent" />
+        <result column="DropDownSelectValue" property="DropDownSelectValue" />
+        <result column="SortOrder" property="SortOrder" />
+        <result column="MultiSortOrder" property="MultiSortOrder" />
+        <result column="CheckBoxHasDefault" property="CheckBoxHasDefault" />
+        <result column="IsMulti" property="IsMulti" />
+        <result column="DefaultValue" property="DefaultValue" />
+    </resultMap>
+
+</mapper>

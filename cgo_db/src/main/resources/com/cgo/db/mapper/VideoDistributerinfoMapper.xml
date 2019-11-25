@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.VideoDistributerinfoMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.VideoDistributerinfo">
+        <result column="LocalIp" property="LocalIp" />
+        <result column="MachineId" property="MachineId" />
+        <result column="PlayerIp" property="PlayerIp" />
+        <result column="PlayerChCount" property="PlayerChCount" />
+        <result column="LocalPlayerTcpPort" property="LocalPlayerTcpPort" />
+        <result column="Id" property="Id" />
+        <result column="TermChCount" property="TermChCount" />
+        <result column="UpdateTime" property="UpdateTime" />
+        <result column="LocalPlayerUdpPort" property="LocalPlayerUdpPort" />
+        <result column="AVType" property="AVType" />
+        <result column="LocalTermTcpPort" property="LocalTermTcpPort" />
+        <result column="SimLastNum" property="SimLastNum" />
+        <result column="LocalTermUdpPort" property="LocalTermUdpPort" />
+        <result column="TermIp" property="TermIp" />
+        <result column="TermDomain" property="TermDomain" />
+        <result column="TermCount" property="TermCount" />
+        <result column="PlayerPort" property="PlayerPort" />
+        <result column="PlayerCount" property="PlayerCount" />
+        <result column="IsDel" property="IsDel" />
+        <result column="ServiceId" property="ServiceId" />
+        <result column="TermPort" property="TermPort" />
+    </resultMap>
+
+</mapper>

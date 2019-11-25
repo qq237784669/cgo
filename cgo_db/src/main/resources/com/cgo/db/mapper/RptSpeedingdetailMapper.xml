@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.RptSpeedingdetailMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.RptSpeedingdetail">
+        <id column="Id" property="Id" />
+        <result column="MinSpeed" property="MinSpeed" />
+        <result column="Lon1" property="Lon1" />
+        <result column="AvgTachographSpeed" property="AvgTachographSpeed" />
+        <result column="PathName" property="PathName" />
+        <result column="Distance2" property="Distance2" />
+        <result column="Speed1" property="Speed1" />
+        <result column="SpeedingTime" property="SpeedingTime" />
+        <result column="AvgSpeed" property="AvgSpeed" />
+        <result column="GpsDate" property="GpsDate" />
+        <result column="Continue2MinAvgSpeed" property="Continue2MinAvgSpeed" />
+        <result column="Lat1" property="Lat1" />
+        <result column="LimitSpeed" property="LimitSpeed" />
+        <result column="BeginTime" property="BeginTime" />
+        <result column="AlarmFlag" property="AlarmFlag" />
+        <result column="Lon2" property="Lon2" />
+        <result column="MaxSpeed" property="MaxSpeed" />
+        <result column="MaxTachographSpeed" property="MaxTachographSpeed" />
+        <result column="SimNum" property="SimNum" />
+        <result column="Speed2" property="Speed2" />
+        <result column="MinTachographSpeed" property="MinTachographSpeed" />
+        <result column="Distance1" property="Distance1" />
+        <result column="EndTime" property="EndTime" />
+        <result column="LimitSpeedType" property="LimitSpeedType" />
+        <result column="Lat2" property="Lat2" />
+    </resultMap>
+
+</mapper>

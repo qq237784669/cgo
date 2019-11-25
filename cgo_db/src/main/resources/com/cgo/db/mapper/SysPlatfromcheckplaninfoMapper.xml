@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.SysPlatfromcheckplaninfoMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.SysPlatfromcheckplaninfo">
+        <id column="Id" property="Id" />
+        <result column="ObjectId" property="ObjectId" />
+        <result column="OperatorId" property="OperatorId" />
+        <result column="SpanTime" property="SpanTime" />
+        <result column="UpdateTime" property="UpdateTime" />
+        <result column="QueryOperateType" property="QueryOperateType" />
+        <result column="StartTime" property="StartTime" />
+        <result column="QuestionId" property="QuestionId" />
+        <result column="CreateTime" property="CreateTime" />
+        <result column="Createby" property="Createby" />
+        <result column="IsDel" property="IsDel" />
+        <result column="EndTime" property="EndTime" />
+        <result column="ObjectType" property="ObjectType" />
+    </resultMap>
+
+</mapper>

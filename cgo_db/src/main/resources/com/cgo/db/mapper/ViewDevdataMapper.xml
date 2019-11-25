@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.ViewDevdataMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.ViewDevdata">
+        <result column="PartFlag" property="PartFlag" />
+        <result column="ReceTime" property="ReceTime" />
+        <result column="DeviceType" property="DeviceType" />
+        <result column="DeviceId" property="DeviceId" />
+        <result column="SimNum" property="SimNum" />
+        <result column="Speed" property="Speed" />
+        <result column="Id" property="Id" />
+        <result column="GpsTime" property="GpsTime" />
+        <result column="Mileage" property="Mileage" />
+        <result column="Value" property="Value" />
+    </resultMap>
+
+</mapper>

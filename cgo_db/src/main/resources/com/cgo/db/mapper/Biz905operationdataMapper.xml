@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.Biz905operationdataMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.Biz905operationdata">
+        <id column="ID" property="id" />
+        <result column="AppraiseID" property="AppraiseID" />
+        <result column="EAlarmFlag" property="EAlarmFlag" />
+        <result column="HGpsTime" property="HGpsTime" />
+        <result column="Price" property="Price" />
+        <result column="EDirection" property="EDirection" />
+        <result column="HStateFlag" property="HStateFlag" />
+        <result column="Mileage" property="Mileage" />
+        <result column="ELon" property="ELon" />
+        <result column="HSpeed" property="HSpeed" />
+        <result column="WorkLicenseId" property="WorkLicenseId" />
+        <result column="EStateFlag" property="EStateFlag" />
+        <result column="HLat" property="HLat" />
+        <result column="ChargeType" property="ChargeType" />
+        <result column="UpTime" property="UpTime" />
+        <result column="EGpsTime" property="EGpsTime" />
+        <result column="HAlarmFlag" property="HAlarmFlag" />
+        <result column="SimNum" property="SimNum" />
+        <result column="AppriseOptions" property="AppriseOptions" />
+        <result column="MileageN" property="MileageN" />
+        <result column="HDirection" property="HDirection" />
+        <result column="CallOrderID" property="CallOrderID" />
+        <result column="ESpeed" property="ESpeed" />
+        <result column="HLon" property="HLon" />
+        <result column="DownTime" property="DownTime" />
+        <result column="ELat" property="ELat" />
+        <result column="OperationID" property="OperationID" />
+    </resultMap>
+
+</mapper>

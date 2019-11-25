@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.SysRemindmsgMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.SysRemindmsg">
+        <id column="Id" property="Id" />
+        <result column="IsEnable" property="IsEnable" />
+        <result column="MsgName" property="MsgName" />
+        <result column="MsgContent" property="MsgContent" />
+        <result column="CreateTime" property="CreateTime" />
+        <result column="MsgType" property="MsgType" />
+        <result column="Remark" property="Remark" />
+        <result column="UpdateTime" property="UpdateTime" />
+        <result column="IsPopup" property="IsPopup" />
+        <result column="ExpiryDate" property="ExpiryDate" />
+        <result column="AppliedRange" property="AppliedRange" />
+        <result column="CreateBy" property="CreateBy" />
+    </resultMap>
+
+</mapper>

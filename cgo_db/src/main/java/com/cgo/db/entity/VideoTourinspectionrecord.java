@@ -1,0 +1,57 @@
+package com.cgo.db.entity;
+
+import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.extension.activerecord.Model;
+import java.time.LocalDateTime;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableField;
+import java.io.Serializable;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.experimental.Accessors;
+
+/**
+ * <p>
+ * 
+ * </p>
+ *
+ * @author Mht
+ * @since 2019-11-18
+ */
+@Data
+@EqualsAndHashCode(callSuper = false)
+@Accessors(chain = true)
+@TableName("video_TourInspectionRecord")
+public class VideoTourinspectionrecord extends Model<VideoTourinspectionrecord> {
+
+    private static final long serialVersionUID=1L;
+
+    @TableField("UserId")
+    private String UserId;
+
+    @TableField("EndTime")
+    private LocalDateTime EndTime;
+
+    @TableField("UserName")
+    private String UserName;
+
+    @TableField("BeginTime")
+    private LocalDateTime BeginTime;
+
+    @TableField("ChannelId")
+    private Integer ChannelId;
+
+    @TableField("SimNum")
+    private String SimNum;
+
+    @TableId(value = "Id", type = IdType.AUTO)
+    private Integer Id;
+
+
+    @Override
+    protected Serializable pkVal() {
+        return this.Id;
+    }
+
+}

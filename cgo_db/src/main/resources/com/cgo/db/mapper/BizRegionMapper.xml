@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.BizRegionMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.BizRegion">
+        <id column="RegionId" property="RegionId" />
+        <result column="RegionGroupId" property="RegionGroupId" />
+        <result column="RegionName" property="RegionName" />
+        <result column="RegionType" property="RegionType" />
+        <result column="Dots" property="Dots" />
+        <result column="Remark" property="Remark" />
+        <result column="InToDriver" property="InToDriver" />
+        <result column="CreatedBy" property="CreatedBy" />
+        <result column="RegionProperty" property="RegionProperty" />
+        <result column="OutToPlateForm" property="OutToPlateForm" />
+        <result column="CreateTime" property="CreateTime" />
+        <result column="LimitSpeed" property="LimitSpeed" />
+        <result column="UpdateBy" property="UpdateBy" />
+        <result column="InToPlateForm" property="InToPlateForm" />
+        <result column="OutToDriver" property="OutToDriver" />
+        <result column="UpdateTime" property="UpdateTime" />
+        <result column="SpeedingDuration" property="SpeedingDuration" />
+        <result column="AuthFlag" property="AuthFlag" />
+    </resultMap>
+
+</mapper>

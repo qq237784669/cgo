@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.ViewAdasAlarmdataMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.ViewAdasAlarmdata">
+        <result column="AlarmState" property="AlarmState" />
+        <result column="Remark" property="Remark" />
+        <result column="Mileage" property="Mileage" />
+        <result column="TerminalId" property="TerminalId" />
+        <result column="FileCount" property="FileCount" />
+        <result column="PosTime" property="PosTime" />
+        <result column="Speed" property="Speed" />
+        <result column="AlarmTime" property="AlarmTime" />
+        <result column="EndAltitude" property="EndAltitude" />
+        <result column="SimNum" property="SimNum" />
+        <result column="FlagNumber" property="FlagNumber" />
+        <result column="AlarmLevel" property="AlarmLevel" />
+        <result column="DriftType" property="DriftType" />
+        <result column="Latitude" property="Latitude" />
+        <result column="UpdateTime" property="UpdateTime" />
+        <result column="ReceTime" property="ReceTime" />
+        <result column="AlarmFlagNum" property="AlarmFlagNum" />
+        <result column="AdditionData" property="AdditionData" />
+        <result column="FrontDistance" property="FrontDistance" />
+        <result column="AlarmType" property="AlarmType" />
+        <result column="RoadSignData" property="RoadSignData" />
+        <result column="EndSpeed" property="EndSpeed" />
+        <result column="TiredLevel" property="TiredLevel" />
+        <result column="AlarmFlag" property="AlarmFlag" />
+        <result column="EndLatitude" property="EndLatitude" />
+        <result column="Altitude" property="Altitude" />
+        <result column="FlagTime" property="FlagTime" />
+        <result column="QualificationNum" property="QualificationNum" />
+        <result column="EndLongitude" property="EndLongitude" />
+        <result column="AdrSpeed" property="AdrSpeed" />
+        <result column="StateFlag" property="StateFlag" />
+        <result column="DriverId" property="DriverId" />
+        <result column="FrontSpeed" property="FrontSpeed" />
+        <result column="AlarmId" property="AlarmId" />
+        <result column="RoadSignType" property="RoadSignType" />
+        <result column="Longitude" property="Longitude" />
+        <result column="EndAlarmTime" property="EndAlarmTime" />
+    </resultMap>
+
+</mapper>

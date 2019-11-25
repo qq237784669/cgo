@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.BizAlarmsectionparamMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.BizAlarmsectionparam">
+        <id column="PathSectionId" property="PathSectionId" />
+        <result column="MaxDuration" property="MaxDuration" />
+        <result column="NightHighSpeed" property="NightHighSpeed" />
+        <result column="SimNum" property="SimNum" />
+        <result column="SpeedingDuration" property="SpeedingDuration" />
+        <result column="LimitSpeed" property="LimitSpeed" />
+        <result column="SectionWidth" property="SectionWidth" />
+        <result column="MinDuration" property="MinDuration" />
+    </resultMap>
+
+</mapper>

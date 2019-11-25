@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.BizCqygtaskimplementsituationMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.BizCqygtaskimplementsituation">
+        <id column="TaskSN" property="TaskSN" />
+        <result column="FeedbackContent" property="FeedbackContent" />
+        <result column="EndTime" property="EndTime" />
+        <result column="TaskContent" property="TaskContent" />
+        <result column="Updatetime" property="Updatetime" />
+        <result column="StartTime" property="StartTime" />
+        <result column="TaskTitle" property="TaskTitle" />
+        <result column="TaskState" property="TaskState" />
+        <result column="ReceiveTime" property="ReceiveTime" />
+        <result column="TaskFile" property="TaskFile" />
+        <result column="FeedbackFile" property="FeedbackFile" />
+    </resultMap>
+
+</mapper>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.BizAuditsignofmonitorforbackMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.BizAuditsignofmonitorforback">
+        <id column="Id" property="Id" />
+        <result column="YGIsPass" property="YGIsPass" />
+        <result column="YGIsUploadImg" property="YGIsUploadImg" />
+        <result column="YGSignTime" property="YGSignTime" />
+        <result column="YGgpsTimeList" property="YGgpsTimeList" />
+        <result column="YGUserId" property="YGUserId" />
+        <result column="YGNotPassReason" property="YGNotPassReason" />
+        <result column="YGIsCorrectImgPos" property="YGIsCorrectImgPos" />
+        <result column="VehicleId" property="VehicleId" />
+        <result column="YGIsLocation" property="YGIsLocation" />
+    </resultMap>
+
+</mapper>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.BasContactofmsgMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.BasContactofmsg">
+        <id column="Id" property="Id" />
+        <result column="ContactId" property="ContactId" />
+        <result column="AlarmTag" property="AlarmTag" />
+    </resultMap>
+
+</mapper>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.AdasAlarmdataMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.AdasAlarmdata">
+        <id column="AlarmId" property="AlarmId" />
+        <result column="SimNum" property="SimNum" />
+        <result column="PosTime" property="PosTime" />
+        <result column="AlarmType" property="AlarmType" />
+        <result column="ReceTime" property="ReceTime" />
+        <result column="AlarmState" property="AlarmState" />
+        <result column="AlarmFlag" property="AlarmFlag" />
+        <result column="AlarmLevel" property="AlarmLevel" />
+        <result column="FrontSpeed" property="FrontSpeed" />
+        <result column="FrontDistance" property="FrontDistance" />
+        <result column="DriftType" property="DriftType" />
+        <result column="RoadSignType" property="RoadSignType" />
+        <result column="RoadSignData" property="RoadSignData" />
+        <result column="Speed" property="Speed" />
+        <result column="AdrSpeed" property="AdrSpeed" />
+        <result column="Altitude" property="Altitude" />
+        <result column="Mileage" property="Mileage" />
+        <result column="Longitude" property="Longitude" />
+        <result column="Latitude" property="Latitude" />
+        <result column="AlarmTime" property="AlarmTime" />
+        <result column="StateFlag" property="StateFlag" />
+        <result column="AlarmFlagNum" property="AlarmFlagNum" />
+        <result column="TerminalId" property="TerminalId" />
+        <result column="FlagTime" property="FlagTime" />
+        <result column="FlagNumber" property="FlagNumber" />
+        <result column="FileCount" property="FileCount" />
+        <result column="TiredLevel" property="TiredLevel" />
+        <result column="AdditionData" property="AdditionData" />
+        <result column="DriverId" property="DriverId" />
+        <result column="QualificationNum" property="QualificationNum" />
+        <result column="UpdateTime" property="UpdateTime" />
+        <result column="Remark" property="Remark" />
+        <result column="EndAltitude" property="EndAltitude" />
+        <result column="EndLongitude" property="EndLongitude" />
+        <result column="EndAlarmTime" property="EndAlarmTime" />
+        <result column="EndSpeed" property="EndSpeed" />
+        <result column="EndLatitude" property="EndLatitude" />
+    </resultMap>
+
+</mapper>

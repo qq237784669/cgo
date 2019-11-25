@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.Biz809alarmsupervisereqMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.Biz809alarmsupervisereq">
+        <id column="Id" property="Id" />
+        <result column="DataType" property="DataType" />
+        <result column="AlarmFlag" property="AlarmFlag" />
+        <result column="SupervisorSimNum" property="SupervisorSimNum" />
+        <result column="SimNum" property="SimNum" />
+        <result column="SupervisionEndTime" property="SupervisionEndTime" />
+        <result column="ReceiveTime" property="ReceiveTime" />
+        <result column="OrderId" property="OrderId" />
+        <result column="SupervisionId" property="SupervisionId" />
+        <result column="PlatformId" property="PlatformId" />
+        <result column="AlarmSrc" property="AlarmSrc" />
+        <result column="Supervisor" property="Supervisor" />
+        <result column="SupervisorEmail" property="SupervisorEmail" />
+        <result column="SupervisionLevel" property="SupervisionLevel" />
+        <result column="UniqueId" property="UniqueId" />
+        <result column="MsgSN" property="MsgSN" />
+        <result column="InsertTime" property="InsertTime" />
+        <result column="PlatformAlarmFlag" property="PlatformAlarmFlag" />
+        <result column="AlarmTime" property="AlarmTime" />
+        <result column="GovId" property="GovId" />
+    </resultMap>
+
+</mapper>

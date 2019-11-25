@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.VideoFtpinfoBakMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.VideoFtpinfoBak">
+        <result column="LocalPort" property="LocalPort" />
+        <result column="FtpPort" property="FtpPort" />
+        <result column="UpLoadPath" property="UpLoadPath" />
+        <result column="UpdateTime" property="UpdateTime" />
+        <result column="UserName" property="UserName" />
+        <result column="Id" property="Id" />
+        <result column="LocalIp" property="LocalIp" />
+        <result column="FolderPath" property="FolderPath" />
+        <result column="FtpIp" property="FtpIp" />
+        <result column="IsDel" property="IsDel" />
+        <result column="UserPwd" property="UserPwd" />
+    </resultMap>
+
+</mapper>

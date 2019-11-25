@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.BasEquipinfoMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.BasEquipinfo">
+        <id column="Id" property="Id" />
+        <result column="EquipSelfCode" property="EquipSelfCode" />
+        <result column="Remark" property="Remark" />
+        <result column="OutStockTime" property="OutStockTime" />
+        <result column="EquipId" property="EquipId" />
+        <result column="StockState" property="StockState" />
+        <result column="RealSimNum" property="RealSimNum" />
+        <result column="EquipTypeCode" property="EquipTypeCode" />
+        <result column="InStockTime" property="InStockTime" />
+        <result column="EquipState" property="EquipState" />
+        <result column="CreateBy" property="CreateBy" />
+        <result column="CommunicateID" property="CommunicateID" />
+        <result column="IconCode" property="IconCode" />
+        <result column="UseState" property="UseState" />
+    </resultMap>
+
+</mapper>

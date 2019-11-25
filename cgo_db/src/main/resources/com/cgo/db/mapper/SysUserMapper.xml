@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.SysUserMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.SysUser">
+        <id column="UserId" property="UserId" />
+        <result column="UserName" property="UserName" />
+        <result column="UserPwd" property="UserPwd" />
+        <result column="RoleId" property="RoleId" />
+        <result column="OrgId" property="OrgId" />
+        <result column="Email" property="Email" />
+        <result column="Telphone" property="Telphone" />
+        <result column="StopFlag" property="StopFlag" />
+        <result column="CreateTime" property="CreateTime" />
+        <result column="UpdateTime" property="UpdateTime" />
+        <result column="Remark" property="Remark" />
+        <result column="Province" property="Province" />
+        <result column="UserLevel" property="UserLevel" />
+        <result column="Industry" property="Industry" />
+        <result column="LastLoginFailTime" property="LastLoginFailTime" />
+        <result column="CompanyName" property="CompanyName" />
+        <result column="Department" property="Department" />
+        <result column="UserType" property="UserType" />
+        <result column="CreatedBy" property="CreatedBy" />
+        <result column="Post" property="Post" />
+        <result column="LoginFailCount" property="LoginFailCount" />
+        <result column="RoleList" property="RoleList" />
+        <result column="IsHead" property="IsHead" />
+        <result column="ExpiryDate" property="ExpiryDate" />
+    </resultMap>
+
+</mapper>

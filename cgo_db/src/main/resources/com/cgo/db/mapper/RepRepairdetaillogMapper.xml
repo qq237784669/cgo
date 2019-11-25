@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.RepRepairdetaillogMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.RepRepairdetaillog">
+        <id column="LogId" property="LogId" />
+        <result column="ApplyNum" property="ApplyNum" />
+        <result column="PlateNum" property="PlateNum" />
+        <result column="ColorCode" property="ColorCode" />
+        <result column="IMEINum" property="IMEINum" />
+        <result column="SimNum" property="SimNum" />
+        <result column="OperateUser" property="OperateUser" />
+        <result column="OperateTime" property="OperateTime" />
+        <result column="OperateType" property="OperateType" />
+        <result column="LogTypeId" property="LogTypeId" />
+        <result column="Remark" property="Remark" />
+    </resultMap>
+
+</mapper>

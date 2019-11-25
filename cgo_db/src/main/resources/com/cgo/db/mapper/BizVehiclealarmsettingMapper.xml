@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.BizVehiclealarmsettingMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.BizVehiclealarmsetting">
+        <id column="VehicleId" property="VehicleId" />
+        <result column="EnableSpeed" property="EnableSpeed" />
+        <result column="SpeedLimit" property="SpeedLimit" />
+        <result column="WarnDiff" property="WarnDiff" />
+        <result column="EnableNightSpeed" property="EnableNightSpeed" />
+        <result column="NightSpeedLimit" property="NightSpeedLimit" />
+        <result column="NightSpeedBeginTime" property="NightSpeedBeginTime" />
+        <result column="NightSpeedEndTime" property="NightSpeedEndTime" />
+        <result column="EnableTiredDrive" property="EnableTiredDrive" />
+        <result column="DriveTime" property="DriveTime" />
+        <result column="RestTime" property="RestTime" />
+        <result column="EnableNightTiredDrive" property="EnableNightTiredDrive" />
+        <result column="NightDriveTime" property="NightDriveTime" />
+        <result column="NightRestTime" property="NightRestTime" />
+        <result column="NightDriveBeginTime" property="NightDriveBeginTime" />
+        <result column="NightDriveEndTime" property="NightDriveEndTime" />
+        <result column="EnableForbid" property="EnableForbid" />
+        <result column="ForbidBeginTime" property="ForbidBeginTime" />
+        <result column="ForbidEndTime" property="ForbidEndTime" />
+        <result column="ForbidSpeed" property="ForbidSpeed" />
+        <result column="EnableOffline" property="EnableOffline" />
+        <result column="OfflineTime" property="OfflineTime" />
+        <result column="UpdateTime" property="UpdateTime" />
+        <result column="UpdateUserId" property="UpdateUserId" />
+        <result column="ExpySpeedLimit" property="ExpySpeedLimit" />
+        <result column="ForbidDurationTime" property="ForbidDurationTime" />
+        <result column="LowSpeedLimit" property="LowSpeedLimit" />
+        <result column="PosAbnormalDriveTime" property="PosAbnormalDriveTime" />
+        <result column="AbnormalOfflineTime" property="AbnormalOfflineTime" />
+        <result column="LoadSpeedThreshold" property="LoadSpeedThreshold" />
+        <result column="SpeedDurationTime" property="SpeedDurationTime" />
+        <result column="AbnormalOfflineSpeed" property="AbnormalOfflineSpeed" />
+        <result column="SpeedLastTime" property="SpeedLastTime" />
+        <result column="NationalSpeedLimit" property="NationalSpeedLimit" />
+        <result column="AccOutLocationDriveTime" property="AccOutLocationDriveTime" />
+        <result column="LoadStartTime" property="LoadStartTime" />
+        <result column="AbnormalOfflineMileage" property="AbnormalOfflineMileage" />
+        <result column="ProvincialSpeedLimit" property="ProvincialSpeedLimit" />
+        <result column="AccAbnormaDriveTime" property="AccAbnormaDriveTime" />
+        <result column="EnableRoadRealSpeed" property="EnableRoadRealSpeed" />
+        <result column="ForbidType" property="ForbidType" />
+        <result column="EnableLoadAlarm" property="EnableLoadAlarm" />
+        <result column="SpeedAlarmAtOnce" property="SpeedAlarmAtOnce" />
+        <result column="DriveWarnDiff" property="DriveWarnDiff" />
+        <result column="IsOpenAccAbnormalAlarm" property="IsOpenAccAbnormalAlarm" />
+        <result column="LowSpeedTime" property="LowSpeedTime" />
+        <result column="IsOpenPosAbnormalAlarm" property="IsOpenPosAbnormalAlarm" />
+        <result column="LoadEndTime" property="LoadEndTime" />
+        <result column="AccAbnormaLimitSpeed" property="AccAbnormaLimitSpeed" />
+        <result column="CountrySpeedLimit" property="CountrySpeedLimit" />
+        <result column="EnableDivideRoadLevel" property="EnableDivideRoadLevel" />
+        <result column="EnableLowSpeedAlarm" property="EnableLowSpeedAlarm" />
+        <result column="IsOpenAccOutLocation" property="IsOpenAccOutLocation" />
+        <result column="EnableAbnormalOffline" property="EnableAbnormalOffline" />
+    </resultMap>
+
+</mapper>

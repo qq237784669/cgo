@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.BizSxadasupdevicelogMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.BizSxadasupdevicelog">
+        <id column="SId" property="SId" />
+        <result column="Id" property="Id" />
+        <result column="device_id" property="deviceId" />
+        <result column="model_type" property="modelType" />
+        <result column="simcode" property="simcode" />
+        <result column="ReportType" property="ReportType" />
+        <result column="ReportState" property="ReportState" />
+        <result column="producer_id" property="producerId" />
+        <result column="platform_id" property="platformId" />
+        <result column="Reason" property="Reason" />
+        <result column="ReportTime" property="ReportTime" />
+        <result column="ICCID" property="iccid" />
+        <result column="sign" property="sign" />
+        <result column="vehicle_no" property="vehicleNo" />
+        <result column="vehicle_id" property="vehicleId" />
+        <result column="owers_id" property="owersId" />
+    </resultMap>
+
+</mapper>

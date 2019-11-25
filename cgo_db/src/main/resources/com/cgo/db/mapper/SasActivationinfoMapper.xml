@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.SasActivationinfoMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.SasActivationinfo">
+        <id column="id" property="id" />
+        <result column="ip" property="ip" />
+        <result column="expire_tm" property="expireTm" />
+        <result column="Activation_Result" property="activationResult" />
+        <result column="Activation_cd" property="activationCd" />
+        <result column="PlatName" property="PlatName" />
+        <result column="Version" property="Version" />
+        <result column="computer_id" property="computerId" />
+        <result column="end_tm" property="endTm" />
+        <result column="Activation_tm" property="activationTm" />
+        <result column="Activation_sts" property="activationSts" />
+        <result column="last_Activation_tm" property="lastActivationTm" />
+        <result column="Activation_psn" property="activationPsn" />
+        <result column="ContactTel" property="ContactTel" />
+    </resultMap>
+
+</mapper>

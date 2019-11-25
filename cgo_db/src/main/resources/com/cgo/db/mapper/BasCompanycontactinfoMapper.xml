@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.BasCompanycontactinfoMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.BasCompanycontactinfo">
+        <id column="ContactId" property="ContactId" />
+        <result column="Remark" property="Remark" />
+        <result column="AlarmFlag1" property="AlarmFlag1" />
+        <result column="Sign4" property="Sign4" />
+        <result column="ContactName" property="ContactName" />
+        <result column="Position" property="Position" />
+        <result column="EmailAddress" property="EmailAddress" />
+        <result column="Telephone" property="Telephone" />
+        <result column="IsDropNotice" property="IsDropNotice" />
+        <result column="Speed" property="Speed" />
+        <result column="CreateTime" property="CreateTime" />
+        <result column="Sign2" property="Sign2" />
+        <result column="SpanTime" property="SpanTime" />
+        <result column="AlarmFlag2" property="AlarmFlag2" />
+        <result column="OrgId" property="OrgId" />
+        <result column="Sign3" property="Sign3" />
+        <result column="VehicleId" property="VehicleId" />
+        <result column="Sign1" property="Sign1" />
+        <result column="Address" property="Address" />
+        <result column="SendNullTable" property="SendNullTable" />
+        <result column="SpeedRate" property="SpeedRate" />
+        <result column="UpdateTime" property="UpdateTime" />
+        <result column="OfflineTime" property="OfflineTime" />
+        <result column="NoticeTime" property="NoticeTime" />
+        <result column="AccState" property="AccState" />
+    </resultMap>
+
+</mapper>

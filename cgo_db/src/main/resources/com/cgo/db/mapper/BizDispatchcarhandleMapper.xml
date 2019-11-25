@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.BizDispatchcarhandleMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.BizDispatchcarhandle">
+        <id column="Id" property="Id" />
+        <result column="CheckUserId5" property="CheckUserId5" />
+        <result column="CheckUserId2" property="CheckUserId2" />
+        <result column="CheckTime1" property="CheckTime1" />
+        <result column="CheckStatu3" property="CheckStatu3" />
+        <result column="CheckTime4" property="CheckTime4" />
+        <result column="CheckStatu2" property="CheckStatu2" />
+        <result column="DriverId" property="DriverId" />
+        <result column="CheckUserId4" property="CheckUserId4" />
+        <result column="CheckStatu5" property="CheckStatu5" />
+        <result column="CheckUserId1" property="CheckUserId1" />
+        <result column="CheckStatu4" property="CheckStatu4" />
+        <result column="CheckTime3" property="CheckTime3" />
+        <result column="CheckStatu1" property="CheckStatu1" />
+        <result column="VehicleId" property="VehicleId" />
+        <result column="CurrentLevel" property="CurrentLevel" />
+        <result column="CheckTime5" property="CheckTime5" />
+        <result column="UpdateTime" property="UpdateTime" />
+        <result column="CheckTime2" property="CheckTime2" />
+        <result column="CheckUserId3" property="CheckUserId3" />
+    </resultMap>
+
+</mapper>

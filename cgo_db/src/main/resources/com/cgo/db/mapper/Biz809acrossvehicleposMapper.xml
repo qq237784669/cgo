@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.Biz809acrossvehicleposMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.Biz809acrossvehiclepos">
+        <id column="Id" property="Id" />
+        <result column="ADRSpeed" property="ADRSpeed" />
+        <result column="UpdateTime" property="UpdateTime" />
+        <result column="StayCity" property="StayCity" />
+        <result column="Altitude" property="Altitude" />
+        <result column="PlateNum" property="PlateNum" />
+        <result column="CreateTime" property="CreateTime" />
+        <result column="Longitude" property="Longitude" />
+        <result column="AlarmFlag" property="AlarmFlag" />
+        <result column="GpsTime" property="GpsTime" />
+        <result column="Direction" property="Direction" />
+        <result column="Speed" property="Speed" />
+        <result column="Latitude" property="Latitude" />
+        <result column="StateFlag" property="StateFlag" />
+        <result column="ColorCode" property="ColorCode" />
+        <result column="Mileage" property="Mileage" />
+        <result column="StayDate" property="StayDate" />
+    </resultMap>
+
+</mapper>

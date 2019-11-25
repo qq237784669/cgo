@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.Wx2LogMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.Wx2Log">
+        <id column="OpenID" property="OpenID" />
+        <result column="UserPwd" property="UserPwd" />
+        <result column="LoginTime" property="LoginTime" />
+        <result column="PlatformUrl" property="PlatformUrl" />
+        <result column="PlatformName" property="PlatformName" />
+        <result column="HasLogin" property="HasLogin" />
+        <result column="LastLoginTime" property="LastLoginTime" />
+        <result column="UserID" property="UserID" />
+        <result column="LogoutTime" property="LogoutTime" />
+        <result column="UserOrgName" property="UserOrgName" />
+        <result column="CreateTime" property="CreateTime" />
+        <result column="UserType" property="UserType" />
+        <result column="PlatformCode" property="PlatformCode" />
+    </resultMap>
+
+</mapper>

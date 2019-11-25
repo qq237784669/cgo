@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.BizSxadasupvehiclelogMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.BizSxadasupvehiclelog">
+        <id column="Id" property="Id" />
+        <result column="vehicle_type" property="vehicleType" />
+        <result column="trans_type" property="transType" />
+        <result column="vehicle_nationality" property="vehicleNationality" />
+        <result column="owers_id" property="owersId" />
+        <result column="rtpn" property="rtpn" />
+        <result column="vehicle_mode" property="vehicleMode" />
+        <result column="tractiion" property="tractiion" />
+        <result column="trailer_no" property="trailerNo" />
+        <result column="approved_tonnage" property="approvedTonnage" />
+        <result column="dg_type" property="dgType" />
+        <result column="cargo_name" property="cargoName" />
+        <result column="cargo_tonnage" property="cargoTonnage" />
+        <result column="transport_orign" property="transportOrign" />
+        <result column="transport_des" property="transportDes" />
+        <result column="transport_begin_time" property="transportBeginTime" />
+        <result column="transport_end_time" property="transportEndTime" />
+        <result column="bussiness_area" property="bussinessArea" />
+        <result column="banline_type" property="banlineType" />
+        <result column="approved_seats" property="approvedSeats" />
+        <result column="origin" property="origin" />
+        <result column="destination_st" property="destinationSt" />
+        <result column="des_st" property="desSt" />
+        <result column="platform_id" property="platformId" />
+        <result column="sign" property="sign" />
+        <result column="ReportTime" property="ReportTime" />
+        <result column="ReportType" property="ReportType" />
+        <result column="ReportState" property="ReportState" />
+        <result column="Reason" property="Reason" />
+        <result column="vehicle_no" property="vehicleNo" />
+        <result column="vehicle_color" property="vehicleColor" />
+        <result column="destination" property="destination" />
+        <result column="vehicle_id" property="vehicleId" />
+    </resultMap>
+
+</mapper>

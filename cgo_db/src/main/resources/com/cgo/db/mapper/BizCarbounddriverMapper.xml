@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.BizCarbounddriverMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.BizCarbounddriver">
+        <id column="ID" property="id" />
+        <result column="CreateBy" property="CreateBy" />
+        <result column="Statu" property="Statu" />
+        <result column="Remark" property="Remark" />
+        <result column="UnboundBy" property="UnboundBy" />
+        <result column="UpdateTime" property="UpdateTime" />
+        <result column="UserId" property="UserId" />
+        <result column="MatchTime" property="MatchTime" />
+        <result column="UnbundTime" property="UnbundTime" />
+        <result column="VehicleId" property="VehicleId" />
+    </resultMap>
+
+</mapper>

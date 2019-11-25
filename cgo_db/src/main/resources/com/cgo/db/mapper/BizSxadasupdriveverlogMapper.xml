@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.BizSxadasupdriveverlogMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.BizSxadasupdriveverlog">
+        <id column="sId" property="sId" />
+        <result column="id" property="id" />
+        <result column="id_card" property="idCard" />
+        <result column="Licence" property="Licence" />
+        <result column="org_name" property="orgName" />
+        <result column="head_img" property="headImg" />
+        <result column="ReportType" property="ReportType" />
+        <result column="ReportState" property="ReportState" />
+        <result column="vehicle_no" property="vehicleNo" />
+        <result column="platform_id" property="platformId" />
+        <result column="ReportTime" property="ReportTime" />
+        <result column="driver_name" property="driverName" />
+        <result column="Reason" property="Reason" />
+        <result column="vehicle_id" property="vehicleId" />
+        <result column="owers_id" property="owersId" />
+        <result column="mobile" property="mobile" />
+        <result column="driving_license" property="drivingLicense" />
+        <result column="sign" property="sign" />
+    </resultMap>
+
+</mapper>

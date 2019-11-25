@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.AdasOrgscorestdMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.AdasOrgscorestd">
+        <id column="OrgId" property="OrgId" />
+        <result column="2_8589934592" property="adas_OS_28589934592" />
+        <result column="2_68719476736" property="adas_OS_268719476736" />
+        <result column="1_4_D" property="adas_OS_14D" />
+        <result column="2_17179869184_D" property="adas_OS_217179869184D" />
+        <result column="1_2" property="adas_OS_12" />
+        <result column="1_16" property="adas_OS_116" />
+        <result column="1_1_D" property="adas_OS_11D" />
+        <result column="1_32" property="adas_OS_132" />
+        <result column="1_8_D" property="adas_OS_18D" />
+        <result column="2_2147483648_D" property="adas_OS_22147483648D" />
+        <result column="1_4" property="adas_OS_14" />
+        <result column="2_17179869184" property="adas_OS_217179869184" />
+        <result column="2_2147483648" property="adas_OS_22147483648" />
+        <result column="1_16_D" property="adas_OS_116D" />
+        <result column="2_34359738368_D" property="adas_OS_234359738368D" />
+        <result column="2_4294967296_D" property="adas_OS_24294967296D" />
+        <result column="1_8" property="adas_OS_18" />
+        <result column="2_34359738368" property="adas_OS_234359738368" />
+        <result column="2_4294967296" property="adas_OS_24294967296" />
+        <result column="1_2_D" property="adas_OS_12D" />
+        <result column="2_68719476736_D" property="adas_OS_268719476736D" />
+        <result column="2_8589934592_D" property="adas_OS_28589934592D" />
+        <result column="1_1" property="adas_OS_11" />
+        <result column="1_32_D" property="adas_OS_132D" />
+    </resultMap>
+
+</mapper>

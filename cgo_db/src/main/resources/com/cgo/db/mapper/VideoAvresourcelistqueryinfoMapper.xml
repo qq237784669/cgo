@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.VideoAvresourcelistqueryinfoMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.VideoAvresourcelistqueryinfo">
+        <result column="BeginTime" property="BeginTime" />
+        <result column="InsertTime" property="InsertTime" />
+        <result column="UserId" property="UserId" />
+        <result column="AVType" property="AVType" />
+        <result column="AlarmFlag" property="AlarmFlag" />
+        <result column="Size" property="Size" />
+        <result column="StorageType" property="StorageType" />
+        <result column="Id" property="Id" />
+        <result column="ChannelId" property="ChannelId" />
+        <result column="OrderId" property="OrderId" />
+        <result column="SimNum" property="SimNum" />
+        <result column="StreamType" property="StreamType" />
+        <result column="EndTime" property="EndTime" />
+    </resultMap>
+
+</mapper>

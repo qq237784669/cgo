@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.UpdVersioninfoMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.UpdVersioninfo">
+        <id column="VersionId" property="VersionId" />
+        <result column="UpdateTime" property="UpdateTime" />
+        <result column="VersionDesp" property="VersionDesp" />
+        <result column="HdVersionNo" property="HdVersionNo" />
+        <result column="FileName" property="FileName" />
+        <result column="ModuleId" property="ModuleId" />
+        <result column="FileSize" property="FileSize" />
+        <result column="ManufacturerId" property="ManufacturerId" />
+        <result column="SwVersionNo" property="SwVersionNo" />
+        <result column="ManufacturerName" property="ManufacturerName" />
+        <result column="UpgradeFilePath" property="UpgradeFilePath" />
+    </resultMap>
+
+</mapper>

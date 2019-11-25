@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.RptOiladddetailMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.RptOiladddetail">
+        <id column="Id" property="Id" />
+        <result column="GpsDate" property="GpsDate" />
+        <result column="Mileage2" property="Mileage2" />
+        <result column="Speed1" property="Speed1" />
+        <result column="OilStatic" property="OilStatic" />
+        <result column="SimNum" property="SimNum" />
+        <result column="GpsTime1" property="GpsTime1" />
+        <result column="OilValue1" property="OilValue1" />
+        <result column="Speed2" property="Speed2" />
+        <result column="GpsTime2" property="GpsTime2" />
+        <result column="OilValue2" property="OilValue2" />
+        <result column="DeviceId" property="DeviceId" />
+        <result column="Mileage1" property="Mileage1" />
+    </resultMap>
+
+</mapper>

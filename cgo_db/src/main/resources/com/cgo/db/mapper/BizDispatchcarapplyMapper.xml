@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.BizDispatchcarapplyMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.BizDispatchcarapply">
+        <id column="Id" property="Id" />
+        <result column="CreateTime" property="CreateTime" />
+        <result column="ModeId" property="ModeId" />
+        <result column="EndPosition" property="EndPosition" />
+        <result column="StartTime" property="StartTime" />
+        <result column="UserId1" property="UserId1" />
+        <result column="OrgId" property="OrgId" />
+        <result column="RefuseNotes" property="RefuseNotes" />
+        <result column="StartPosition" property="StartPosition" />
+        <result column="Statu" property="Statu" />
+        <result column="Tel" property="Tel" />
+        <result column="IsReplenish" property="IsReplenish" />
+        <result column="Evaluate" property="Evaluate" />
+        <result column="CompleteTime" property="CompleteTime" />
+        <result column="Reason" property="Reason" />
+        <result column="EndTime" property="EndTime" />
+        <result column="Remark" property="Remark" />
+        <result column="UserName2" property="UserName2" />
+        <result column="UpdateTime" property="UpdateTime" />
+        <result column="CheckLevel" property="CheckLevel" />
+        <result column="Number" property="Number" />
+    </resultMap>
+
+</mapper>

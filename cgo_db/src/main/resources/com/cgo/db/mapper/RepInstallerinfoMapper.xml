@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.RepInstallerinfoMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.RepInstallerinfo">
+        <id column="InstallerId" property="InstallerId" />
+        <result column="InstallerName" property="InstallerName" />
+        <result column="Pwd" property="Pwd" />
+        <result column="Telephone" property="Telephone" />
+        <result column="StopFlag" property="StopFlag" />
+        <result column="CreateTime" property="CreateTime" />
+        <result column="UpdateTime" property="UpdateTime" />
+        <result column="CreateBy" property="CreateBy" />
+        <result column="Remark" property="Remark" />
+        <result column="BDChannelId" property="BDChannelId" />
+        <result column="StaffType" property="StaffType" />
+        <result column="LoginTime" property="LoginTime" />
+        <result column="BDTokenId" property="BDTokenId" />
+        <result column="MobileOS" property="MobileOS" />
+    </resultMap>
+
+</mapper>

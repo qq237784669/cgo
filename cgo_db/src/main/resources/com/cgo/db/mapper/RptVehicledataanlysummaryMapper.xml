@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.RptVehicledataanlysummaryMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.RptVehicledataanlysummary">
+        <id column="Id" property="Id" />
+        <result column="Speeding" property="Speeding" />
+        <result column="Tired" property="Tired" />
+        <result column="BanDriving" property="BanDriving" />
+        <result column="OverLoad" property="OverLoad" />
+        <result column="TerminalError" property="TerminalError" />
+        <result column="DataError" property="DataError" />
+        <result column="IsOnLine" property="IsOnLine" />
+        <result column="DriftCount" property="DriftCount" />
+        <result column="CompleteCount" property="CompleteCount" />
+        <result column="ComplteMileage" property="ComplteMileage" />
+        <result column="UnCompleteCount" property="UnCompleteCount" />
+        <result column="UnCompleteMileage" property="UnCompleteMileage" />
+        <result column="TrackTotal" property="TrackTotal" />
+        <result column="QualifiedDataCount" property="QualifiedDataCount" />
+        <result column="UnqualifiedDataCount" property="UnqualifiedDataCount" />
+        <result column="OutRoute" property="OutRoute" />
+        <result column="IsOverdue" property="IsOverdue" />
+        <result column="IsOverdueOfCompany" property="IsOverdueOfCompany" />
+        <result column="IsOverdueOfVehicle" property="IsOverdueOfVehicle" />
+        <result column="DriverIllegal" property="DriverIllegal" />
+        <result column="VehicleIllegal" property="VehicleIllegal" />
+        <result column="OtherIllegal" property="OtherIllegal" />
+        <result column="SimNum" property="SimNum" />
+        <result column="GpsDate" property="GpsDate" />
+    </resultMap>
+
+</mapper>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.BizAuditsignforbackMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.BizAuditsignforback">
+        <id column="Id" property="Id" />
+        <result column="MoIsPass" property="MoIsPass" />
+        <result column="EnNotPassReason" property="EnNotPassReason" />
+        <result column="EnIsCorrectImgPos" property="EnIsCorrectImgPos" />
+        <result column="MoIsLocation" property="MoIsLocation" />
+        <result column="EnUserId" property="EnUserId" />
+        <result column="MoUserId" property="MoUserId" />
+        <result column="MoNotPassReason" property="MoNotPassReason" />
+        <result column="MoIsCorrectImgPos" property="MoIsCorrectImgPos" />
+        <result column="EnIsUploadImg" property="EnIsUploadImg" />
+        <result column="EnSignTime" property="EnSignTime" />
+        <result column="EngpsTimeList" property="EngpsTimeList" />
+        <result column="MogpsTimeList" property="MogpsTimeList" />
+        <result column="VehicleId" property="VehicleId" />
+        <result column="EnIsPass" property="EnIsPass" />
+        <result column="MoIsUploadImg" property="MoIsUploadImg" />
+        <result column="EnIsLocation" property="EnIsLocation" />
+        <result column="MoSignTime" property="MoSignTime" />
+    </resultMap>
+
+</mapper>

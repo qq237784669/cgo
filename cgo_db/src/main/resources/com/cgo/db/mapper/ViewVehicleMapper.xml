@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.ViewVehicleMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.ViewVehicle">
+        <result column="RegFlag" property="RegFlag" />
+        <result column="TerminalTypeName" property="TerminalTypeName" />
+        <result column="CreateTime" property="CreateTime" />
+        <result column="TerminalModel" property="TerminalModel" />
+        <result column="PlateNum" property="PlateNum" />
+        <result column="VehicleId" property="VehicleId" />
+        <result column="RealSimNum" property="RealSimNum" />
+        <result column="FactoryPlateModel" property="FactoryPlateModel" />
+        <result column="OrgId" property="OrgId" />
+        <result column="ProtocolCode" property="ProtocolCode" />
+        <result column="VehicleTypeCode" property="VehicleTypeCode" />
+        <result column="Remark" property="Remark" />
+        <result column="ColorCode" property="ColorCode" />
+        <result column="TerminalId" property="TerminalId" />
+        <result column="TerminalTypeId" property="TerminalTypeId" />
+        <result column="HomeCity" property="HomeCity" />
+        <result column="UpdateTime" property="UpdateTime" />
+        <result column="TransTypeCode" property="TransTypeCode" />
+        <result column="MauFacturer" property="MauFacturer" />
+        <result column="AuthCode" property="AuthCode" />
+        <result column="SimNum" property="SimNum" />
+    </resultMap>
+
+</mapper>

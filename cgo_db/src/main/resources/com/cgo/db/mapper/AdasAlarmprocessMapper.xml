@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.AdasAlarmprocessMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.AdasAlarmprocess">
+        <id column="Id" property="Id" />
+        <result column="SimNum" property="SimNum" />
+        <result column="AlarmId" property="AlarmId" />
+        <result column="UserId" property="UserId" />
+        <result column="OrderId" property="OrderId" />
+        <result column="ProcessTime" property="ProcessTime" />
+        <result column="ProcessMode" property="ProcessMode" />
+        <result column="ProcessResult" property="ProcessResult" />
+        <result column="SessionId" property="SessionId" />
+        <result column="Remark" property="Remark" />
+        <result column="AlarmFlag" property="AlarmFlag" />
+        <result column="AlarmType" property="AlarmType" />
+    </resultMap>
+
+</mapper>

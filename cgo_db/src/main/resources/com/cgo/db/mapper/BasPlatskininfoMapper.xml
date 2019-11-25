@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.BasPlatskininfoMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.BasPlatskininfo">
+        <id column="SkinFlag" property="SkinFlag" />
+        <result column="UpdateTime" property="UpdateTime" />
+        <result column="BSFlag" property="BSFlag" />
+        <result column="Remark" property="Remark" />
+        <result column="TopClientFlag" property="TopClientFlag" />
+        <result column="SkinName" property="SkinName" />
+    </resultMap>
+
+</mapper>

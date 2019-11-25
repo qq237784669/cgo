@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.MonEnterpriseassessinfoMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.MonEnterpriseassessinfo">
+        <id column="Id" property="Id" />
+        <result column="WorkComRate" property="WorkComRate" />
+        <result column="ViolationRate" property="ViolationRate" />
+        <result column="CompanyID" property="CompanyID" />
+        <result column="ActionItemsComRate" property="ActionItemsComRate" />
+        <result column="InstallRate" property="InstallRate" />
+        <result column="CallAnswerRate" property="CallAnswerRate" />
+        <result column="AlarmHandle" property="AlarmHandle" />
+        <result column="OnlineRate" property="OnlineRate" />
+    </resultMap>
+
+</mapper>

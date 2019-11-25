@@ -1,0 +1,59 @@
+package com.cgo.db.entity;
+
+import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.extension.activerecord.Model;
+import com.baomidou.mybatisplus.annotation.TableId;
+import java.time.LocalDateTime;
+import com.baomidou.mybatisplus.annotation.TableField;
+import java.io.Serializable;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.experimental.Accessors;
+
+/**
+ * <p>
+ * 
+ * </p>
+ *
+ * @author Mht
+ * @since 2019-11-18
+ */
+@Data
+@EqualsAndHashCode(callSuper = false)
+@Accessors(chain = true)
+@TableName("biz_JTBPassengerFlow")
+public class BizJtbpassengerflow extends Model<BizJtbpassengerflow> {
+
+    private static final long serialVersionUID=1L;
+
+    @TableId("Id")
+    private String Id;
+
+    @TableField("ReceTime")
+    private LocalDateTime ReceTime;
+
+    @TableField("PeopleOnbordNum")
+    private Integer PeopleOnbordNum;
+
+    @TableField("PeopleGetOffNum")
+    private Integer PeopleGetOffNum;
+
+    @TableField("SimNum")
+    private String SimNum;
+
+    @TableField("BeginTime")
+    private LocalDateTime BeginTime;
+
+    @TableField("EndTime")
+    private LocalDateTime EndTime;
+
+    @TableField("GpsTime")
+    private LocalDateTime GpsTime;
+
+
+    @Override
+    protected Serializable pkVal() {
+        return this.Id;
+    }
+
+}

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.BizExalarmdataMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.BizExalarmdata">
+        <id column="Id" property="Id" />
+        <result column="MinSpeed" property="MinSpeed" />
+        <result column="MaxDeviation" property="MaxDeviation" />
+        <result column="BeginStateFlag" property="BeginStateFlag" />
+        <result column="EndLatitude" property="EndLatitude" />
+        <result column="BeginWirelessSignal" property="BeginWirelessSignal" />
+        <result column="TargetId" property="TargetId" />
+        <result column="BeginAdditionData" property="BeginAdditionData" />
+        <result column="BeginSpeedingPosType" property="BeginSpeedingPosType" />
+        <result column="UserId" property="UserId" />
+        <result column="BeginLongitude" property="BeginLongitude" />
+        <result column="BeginSpeed" property="BeginSpeed" />
+        <result column="EndInOutPosId" property="EndInOutPosId" />
+        <result column="EndResidualFuel" property="EndResidualFuel" />
+        <result column="EndAlarmTime" property="EndAlarmTime" />
+        <result column="EndAltitude" property="EndAltitude" />
+        <result column="BeginExStateFlag" property="BeginExStateFlag" />
+        <result column="EndDrivingDuration" property="EndDrivingDuration" />
+        <result column="BeginLatitude" property="BeginLatitude" />
+        <result column="IsPunish" property="IsPunish" />
+        <result column="BeginDrivingPathSectionId" property="BeginDrivingPathSectionId" />
+        <result column="BeginMileage" property="BeginMileage" />
+        <result column="BeginSpeedingPosId" property="BeginSpeedingPosId" />
+        <result column="MinDeviation" property="MinDeviation" />
+        <result column="EndStateFlag" property="EndStateFlag" />
+        <result column="EndSpeedingPosType" property="EndSpeedingPosType" />
+        <result column="TargetName" property="TargetName" />
+        <result column="AlarmFlag" property="AlarmFlag" />
+        <result column="EndWirelessSignal" property="EndWirelessSignal" />
+        <result column="EndAdditionData" property="EndAdditionData" />
+        <result column="LimitSpeed" property="LimitSpeed" />
+        <result column="EndSpeed" property="EndSpeed" />
+        <result column="Remark" property="Remark" />
+        <result column="BeginAlarmTime" property="BeginAlarmTime" />
+        <result column="BeginInOutPosId" property="BeginInOutPosId" />
+        <result column="BeginResidualFuel" property="BeginResidualFuel" />
+        <result column="BeginDirection" property="BeginDirection" />
+        <result column="BeginDrivingFlag" property="BeginDrivingFlag" />
+        <result column="EndExStateFlag" property="EndExStateFlag" />
+        <result column="BeginADRSpeed" property="BeginADRSpeed" />
+        <result column="EndDrivingPathSectionId" property="EndDrivingPathSectionId" />
+        <result column="EndSpeedingPosId" property="EndSpeedingPosId" />
+        <result column="AvgSpeed" property="AvgSpeed" />
+        <result column="LimitDuration" property="LimitDuration" />
+        <result column="UpdateTime" property="UpdateTime" />
+        <result column="EndADRSpeed" property="EndADRSpeed" />
+        <result column="SimNum" property="SimNum" />
+        <result column="AlarmOverSee" property="AlarmOverSee" />
+        <result column="BeginAltitude" property="BeginAltitude" />
+        <result column="InfoId" property="InfoId" />
+        <result column="BeginDrivingDuration" property="BeginDrivingDuration" />
+        <result column="EndLongitude" property="EndLongitude" />
+        <result column="EndDrivingFlag" property="EndDrivingFlag" />
+        <result column="PunishId" property="PunishId" />
+        <result column="EndMileage" property="EndMileage" />
+        <result column="EndDirection" property="EndDirection" />
+        <result column="MaxSpeed" property="MaxSpeed" />
+    </resultMap>
+
+</mapper>

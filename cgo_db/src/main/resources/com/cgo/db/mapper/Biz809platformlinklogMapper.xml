@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.Biz809platformlinklogMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.Biz809platformlinklog">
+        <id column="Id" property="Id" />
+        <result column="LogoutTime" property="LogoutTime" />
+        <result column="CompanyId" property="CompanyId" />
+        <result column="UpdateTime" property="UpdateTime" />
+        <result column="ServerPort" property="ServerPort" />
+        <result column="LoginTime" property="LoginTime" />
+        <result column="LinkType" property="LinkType" />
+        <result column="ServerIP" property="ServerIP" />
+    </resultMap>
+
+</mapper>

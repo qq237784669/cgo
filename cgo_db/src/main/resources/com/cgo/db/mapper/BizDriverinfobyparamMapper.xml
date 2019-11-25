@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.BizDriverinfobyparamMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.BizDriverinfobyparam">
+        <id column="Id" property="Id" />
+        <result column="OrgName" property="OrgName" />
+        <result column="CreateTime" property="CreateTime" />
+        <result column="CertificateValidityTime" property="CertificateValidityTime" />
+        <result column="UpdateTime" property="UpdateTime" />
+        <result column="DriverId" property="DriverId" />
+        <result column="DriverType" property="DriverType" />
+        <result column="DriverName" property="DriverName" />
+        <result column="AgencyName" property="AgencyName" />
+        <result column="WorkLicenseId" property="WorkLicenseId" />
+        <result column="DriverPhotosURL" property="DriverPhotosURL" />
+        <result column="SimNum" property="SimNum" />
+    </resultMap>
+
+</mapper>

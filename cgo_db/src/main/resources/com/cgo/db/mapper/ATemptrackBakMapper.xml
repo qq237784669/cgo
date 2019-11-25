@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.ATemptrackBakMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.ATemptrackBak">
+        <result column="InOutPosType" property="InOutPosType" />
+        <result column="GasConcentration" property="GasConcentration" />
+        <result column="Analogue" property="Analogue" />
+        <result column="MediaChannelId" property="MediaChannelId" />
+        <result column="Altitude" property="Altitude" />
+        <result column="AlarmEventId" property="AlarmEventId" />
+        <result column="MediaType" property="MediaType" />
+        <result column="Longitude" property="Longitude" />
+        <result column="Reserved" property="Reserved" />
+        <result column="InOutFlag" property="InOutFlag" />
+        <result column="ADRSpeed" property="ADRSpeed" />
+        <result column="Id" property="Id" />
+        <result column="Mileage" property="Mileage" />
+        <result column="AlarmFlag" property="AlarmFlag" />
+        <result column="SpeedingPosId" property="SpeedingPosId" />
+        <result column="DrivingFlag" property="DrivingFlag" />
+        <result column="JTBExtendOilData" property="JTBExtendOilData" />
+        <result column="MediaEventCode" property="MediaEventCode" />
+        <result column="SimNum" property="SimNum" />
+        <result column="SpeedingPosType" property="SpeedingPosType" />
+        <result column="DrivingDuration" property="DrivingDuration" />
+        <result column="LimitSpeed" property="LimitSpeed" />
+        <result column="ExStateFlag" property="ExStateFlag" />
+        <result column="InOutPosId" property="InOutPosId" />
+        <result column="WirelessSignal" property="WirelessSignal" />
+        <result column="PartFlag" property="PartFlag" />
+        <result column="Speed" property="Speed" />
+        <result column="ReceTime" property="ReceTime" />
+        <result column="StarCount" property="StarCount" />
+        <result column="Latitude" property="Latitude" />
+        <result column="MediaFormatCode" property="MediaFormatCode" />
+        <result column="GpsTime" property="GpsTime" />
+        <result column="ResidualFuel" property="ResidualFuel" />
+        <result column="DrivingPathSectionId" property="DrivingPathSectionId" />
+        <result column="AdditionData" property="AdditionData" />
+        <result column="MediaData" property="MediaData" />
+        <result column="Direction" property="Direction" />
+        <result column="StateFlag" property="StateFlag" />
+    </resultMap>
+
+</mapper>

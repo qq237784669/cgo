@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.BizInspectionstrategyMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.BizInspectionstrategy">
+        <id column="id" property="id" />
+        <result column="Name" property="Name" />
+        <result column="Type" property="Type" />
+        <result column="Interval" property="Interval" />
+        <result column="Proportion" property="Proportion" />
+        <result column="Path" property="Path" />
+        <result column="Time" property="Time" />
+        <result column="UpdateUserId" property="UpdateUserId" />
+        <result column="CameraChannel" property="CameraChannel" />
+        <result column="IsCancel" property="IsCancel" />
+        <result column="CreateTime" property="CreateTime" />
+        <result column="CreateUserId" property="CreateUserId" />
+        <result column="UpdateTime" property="UpdateTime" />
+    </resultMap>
+
+</mapper>

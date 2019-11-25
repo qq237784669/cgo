@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.BasDriverMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.BasDriver">
+        <id column="DriverID" property="DriverID" />
+        <result column="DriverName" property="DriverName" />
+        <result column="DriverLicense" property="DriverLicense" />
+        <result column="LicenseOrgName" property="LicenseOrgName" />
+        <result column="OrgId" property="OrgId" />
+        <result column="CreateTime" property="CreateTime" />
+        <result column="UpdateTime" property="UpdateTime" />
+        <result column="Remark" property="Remark" />
+        <result column="VehicleId" property="VehicleId" />
+        <result column="DrivingAge" property="DrivingAge" />
+        <result column="ColorCode" property="ColorCode" />
+        <result column="DriverPwd" property="DriverPwd" />
+        <result column="DriverTelephone" property="DriverTelephone" />
+        <result column="ContactAddress" property="ContactAddress" />
+        <result column="SimNum" property="SimNum" />
+        <result column="LeftFacePic" property="LeftFacePic" />
+        <result column="DrivingLevel" property="DrivingLevel" />
+        <result column="MainDriver" property="MainDriver" />
+        <result column="DriverNum" property="DriverNum" />
+        <result column="ReportTime" property="ReportTime" />
+        <result column="DrivingLicenseExpiryTime" property="DrivingLicenseExpiryTime" />
+        <result column="DriverOrigin" property="DriverOrigin" />
+        <result column="DriverLicensePic" property="DriverLicensePic" />
+        <result column="JobLicenseExpiryTime" property="JobLicenseExpiryTime" />
+        <result column="RightFacePic" property="RightFacePic" />
+        <result column="evaluate" property="evaluate" />
+        <result column="Territory" property="Territory" />
+        <result column="Sex" property="Sex" />
+        <result column="pic" property="pic" />
+        <result column="UploadState" property="UploadState" />
+        <result column="JobLicensePic" property="JobLicensePic" />
+        <result column="Score" property="Score" />
+    </resultMap>
+
+</mapper>

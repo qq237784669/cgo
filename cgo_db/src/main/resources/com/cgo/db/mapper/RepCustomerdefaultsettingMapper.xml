@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.RepCustomerdefaultsettingMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.RepCustomerdefaultsetting">
+        <id column="ID" property="id" />
+        <result column="LogoPicImgStream" property="LogoPicImgStream" />
+        <result column="AlarmTitle" property="AlarmTitle" />
+        <result column="Remark" property="Remark" />
+        <result column="ServerVersion" property="ServerVersion" />
+        <result column="BannerPicLinkUrl" property="BannerPicLinkUrl" />
+        <result column="CreateTime" property="CreateTime" />
+        <result column="AndroidVersionCode" property="AndroidVersionCode" />
+        <result column="LoginBackPicLinkUrl" property="LoginBackPicLinkUrl" />
+        <result column="BannerPicImgStream" property="BannerPicImgStream" />
+        <result column="IsUpdateByOnekey" property="IsUpdateByOnekey" />
+        <result column="LoginBackPicImgStream" property="LoginBackPicImgStream" />
+        <result column="LoginAdsPicLinkUrl" property="LoginAdsPicLinkUrl" />
+        <result column="UpdateTime" property="UpdateTime" />
+        <result column="AppUpdateLevel" property="AppUpdateLevel" />
+        <result column="MapType" property="MapType" />
+        <result column="AndroidVersionName" property="AndroidVersionName" />
+        <result column="UpdateTimes" property="UpdateTimes" />
+        <result column="Title" property="Title" />
+        <result column="ProductCenterTitle" property="ProductCenterTitle" />
+        <result column="IsSpecial" property="IsSpecial" />
+        <result column="IsReleaseServer" property="IsReleaseServer" />
+        <result column="AppDownloadUrl" property="AppDownloadUrl" />
+        <result column="PlatformType" property="PlatformType" />
+        <result column="LogoPicLinkUrl" property="LogoPicLinkUrl" />
+        <result column="LoginAdsPicImgStream" property="LoginAdsPicImgStream" />
+        <result column="ProductCenterUrl" property="ProductCenterUrl" />
+        <result column="ServerDownloadUrl" property="ServerDownloadUrl" />
+        <result column="AppUpdateDigest" property="AppUpdateDigest" />
+        <result column="Url" property="Url" />
+        <result column="ReportTitle" property="ReportTitle" />
+        <result column="IsReleaseAndroid" property="IsReleaseAndroid" />
+    </resultMap>
+
+</mapper>

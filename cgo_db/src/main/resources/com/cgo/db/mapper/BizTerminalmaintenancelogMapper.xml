@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.BizTerminalmaintenancelogMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.BizTerminalmaintenancelog">
+        <id column="Id" property="Id" />
+        <result column="ServiceType" property="ServiceType" />
+        <result column="ServicedTime" property="ServicedTime" />
+        <result column="FaultFoundTime" property="FaultFoundTime" />
+        <result column="RecordUser" property="RecordUser" />
+        <result column="FaultFoundUser" property="FaultFoundUser" />
+        <result column="Remark" property="Remark" />
+        <result column="ServiceAddress" property="ServiceAddress" />
+        <result column="VehicleId" property="VehicleId" />
+        <result column="FaultProcess" property="FaultProcess" />
+        <result column="ServiceUser" property="ServiceUser" />
+        <result column="ProcessMethod" property="ProcessMethod" />
+    </resultMap>
+
+</mapper>

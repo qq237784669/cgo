@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.BizGovlogMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.BizGovlog">
+        <id column="id" property="id" />
+        <result column="govId" property="govId" />
+        <result column="SimNum" property="SimNum" />
+        <result column="RspTime" property="RspTime" />
+        <result column="parameValue" property="parameValue" />
+        <result column="vehicle_Color" property="vehicleColor" />
+        <result column="cmdContent" property="cmdContent" />
+        <result column="CmdCode" property="CmdCode" />
+        <result column="RspResult" property="RspResult" />
+        <result column="insertTime" property="insertTime" />
+        <result column="vehicle_No" property="vehicleNo" />
+    </resultMap>
+
+</mapper>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.BizMessagehistoryMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.BizMessagehistory">
+        <id column="ID" property="id" />
+        <result column="Remark" property="Remark" />
+        <result column="MsgTypeId" property="MsgTypeId" />
+        <result column="CreateDte" property="CreateDte" />
+        <result column="SimNum" property="SimNum" />
+        <result column="MsgId" property="MsgId" />
+    </resultMap>
+
+</mapper>

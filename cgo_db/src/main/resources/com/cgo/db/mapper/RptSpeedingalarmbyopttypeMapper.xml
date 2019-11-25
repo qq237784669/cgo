@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.RptSpeedingalarmbyopttypeMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.RptSpeedingalarmbyopttype">
+        <id column="Id" property="Id" />
+        <result column="Lon1" property="Lon1" />
+        <result column="Mileage2" property="Mileage2" />
+        <result column="LimitSpeed" property="LimitSpeed" />
+        <result column="Speed1" property="Speed1" />
+        <result column="Lon2" property="Lon2" />
+        <result column="EndTime" property="EndTime" />
+        <result column="Lat1" property="Lat1" />
+        <result column="SimNum" property="SimNum" />
+        <result column="SpeedingTime" property="SpeedingTime" />
+        <result column="GpsDate" property="GpsDate" />
+        <result column="Mileage1" property="Mileage1" />
+        <result column="Speed2" property="Speed2" />
+        <result column="Lat2" property="Lat2" />
+        <result column="BeginTime" property="BeginTime" />
+    </resultMap>
+
+</mapper>

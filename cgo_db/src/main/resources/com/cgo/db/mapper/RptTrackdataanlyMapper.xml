@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.RptTrackdataanlyMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.RptTrackdataanly">
+        <result column="TrackDrift" property="TrackDrift" />
+        <result column="TrackIncomplete" property="TrackIncomplete" />
+        <result column="UnqualifiedLongitude" property="UnqualifiedLongitude" />
+        <result column="UnqualifiedLatitude" property="UnqualifiedLatitude" />
+        <result column="UnqualifiedSpeed" property="UnqualifiedSpeed" />
+        <result column="UnqualifiedGpsTime" property="UnqualifiedGpsTime" />
+        <result column="TrackTotal" property="TrackTotal" />
+        <result column="UnqualifiedDataCount" property="UnqualifiedDataCount" />
+        <result column="NoLocation" property="NoLocation" />
+        <result column="TrackDistanceMore30Sec" property="TrackDistanceMore30Sec" />
+        <result column="Direction" property="Direction" />
+        <result column="ValidEndSpeed" property="ValidEndSpeed" />
+        <result column="OperateStatuFlag" property="OperateStatuFlag" />
+        <result column="Id" property="Id" />
+        <result column="EndLatitude" property="EndLatitude" />
+        <result column="BeginLatitude" property="BeginLatitude" />
+        <result column="EndStateFlag" property="EndStateFlag" />
+        <result column="BeginStateFlag" property="BeginStateFlag" />
+        <result column="ValidEndLongitude" property="ValidEndLongitude" />
+        <result column="ValidEndLatitude" property="ValidEndLatitude" />
+        <result column="BeginMileage" property="BeginMileage" />
+        <result column="EndGpsTime" property="EndGpsTime" />
+        <result column="ValidBeginLatitude" property="ValidBeginLatitude" />
+        <result column="ValidEndStateFlag" property="ValidEndStateFlag" />
+        <result column="BeginGpsTime" property="BeginGpsTime" />
+        <result column="SimNum" property="SimNum" />
+        <result column="ValidBeginStateFlag" property="ValidBeginStateFlag" />
+        <result column="BeginLongitude" property="BeginLongitude" />
+        <result column="ValidBeginGpsTime" property="ValidBeginGpsTime" />
+        <result column="ValidEndGpsTime" property="ValidEndGpsTime" />
+        <result column="ValidEndMileage" property="ValidEndMileage" />
+        <result column="EndMileage" property="EndMileage" />
+        <result column="ValidBeginMileage" property="ValidBeginMileage" />
+        <result column="Altitude" property="Altitude" />
+        <result column="GpsDate" property="GpsDate" />
+        <result column="EndSpeed" property="EndSpeed" />
+        <result column="BeginSpeed" property="BeginSpeed" />
+        <result column="ValidBeginSpeed" property="ValidBeginSpeed" />
+        <result column="EndLongitude" property="EndLongitude" />
+        <result column="ValidBeginLongitude" property="ValidBeginLongitude" />
+    </resultMap>
+
+</mapper>

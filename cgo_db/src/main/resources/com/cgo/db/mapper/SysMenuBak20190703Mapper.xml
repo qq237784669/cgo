@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.SysMenuBak20190703Mapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.SysMenuBak20190703">
+        <result column="MenuLink" property="MenuLink" />
+        <result column="Remark" property="Remark" />
+        <result column="PageLayout" property="PageLayout" />
+        <result column="MenuType" property="MenuType" />
+        <result column="MenuCode" property="MenuCode" />
+        <result column="MaxAuth" property="MaxAuth" />
+        <result column="ModuleCode" property="ModuleCode" />
+        <result column="ParentCode" property="ParentCode" />
+        <result column="MenuName" property="MenuName" />
+        <result column="MenuOrder" property="MenuOrder" />
+    </resultMap>
+
+</mapper>

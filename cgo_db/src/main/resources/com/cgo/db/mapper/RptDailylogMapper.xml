@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.RptDailylogMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.RptDailylog">
+        <id column="GpsDate" property="GpsDate" />
+        <result column="SpeedOver5Detail" property="SpeedOver5Detail" />
+        <result column="AdasAlarmCount" property="AdasAlarmCount" />
+        <result column="OnLineDetail" property="OnLineDetail" />
+        <result column="CreateDate" property="CreateDate" />
+        <result column="DataSummaryAnly" property="DataSummaryAnly" />
+        <result column="CountStat" property="CountStat" />
+        <result column="AlarmDetail" property="AlarmDetail" />
+        <result column="DriverAlarmCount" property="DriverAlarmCount" />
+        <result column="CountType" property="CountType" />
+        <result column="Remark" property="Remark" />
+        <result column="Id" property="Id" />
+        <result column="OverTimeDrive" property="OverTimeDrive" />
+        <result column="ACCDetail" property="ACCDetail" />
+        <result column="TrackDataDetail" property="TrackDataDetail" />
+        <result column="OffLineCount" property="OffLineCount" />
+        <result column="SpeedDetail" property="SpeedDetail" />
+        <result column="BanDrivingDetail" property="BanDrivingDetail" />
+    </resultMap>
+
+</mapper>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.BizRegionshieldMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.BizRegionshield">
+        <id column="Id" property="Id" />
+        <result column="OrgId" property="OrgId" />
+        <result column="RegionId" property="RegionId" />
+        <result column="TimeProperty" property="TimeProperty" />
+        <result column="AlarmFlag" property="AlarmFlag" />
+        <result column="BeginTime" property="BeginTime" />
+        <result column="Remark" property="Remark" />
+        <result column="Name" property="Name" />
+        <result column="IsSet" property="IsSet" />
+        <result column="EndTime" property="EndTime" />
+    </resultMap>
+
+</mapper>

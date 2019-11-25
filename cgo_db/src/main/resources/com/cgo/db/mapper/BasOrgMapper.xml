@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.BasOrgMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.BasOrg">
+        <id column="OrgId" property="OrgId" />
+        <result column="OrgName" property="OrgName" />
+        <result column="OrgType" property="OrgType" />
+        <result column="SearchCode" property="SearchCode" />
+        <result column="ParentId" property="ParentId" />
+        <result column="Contact" property="Contact" />
+        <result column="Telephone" property="Telephone" />
+        <result column="CreateTime" property="CreateTime" />
+        <result column="UpdateTime" property="UpdateTime" />
+        <result column="Remark" property="Remark" />
+        <result column="MaxCarNum2G" property="MaxCarNum2G" />
+        <result column="OwnerName" property="OwnerName" />
+        <result column="RoadID" property="RoadID" />
+        <result column="ContactInfo" property="ContactInfo" />
+        <result column="OrgAddr" property="OrgAddr" />
+        <result column="IssuedBy" property="IssuedBy" />
+        <result column="ContactAdress" property="ContactAdress" />
+        <result column="CanHaveCars" property="CanHaveCars" />
+        <result column="OrgCode" property="OrgCode" />
+        <result column="Region" property="Region" />
+        <result column="MaxCarNum4G" property="MaxCarNum4G" />
+        <result column="HomeAddress" property="HomeAddress" />
+        <result column="IssuingAgency" property="IssuingAgency" />
+        <result column="OwnerSimNum" property="OwnerSimNum" />
+        <result column="MaxCarNumADAS" property="MaxCarNumADAS" />
+        <result column="VehicleTotal" property="VehicleTotal" />
+        <result column="DivisonCode" property="DivisonCode" />
+        <result column="MaxCarNum" property="MaxCarNum" />
+        <result column="Sex" property="Sex" />
+        <result column="PersonId" property="PersonId" />
+        <result column="RoadTransportID" property="RoadTransportID" />
+        <result column="CustomerDesc" property="CustomerDesc" />
+        <result column="CEOName" property="CEOName" />
+        <result column="OwnerRemark" property="OwnerRemark" />
+        <result column="IsVehicleAutoSetOrgWhenDel" property="IsVehicleAutoSetOrgWhenDel" />
+        <result column="OperateScope" property="OperateScope" />
+    </resultMap>
+
+</mapper>

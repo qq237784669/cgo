@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.Biz809sendcmdBuffMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.Biz809sendcmdBuff">
+        <id column="Id" property="Id" />
+        <result column="CmdDescription" property="CmdDescription" />
+        <result column="UpdateTime" property="UpdateTime" />
+        <result column="RspDescription" property="RspDescription" />
+        <result column="SubCmdCode" property="SubCmdCode" />
+        <result column="CmdResult" property="CmdResult" />
+        <result column="SessionId" property="SessionId" />
+        <result column="GovId" property="GovId" />
+        <result column="InsertTime" property="InsertTime" />
+        <result column="OrderId" property="OrderId" />
+        <result column="ParamContent" property="ParamContent" />
+        <result column="RspContent" property="RspContent" />
+        <result column="UserId" property="UserId" />
+        <result column="CmdCode" property="CmdCode" />
+    </resultMap>
+
+</mapper>

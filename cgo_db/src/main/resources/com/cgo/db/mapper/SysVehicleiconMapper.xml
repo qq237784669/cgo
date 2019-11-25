@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.SysVehicleiconMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.SysVehicleicon">
+        <id column="IconType" property="IconType" />
+        <result column="offline" property="offline" />
+        <result column="accoff_normal" property="accoffNormal" />
+        <result column="drive_full" property="driveFull" />
+        <result column="speed0_alarm" property="speed0Alarm" />
+        <result column="drive_alarm" property="driveAlarm" />
+        <result column="speed0_normal" property="speed0Normal" />
+        <result column="accoff_full" property="accoffFull" />
+        <result column="gpsinvalid_alarm" property="gpsinvalidAlarm" />
+        <result column="speed0_operateoff" property="speed0Operateoff" />
+        <result column="speed0_full" property="speed0Full" />
+        <result column="gpsinvalid_normal" property="gpsinvalidNormal" />
+        <result column="gpsinvalid_operateoff" property="gpsinvalidOperateoff" />
+        <result column="IconOrder" property="IconOrder" />
+        <result column="accoff_alarm" property="accoffAlarm" />
+        <result column="gpsinvalid_full" property="gpsinvalidFull" />
+        <result column="IconName" property="IconName" />
+        <result column="drive_operateoff" property="driveOperateoff" />
+        <result column="drive_normal" property="driveNormal" />
+        <result column="accoff_operateoff" property="accoffOperateoff" />
+    </resultMap>
+
+</mapper>

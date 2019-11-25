@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.svc.user.UserMapper">
+
+
+    <resultMap id="byUserTypeZero" type="map">
+        <result column="OrgId" property="OrgId" javaType="string"></result>
+        <result column="AlarmType" property="AlarmType" javaType="string"></result>
+        <result column="ExpiryDay" property="ExpiryDay" javaType="string"></result>
+        <result column="IsStay" property="IsStay" javaType="string"></result>
+    </resultMap>
+
+    <resultMap id="VehicleIconsMap" type="map">
+        <result column="IconOrder" property="IconOrder" javaType="string"></result>
+    </resultMap>
+
+
+    <select id="findByUserTypeZero" resultMap="byUserTypeZero" parameterType="string" >
+                   SELECT u.UserId,
+                   u.UserPwd,
+                   u.UserName,
+                   g.RoleName,
+                   o.OrgId,
+                   o.OrgName,
+                   Isnull(B.AlarmType, -1) AS AlarmType,
+                   ExpiryDay=( CASE
+                   WHEN u.ExpiryDate IS NULL
+                   OR u.ExpiryDate = '' THEN 8
+                   ELSE ( CASE
+                   WHEN Datediff(MINUTE, Getdate(), u.ExpiryDate) &gt;= 0 THEN Datediff(day, Getdate(), u.ExpiryDate)
+                   ELSE -1
+                   END )
+                   END ),
+                   IsStay=0
+                   FROM   sys_User u
+                   INNER JOIN sys_Role g
+                   ON u.RoleId = g.RoleId
+                   LEFT JOIN bas_Org o
+                   ON u.OrgId = o.OrgId
+                   LEFT JOIN biz_MobUserConfig B
+                   ON u.UserId = B.UserId
+                   WHERE  u.UserId = #{userId}
+    </select>
+
+    <select id="findByUserTypeOne" resultType="map" parameterType="string">
+        SELECT v.PlateNum   AS UserId,
+        v.[PassWord] AS UserPwd,
+        v.OwnerName  AS UserName,
+        v.CorpName   AS RoleName,
+        o.OrgId,
+        o.OrgName,
+        -1           AS AlarmType,
+        IsDenyWebGps=( CASE
+        WHEN v.IsDenyWebGps = 1 THEN 1
+        ELSE 0
+        END ),
+        IsStay=( CASE
+        WHEN v.IsAutoStay = 1
+        AND v.SVREndTime &gt; CONVERT(VARCHAR(10), Getdate(), 120) THEN 1
+        ELSE 0
+        END )
+        FROM   bas_Vehicle v
+        INNER JOIN bas_Org o
+        ON v.OrgId = o.OrgId
+        LEFT JOIN std_PlateColor c
+        ON v.ColorCode = c.ColorCode
+        WHERE  v.PlateNum = #{userId}
+        OR v.PlateNum + ( CASE
+        WHEN c.ColorCode != 9 THEN LEFT(c.ColorName, 1)
+        ELSE c.ColorName
+        END ) = #{userId}
+    </select>
+    <select id="findUserAuth" resultType="java.util.Map">
+                SELECT isExist=( Isnull((SELECT MaxAuth
+                                 FROM   sys_Menu
+                                 WHERE  MenuCode = 'GetTrackAuth'), '0') ),
+               hasModule=( Isnull((SELECT ModuleCode
+                                   FROM   sys_UserAuth_Module
+                                   WHERE  UserId = #{userId}
+                                          AND ModuleCode = 'TopMobile'), '0') )
+    </select>
+    <select id="findVehicleIcons" resultMap="VehicleIconsMap">
+                SELECT *
+        FROM   sys_VehicleIcon
+        WHERE  IconType IN ( 'car', 'default' )
+        ORDER  BY IconOrder
+    </select>
+
+    <select id="call_spApp_GetNavMenuAuthByUser" resultType="java.util.Map" statementType="CALLABLE">
+         { CALL spApp_GetNavMenuAuthByUser(#{userId, mode=IN})}
+    </select>
+    <select id="call_spApp_GetNavMenuAuthByPlateNum" resultType="java.util.Map" statementType="CALLABLE">
+        { CALL spApp_GetNavMenuAuthByPlateNum(#{userId, mode=IN})}
+    </select>
+    <select id="call_spApp_IsWorkMenuAuth" resultType="java.util.Map" statementType="CALLABLE">
+         { CALL spApp_IsWorkMenuAuth(#{userId, mode=IN})}
+    </select>
+
+
+    <select id="finVehicleListByUserTypeEqZero" resultType="map" parameterType="map">
+                ;WITH CTEOrg
+                AS (SELECT b.OrgId,
+                b.SearchCode,
+                b.OrgName,
+                b.ParentId,
+                levels=Len(b.SearchCode),
+                t.OrgTypeName,
+                b.Remark,
+                b.Contact,
+                b.Telephone
+                FROM   View_UserOrg a
+                INNER JOIN bas_Org b WITH(NOLOCK)
+                ON a.OrgId = b.OrgId
+                LEFT JOIN bas_OrgType t
+                ON b.OrgType = t.OrgType
+                WHERE  a.UserId = #{userId} )
+                SELECT OrgId,
+                SearchCode,
+                aa.OrgName,
+                OrgType,
+                ParentId
+                FROM  (SELECT a.OrgId,
+                a.SearchCode,
+                a.OrgName,
+                t.OrgTypeName AS OrgType,
+                ParentId=0
+                FROM   bas_Org a
+                INNER JOIN bas_OrgType t
+                ON a.OrgType = t.OrgType
+                WHERE  ParentId = 0
+                UNION
+                SELECT OrgId,
+                SearchCode,
+                a.OrgName,
+                OrgTypeName AS OrgType,
+                ParentId
+                FROM   CTEOrg a)aa
+                ORDER  BY ParentId ASC,
+                aa.OrgName COLLATE Chinese_PRC_CS_AS_KS_WS
+                SELECT uv.VehicleId,
+                uv.SimNum,
+                uv.PlateNum,
+                uv.OrgId,
+                t.VehicleTypeName,
+                Isnull(tp.TerminalTypeName, '未知') AS TerminalTypeName,
+                Isnull(v.DVRTypeCode, 0)          AS DVRTypeCode,
+                Isnull(v.DVRChannelNum, 0)        AS DVRChannelNum,
+                bvc.VehicleOfflineTimeOut,
+                IsOnline=( CASE
+                WHEN cp.recetime IS NOT NULL
+                AND cp.recetime &gt; Dateadd(second, -( CASE
+                WHEN bvc.VehicleOfflineTimeOut IS NULL THEN 5 * 60
+                WHEN bvc.VehicleOfflineTimeOut &gt; 0 THEN bvc.VehicleOfflineTimeOut
+                ELSE 5 * 60
+                END ), Getdate()) THEN 1
+                ELSE 0
+                END ),
+                ''                                AS DVRDeviceId,
+                o.SearchCode
+                FROM   View_UserVehicle uv
+                INNER JOIN bas_Vehicle v WITH(NOLOCK)
+                ON uv.VehicleId = v.VehicleId
+                INNER JOIN bas_Org o WITH(NOLOCK)
+                ON uv.OrgId = o.OrgId
+                LEFT JOIN bas_TerminalType tp WITH(NOLOCK)
+                ON v.TerminalTypeId = tp.TerminalTypeId
+                LEFT JOIN std_VehicleType t WITH(NOLOCK)
+                ON v.VehicleTypeCode = t.VehicleTypeCode
+                LEFT JOIN [bas_VehicleConfig] bvc WITH(NOLOCK)
+                ON v.VehicleId = bvc.VehicleId
+                LEFT JOIN biz_CurrentPos cp WITH(NOLOCK)
+                ON uv.SimNum = cp.SimNum
+                WHERE  uv.UserId = #{userId}
+                ORDER  BY o.SearchCode,
+                PlateNum
+    </select>
+
+    <select id="finVehicleListByUserTypeEqOne" resultType="map">
+
+                SELECT v.OrgId,
+                o.SearchCode,
+                o.OrgName,
+                ot.OrgTypeName AS OrgType,
+                0              AS ParentId
+                FROM   bas_Vehicle v
+                INNER JOIN bas_Org o
+                ON v.OrgId = o.OrgId
+                INNER JOIN bas_OrgType ot
+                ON o.OrgType = ot.OrgType
+                INNER JOIN std_PlateColor c
+                ON v.ColorCode = c.ColorCode
+                WHERE  v.PlateNum = #{userId}
+                OR PlateNum + Replace(c.ColorName, '色', '') = #{userId};
+
+                SELECT v.VehicleId,
+                v.SimNum,
+                v.PlateNum,
+                v.OrgId,
+                bvc.VehicleOfflineTimeOut,
+                o.SearchCode,
+                t.VehicleTypeName,
+                v.DVRTypeCode,
+                Isnull(v.DVRTypeCode, 0)          AS DVRTypeCode,
+                Isnull(v.DVRChannelNum, 0)        AS DVRChannelNum,
+                IsOnline=( CASE
+                WHEN cp.recetime IS NOT NULL
+                AND cp.recetime &gt; Dateadd(second, -( CASE
+                WHEN bvc.VehicleOfflineTimeOut IS NULL THEN 5 * 60
+                WHEN bvc.VehicleOfflineTimeOut &gt; 0 THEN bvc.VehicleOfflineTimeOut
+                ELSE 5 * 60
+                END ), Getdate()) THEN 1
+                ELSE 0
+                END ),
+                ''                                AS DVRDeviceId,
+                Isnull(tp.TerminalTypeName, '未知') AS TerminalTypeName
+                FROM   bas_Vehicle v
+                INNER JOIN bas_Org o
+                ON v.OrgId = o.OrgId
+                LEFT JOIN bas_TerminalType tp
+                ON v.TerminalTypeId = tp.TerminalTypeId
+                LEFT JOIN std_VehicleType t
+                ON v.VehicleTypeCode = t.VehicleTypeCode
+                LEFT JOIN [bas_VehicleConfig] bvc
+                ON v.VehicleId = bvc.VehicleId
+                INNER JOIN std_PlateColor c
+                ON v.ColorCode = c.ColorCode
+                LEFT JOIN biz_CurrentPos cp WITH(NOLOCK)
+                ON v.SimNum = cp.SimNum
+                WHERE  v.PlateNum = #{userId}
+                OR PlateNum + Replace(c.ColorName, '色', '') = #{userId}
+
+    </select>
+
+</mapper>

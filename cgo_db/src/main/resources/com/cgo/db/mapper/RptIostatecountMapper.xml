@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.RptIostatecountMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.RptIostatecount">
+        <result column="1" property="1" />
+        <result column="2" property="2" />
+        <result column="4294967296" property="4294967296" />
+        <result column="8589934592" property="8589934592" />
+        <result column="17179869184" property="17179869184" />
+        <result column="34359738368" property="34359738368" />
+        <result column="68719476736" property="68719476736" />
+        <result column="2T" property="2t" />
+        <result column="N2T" property="n2t" />
+        <result column="EndTime" property="EndTime" />
+        <result column="137438953472" property="137438953472" />
+        <result column="35184372088832" property="35184372088832" />
+        <result column="SimNum" property="SimNum" />
+        <result column="UselessTrack" property="UselessTrack" />
+        <result column="4398046511104" property="4398046511104" />
+        <result column="549755813888" property="549755813888" />
+        <result column="BeginTime" property="BeginTime" />
+        <result column="274877906944" property="274877906944" />
+        <result column="17592186044416" property="17592186044416" />
+        <result column="Id" property="Id" />
+        <result column="UsefulTrack" property="UsefulTrack" />
+        <result column="2199023255552" property="2199023255552" />
+        <result column="70368744177664" property="70368744177664" />
+        <result column="1099511627776" property="1099511627776" />
+        <result column="GpsDate" property="GpsDate" />
+        <result column="8796093022208" property="8796093022208" />
+    </resultMap>
+
+</mapper>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.MonPlatformassessinfoMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.MonPlatformassessinfo">
+        <id column="Id" property="Id" />
+        <result column="RateOfVehicle" property="RateOfVehicle" />
+        <result column="InterruptConnTimes" property="InterruptConnTimes" />
+        <result column="RateOfRepairVehicle" property="RateOfRepairVehicle" />
+        <result column="CallAnswerRate" property="CallAnswerRate" />
+        <result column="Time" property="Time" />
+        <result column="AccidentInfo" property="AccidentInfo" />
+        <result column="RepairTime" property="RepairTime" />
+        <result column="InterruptTime" property="InterruptTime" />
+        <result column="Software" property="Software" />
+        <result column="ComSatisfaction" property="ComSatisfaction" />
+        <result column="ConnTime" property="ConnTime" />
+        <result column="Complaint" property="Complaint" />
+        <result column="RepairVehicle" property="RepairVehicle" />
+        <result column="NumOfVehicle" property="NumOfVehicle" />
+        <result column="DataQuality" property="DataQuality" />
+    </resultMap>
+
+</mapper>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.RptDelusingcarmodeMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.RptDelusingcarmode">
+        <id column="Id" property="Id" />
+        <result column="IsUse" property="IsUse" />
+        <result column="OrgId" property="OrgId" />
+        <result column="CheckUserId2" property="CheckUserId2" />
+        <result column="CheckUserId5" property="CheckUserId5" />
+        <result column="CreateBy" property="CreateBy" />
+        <result column="CheckLevel" property="CheckLevel" />
+        <result column="UpdateTime" property="UpdateTime" />
+        <result column="CheckUserId3" property="CheckUserId3" />
+        <result column="IsEvaluate" property="IsEvaluate" />
+        <result column="ModeName" property="ModeName" />
+        <result column="CheckUserId4" property="CheckUserId4" />
+        <result column="CheckUserId1" property="CheckUserId1" />
+    </resultMap>
+
+</mapper>

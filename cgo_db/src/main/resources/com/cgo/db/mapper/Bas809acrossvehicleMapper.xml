@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.Bas809acrossvehicleMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.Bas809acrossvehicle">
+        <id column="Id" property="Id" />
+        <result column="RoadTransportId" property="RoadTransportId" />
+        <result column="DriverInfo" property="DriverInfo" />
+        <result column="OwnerTel" property="OwnerTel" />
+        <result column="RTOLN" property="rtoln" />
+        <result column="TransType" property="TransType" />
+        <result column="ColorCode" property="ColorCode" />
+        <result column="Owner" property="Owner" />
+        <result column="CreateTime" property="CreateTime" />
+        <result column="OrigVehicleId" property="OrigVehicleId" />
+        <result column="OrigOwnerId" property="OrigOwnerId" />
+        <result column="VehicleType" property="VehicleType" />
+        <result column="PlateNum" property="PlateNum" />
+        <result column="UpdateTime" property="UpdateTime" />
+        <result column="VehicleColor" property="VehicleColor" />
+        <result column="HomeCity" property="HomeCity" />
+    </resultMap>
+
+</mapper>

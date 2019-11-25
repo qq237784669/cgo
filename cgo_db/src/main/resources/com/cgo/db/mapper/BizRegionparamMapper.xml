@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.BizRegionparamMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.BizRegionparam">
+        <id column="RegionParamId" property="RegionParamId" />
+        <result column="IsDel" property="IsDel" />
+        <result column="RegionId" property="RegionId" />
+        <result column="EndTime" property="EndTime" />
+        <result column="UpdateUserId" property="UpdateUserId" />
+        <result column="RegionParamName" property="RegionParamName" />
+        <result column="OutRegionDir" property="OutRegionDir" />
+        <result column="JudgeAfterPlanTime" property="JudgeAfterPlanTime" />
+        <result column="IsSet" property="IsSet" />
+        <result column="RegionCategory" property="RegionCategory" />
+        <result column="RegionProperty" property="RegionProperty" />
+        <result column="InsertTime" property="InsertTime" />
+        <result column="BeginTime" property="BeginTime" />
+        <result column="LimitSpeed" property="LimitSpeed" />
+        <result column="TimeProperty" property="TimeProperty" />
+        <result column="UpdateTime" property="UpdateTime" />
+        <result column="InRegionDir" property="InRegionDir" />
+        <result column="OrgId" property="OrgId" />
+    </resultMap>
+
+</mapper>

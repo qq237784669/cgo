@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.BizProhibitdrivesettingMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.BizProhibitdrivesetting">
+        <id column="Id" property="Id" />
+        <result column="SimNums" property="SimNums" />
+        <result column="FixedTimeFlag" property="FixedTimeFlag" />
+        <result column="SendMsgFlag" property="SendMsgFlag" />
+        <result column="UpdateTime" property="UpdateTime" />
+        <result column="BeginTime" property="BeginTime" />
+        <result column="UpdateUserId" property="UpdateUserId" />
+        <result column="TaskName" property="TaskName" />
+        <result column="OrgId" property="OrgId" />
+        <result column="OperateTypeCodes" property="OperateTypeCodes" />
+        <result column="MsgContent" property="MsgContent" />
+        <result column="EnableFlag" property="EnableFlag" />
+        <result column="EndTime" property="EndTime" />
+        <result column="strategyFlag" property="strategyFlag" />
+    </resultMap>
+
+</mapper>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.BasDvrtypeMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.BasDvrtype">
+        <id column="DVRTypeId" property="DVRTypeId" />
+        <result column="DVRTypeName" property="DVRTypeName" />
+        <result column="DVRTypeCode" property="DVRTypeCode" />
+    </resultMap>
+
+</mapper>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.BizIntoregionvehicleMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.BizIntoregionvehicle">
+        <id column="Id" property="Id" />
+        <result column="GpsTime" property="GpsTime" />
+        <result column="Direction" property="Direction" />
+        <result column="StateFlag" property="StateFlag" />
+        <result column="InsTime" property="InsTime" />
+        <result column="Latitude" property="Latitude" />
+        <result column="SimNum" property="SimNum" />
+        <result column="Speed" property="Speed" />
+        <result column="PlateNum" property="PlateNum" />
+        <result column="ADRSpeed" property="ADRSpeed" />
+        <result column="ExStateFlag" property="ExStateFlag" />
+        <result column="RegionName" property="RegionName" />
+        <result column="StarCount" property="StarCount" />
+        <result column="ReceTime" property="ReceTime" />
+        <result column="Mileage" property="Mileage" />
+        <result column="AlarmFlag" property="AlarmFlag" />
+        <result column="RegionId" property="RegionId" />
+        <result column="Longitude" property="Longitude" />
+        <result column="Dots" property="Dots" />
+        <result column="ColorCode" property="ColorCode" />
+    </resultMap>
+
+</mapper>

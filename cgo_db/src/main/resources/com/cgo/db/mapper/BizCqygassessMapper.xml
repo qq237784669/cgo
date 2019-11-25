@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.BizCqygassessMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.BizCqygassess">
+        <result column="assessBatch" property="assessBatch" />
+        <result column="isHandle" property="isHandle" />
+        <result column="shiftRate" property="shiftRate" />
+        <result column="onlineRate" property="onlineRate" />
+        <result column="updatetime" property="updatetime" />
+        <result column="orbitRate" property="orbitRate" />
+        <result column="vehicleCount" property="vehicleCount" />
+        <result column="failCount" property="failCount" />
+        <result column="dataRate" property="dataRate" />
+        <result column="userID" property="userID" />
+    </resultMap>
+
+</mapper>

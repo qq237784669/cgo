@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.AdasOrgrisklevelconfigMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.AdasOrgrisklevelconfig">
+        <id column="OrgId" property="OrgId" />
+        <result column="LowRisk" property="LowRisk" />
+        <result column="CenterRisk" property="CenterRisk" />
+        <result column="HighRisk" property="HighRisk" />
+        <result column="2_17179869184_2" property="adas_ORKL_2171798691842" />
+        <result column="2_2147483648_2" property="adas_ORKL_221474836482" />
+        <result column="1_2" property="adas_ORKL_12" />
+        <result column="1_32" property="adas_ORKL_132" />
+        <result column="2_68719476736" property="adas_ORKL_268719476736" />
+        <result column="2_8589934592" property="adas_ORKL_28589934592" />
+        <result column="2_8589934592_2" property="adas_ORKL_285899345922" />
+        <result column="1_16" property="adas_ORKL_116" />
+        <result column="2_4294967296" property="adas_ORKL_24294967296" />
+        <result column="1_4_2" property="adas_ORKL_142" />
+        <result column="1_32_2" property="adas_ORKL_1322" />
+        <result column="1_1" property="adas_ORKL_11" />
+        <result column="1_8" property="adas_ORKL_18" />
+        <result column="2_2147483648" property="adas_ORKL_22147483648" />
+        <result column="2_34359738368" property="adas_ORKL_234359738368" />
+        <result column="1_2_2" property="adas_ORKL_122" />
+        <result column="1_16_2" property="adas_ORKL_1162" />
+        <result column="2_68719476736_2" property="adas_ORKL_2687194767362" />
+        <result column="2_34359738368_2" property="adas_ORKL_2343597383682" />
+        <result column="2_4294967296_2" property="adas_ORKL_242949672962" />
+        <result column="1_4" property="adas_ORKL_14" />
+        <result column="2_17179869184" property="adas_ORKL_217179869184" />
+        <result column="1_1_2" property="adas_ORKL_112" />
+        <result column="1_8_2" property="adas_ORKL_182" />
+    </resultMap>
+
+</mapper>

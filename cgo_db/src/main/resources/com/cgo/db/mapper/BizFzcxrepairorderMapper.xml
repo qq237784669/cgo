@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.BizFzcxrepairorderMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.BizFzcxrepairorder">
+        <id column="eventNo" property="eventNo" />
+        <result column="checkDescription" property="checkDescription" />
+        <result column="lnName" property="lnName" />
+        <result column="checkUser" property="checkUser" />
+        <result column="status" property="status" />
+        <result column="updateTime" property="updateTime" />
+        <result column="lnPhone" property="lnPhone" />
+        <result column="planTime" property="planTime" />
+        <result column="checkTime" property="checkTime" />
+        <result column="taskNo" property="taskNo" />
+        <result column="vehicleId" property="vehicleId" />
+        <result column="ID" property="id" />
+        <result column="description" property="description" />
+        <result column="checkStatus" property="checkStatus" />
+    </resultMap>
+
+</mapper>

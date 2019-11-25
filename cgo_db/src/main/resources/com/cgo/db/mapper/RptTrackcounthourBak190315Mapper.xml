@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.RptTrackcounthourBak190315Mapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.RptTrackcounthourBak190315">
+        <result column="TrackCount" property="TrackCount" />
+        <result column="TrackDay" property="TrackDay" />
+        <result column="TrackHour" property="TrackHour" />
+        <result column="Id" property="Id" />
+        <result column="SafetyCount" property="SafetyCount" />
+        <result column="OrgId" property="OrgId" />
+        <result column="GeoCode" property="GeoCode" />
+    </resultMap>
+
+</mapper>

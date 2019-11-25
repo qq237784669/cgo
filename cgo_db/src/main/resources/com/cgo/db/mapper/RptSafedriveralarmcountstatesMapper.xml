@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.RptSafedriveralarmcountstatesMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.RptSafedriveralarmcountstates">
+        <id column="Id" property="Id" />
+        <result column="Level" property="Level" />
+        <result column="1_4" property="14" />
+        <result column="2_2147483648" property="22147483648" />
+        <result column="DriverId" property="DriverId" />
+        <result column="1_32" property="132" />
+        <result column="2_68719476736" property="268719476736" />
+        <result column="2_2305843009213693952" property="22305843009213693952" />
+        <result column="GpsDate" property="GpsDate" />
+        <result column="1_65536" property="165536" />
+        <result column="2_140737488355328" property="2140737488355328" />
+        <result column="2_4611686018427387904" property="24611686018427387904" />
+        <result column="2_17179869184" property="217179869184" />
+        <result column="2_1152921504606846976" property="21152921504606846976" />
+        <result column="1_64" property="164" />
+        <result column="2_34359738368" property="234359738368" />
+        <result column="1_1" property="11" />
+        <result column="1_8" property="18" />
+        <result column="2_4294967296" property="24294967296" />
+        <result column="2_281474976710656" property="2281474976710656" />
+        <result column="2_137438953472" property="2137438953472" />
+        <result column="1_2" property="12" />
+        <result column="1_16" property="116" />
+        <result column="2_8589934592" property="28589934592" />
+        <result column="TotalMileage" property="TotalMileage" />
+        <result column="1_32768" property="132768" />
+        <result column="2_562949953421312" property="2562949953421312" />
+    </resultMap>
+
+</mapper>

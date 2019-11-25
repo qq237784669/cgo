@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.ScGeologichazardalarmerrMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.ScGeologichazardalarmerr">
+        <id column="Id" property="Id" />
+        <result column="lat" property="lat" />
+        <result column="SendTime" property="SendTime" />
+        <result column="simK" property="simK" />
+        <result column="ghid" property="ghid" />
+        <result column="wTime" property="wTime" />
+        <result column="SendResuestTime" property="SendResuestTime" />
+        <result column="AlarmID" property="AlarmID" />
+        <result column="speed" property="speed" />
+        <result column="cph" property="cph" />
+        <result column="operatorsID" property="operatorsID" />
+        <result column="IsSend" property="IsSend" />
+        <result column="direction" property="direction" />
+        <result column="IsSendRequest" property="IsSendRequest" />
+        <result column="lon" property="lon" />
+        <result column="insertTime" property="insertTime" />
+    </resultMap>
+
+</mapper>

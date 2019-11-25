@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.BasMsgpushconfigMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.BasMsgpushconfig">
+        <id column="AlarmTag" property="AlarmTag" />
+        <result column="IsSendToClient" property="IsSendToClient" />
+        <result column="SmsTemplateNumber" property="SmsTemplateNumber" />
+        <result column="EmailMsgTemplate" property="EmailMsgTemplate" />
+        <result column="VoiceMsgTemplate" property="VoiceMsgTemplate" />
+        <result column="AlarmName" property="AlarmName" />
+        <result column="UpdateTime" property="UpdateTime" />
+        <result column="IsSendEmail" property="IsSendEmail" />
+        <result column="SendDispatchMsgTimeSpan" property="SendDispatchMsgTimeSpan" />
+        <result column="IsSendVoiceMsg" property="IsSendVoiceMsg" />
+        <result column="SendEmailByDuration" property="SendEmailByDuration" />
+        <result column="SendSmsMsgTimeSpan" property="SendSmsMsgTimeSpan" />
+        <result column="SendVoiceByDuration" property="SendVoiceByDuration" />
+        <result column="AlarmType" property="AlarmType" />
+        <result column="SmsMsgTemplate" property="SmsMsgTemplate" />
+        <result column="SendEmailMsgTimeSpan" property="SendEmailMsgTimeSpan" />
+        <result column="DispatchMsgTemplate" property="DispatchMsgTemplate" />
+        <result column="SendVoiceMsgTimeSpan" property="SendVoiceMsgTimeSpan" />
+        <result column="IsSendSmsMsg" property="IsSendSmsMsg" />
+        <result column="SendSmsByDuration" property="SendSmsByDuration" />
+        <result column="VoiceTemplateNumber" property="VoiceTemplateNumber" />
+        <result column="IsSendDispatchMsg" property="IsSendDispatchMsg" />
+    </resultMap>
+
+</mapper>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.BizMobwxuserconfigMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.BizMobwxuserconfig">
+        <id column="OpenId" property="OpenId" />
+        <result column="MobileOS" property="MobileOS" />
+        <result column="AdasAlarmTypeWithTwo" property="AdasAlarmTypeWithTwo" />
+        <result column="CreateTime" property="CreateTime" />
+        <result column="ReadSafetyAlarmTime" property="ReadSafetyAlarmTime" />
+        <result column="HasLogin" property="HasLogin" />
+        <result column="ReadAlarmTime" property="ReadAlarmTime" />
+        <result column="UserId" property="UserId" />
+        <result column="LoginTime" property="LoginTime" />
+        <result column="ReadVideoAlarmTime" property="ReadVideoAlarmTime" />
+        <result column="AlarmType" property="AlarmType" />
+        <result column="AdasAlarmTypeWithOne" property="AdasAlarmTypeWithOne" />
+        <result column="UserType" property="UserType" />
+        <result column="LogoutTime" property="LogoutTime" />
+    </resultMap>
+
+</mapper>

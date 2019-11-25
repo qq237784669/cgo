@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.BasVehicleconfigMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.BasVehicleconfig">
+        <id column="VehicleId" property="VehicleId" />
+        <result column="AlarmConnectorFir" property="AlarmConnectorFir" />
+        <result column="VehicleOperateState" property="VehicleOperateState" />
+        <result column="ADName" property="ADName" />
+        <result column="SpeedThreshold" property="SpeedThreshold" />
+        <result column="UpdateTime" property="UpdateTime" />
+        <result column="ISOpenAD" property="ISOpenAD" />
+        <result column="TermLimitSpeed" property="TermLimitSpeed" />
+        <result column="AlarmConnectorFou" property="AlarmConnectorFou" />
+        <result column="AlarmSwitch" property="AlarmSwitch" />
+        <result column="IsOpenSendSms" property="IsOpenSendSms" />
+        <result column="AccState" property="AccState" />
+        <result column="AlarmConnectorSec" property="AlarmConnectorSec" />
+        <result column="VehicleOfflineTimeOut" property="VehicleOfflineTimeOut" />
+        <result column="AlarmConnectorThr" property="AlarmConnectorThr" />
+        <result column="AlarmFlag" property="AlarmFlag" />
+        <result column="LimitSpeed" property="LimitSpeed" />
+        <result column="ADCode" property="ADCode" />
+    </resultMap>
+
+</mapper>

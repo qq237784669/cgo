@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.BizEventmsgwithparamMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.BizEventmsgwithparam">
+        <id column="Id" property="Id" />
+        <result column="MsgId" property="MsgId" />
+        <result column="MsgType" property="MsgType" />
+        <result column="SimNum" property="SimNum" />
+    </resultMap>
+
+</mapper>

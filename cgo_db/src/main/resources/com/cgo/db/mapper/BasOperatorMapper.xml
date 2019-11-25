@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.BasOperatorMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.BasOperator">
+        <id column="OperatorId" property="OperatorId" />
+        <result column="AccessCode" property="AccessCode" />
+        <result column="ConnectCall" property="ConnectCall" />
+        <result column="AUTHORIZECODE2" property="authorizecode2" />
+        <result column="ConnectFile" property="ConnectFile" />
+        <result column="UserId" property="UserId" />
+        <result column="LeadCall" property="LeadCall" />
+        <result column="CompanyPort" property="CompanyPort" />
+        <result column="ServiceCall" property="ServiceCall" />
+        <result column="LoginUser" property="LoginUser" />
+        <result column="OperatorName" property="OperatorName" />
+        <result column="AUTHORIZECODE1" property="authorizecode1" />
+        <result column="Password" property="Password" />
+        <result column="LeadTel" property="LeadTel" />
+        <result column="ConnectTel" property="ConnectTel" />
+        <result column="address" property="address" />
+        <result column="ConnectName" property="ConnectName" />
+        <result column="CompanyIP" property="CompanyIP" />
+        <result column="UploadUser" property="UploadUser" />
+        <result column="LeadName" property="LeadName" />
+    </resultMap>
+
+</mapper>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.TopexVehiclealarminfoMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.TopexVehiclealarminfo">
+        <id column="Seq" property="Seq" />
+        <result column="EndStateFlag" property="EndStateFlag" />
+        <result column="EndMileage" property="EndMileage" />
+        <result column="BeginStateFlag" property="BeginStateFlag" />
+        <result column="Describe" property="Describe" />
+        <result column="EndAltitude" property="EndAltitude" />
+        <result column="SimNum" property="SimNum" />
+        <result column="MaxSpeed" property="MaxSpeed" />
+        <result column="UpdateTime" property="UpdateTime" />
+        <result column="EndDirection" property="EndDirection" />
+        <result column="BeginAltitude" property="BeginAltitude" />
+        <result column="EndLatitude" property="EndLatitude" />
+        <result column="BeginMileage" property="BeginMileage" />
+        <result column="EndGpsTime" property="EndGpsTime" />
+        <result column="Remark" property="Remark" />
+        <result column="EndLongitude" property="EndLongitude" />
+        <result column="BeginGpsTime" property="BeginGpsTime" />
+        <result column="LimitSpeed" property="LimitSpeed" />
+        <result column="IsReport" property="IsReport" />
+        <result column="FalseNum" property="FalseNum" />
+        <result column="InfoId" property="InfoId" />
+        <result column="BeginDirection" property="BeginDirection" />
+        <result column="BeginLatitude" property="BeginLatitude" />
+        <result column="CheckBy" property="CheckBy" />
+        <result column="BeginSpeed" property="BeginSpeed" />
+        <result column="AlarmFlag" property="AlarmFlag" />
+        <result column="IsFalse" property="IsFalse" />
+        <result column="EndSpeed" property="EndSpeed" />
+        <result column="BeginLongitude" property="BeginLongitude" />
+        <result column="Id" property="Id" />
+        <result column="NeedSend" property="NeedSend" />
+        <result column="SN" property="sn" />
+    </resultMap>
+
+</mapper>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.SysExtserviceconfigMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.SysExtserviceconfig">
+        <id column="GovId" property="GovId" />
+        <result column="GovPort" property="GovPort" />
+        <result column="Remark" property="Remark" />
+        <result column="ServiceId" property="ServiceId" />
+        <result column="IC1" property="ic1" />
+        <result column="ParamType" property="ParamType" />
+        <result column="AccessCode" property="AccessCode" />
+        <result column="IsFiterUserId" property="IsFiterUserId" />
+        <result column="ParamContent" property="ParamContent" />
+        <result column="CompanyInnerPort" property="CompanyInnerPort" />
+        <result column="M1" property="m1" />
+        <result column="IsOpen" property="IsOpen" />
+        <result column="LoginUserId" property="LoginUserId" />
+        <result column="IA1" property="ia1" />
+        <result column="CompanyIP" property="CompanyIP" />
+        <result column="Key" property="Key" />
+        <result column="FiterUserId" property="FiterUserId" />
+        <result column="CompanyPort" property="CompanyPort" />
+        <result column="IsEncrypt" property="IsEncrypt" />
+        <result column="GovIP" property="GovIP" />
+        <result column="LoginPwd" property="LoginPwd" />
+        <result column="UpdateTime" property="UpdateTime" />
+        <result column="Desp" property="Desp" />
+    </resultMap>
+
+</mapper>

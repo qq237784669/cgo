@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.BizJtbregisterdataMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.BizJtbregisterdata">
+        <id column="ID" property="id" />
+        <result column="TerminalId" property="TerminalId" />
+        <result column="OptCode" property="OptCode" />
+        <result column="SoftWareVersionNo" property="SoftWareVersionNo" />
+        <result column="TransType" property="TransType" />
+        <result column="Remark" property="Remark" />
+        <result column="OwnersName" property="OwnersName" />
+        <result column="ManufacturerID" property="ManufacturerID" />
+        <result column="CreateDate" property="CreateDate" />
+        <result column="PatateColor" property="PatateColor" />
+        <result column="ProvinceID" property="ProvinceID" />
+        <result column="VehicleNationality" property="VehicleNationality" />
+        <result column="IsSynSuccess" property="IsSynSuccess" />
+        <result column="CityID" property="CityID" />
+        <result column="OwnersTel" property="OwnersTel" />
+        <result column="TerminalModel" property="TerminalModel" />
+        <result column="SimNum" property="SimNum" />
+        <result column="PlateNum" property="PlateNum" />
+        <result column="OwnersId" property="OwnersId" />
+        <result column="VehicleType" property="VehicleType" />
+        <result column="AuthCode" property="AuthCode" />
+        <result column="IMEI" property="imei" />
+    </resultMap>
+
+</mapper>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.VideoTerminalavparamsMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.VideoTerminalavparams">
+        <id column="TerminalTypeId" property="TerminalTypeId" />
+        <result column="AudioCode" property="AudioCode" />
+        <result column="AudioCodeRate" property="AudioCodeRate" />
+        <result column="TalkbackCh" property="TalkbackCh" />
+        <result column="IsHaisiCode" property="IsHaisiCode" />
+        <result column="TalkbackAudioCode" property="TalkbackAudioCode" />
+        <result column="TalkbackCodeRate" property="TalkbackCodeRate" />
+        <result column="MaxAudioChNo" property="MaxAudioChNo" />
+        <result column="TalkAudioMultiple" property="TalkAudioMultiple" />
+        <result column="UpdateTime" property="UpdateTime" />
+    </resultMap>
+
+</mapper>

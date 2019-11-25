@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.BizPathMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.BizPath">
+        <id column="PathId" property="PathId" />
+        <result column="PathName" property="PathName" />
+        <result column="PathGroupId" property="PathGroupId" />
+        <result column="Dots" property="Dots" />
+        <result column="Remark" property="Remark" />
+        <result column="UpdateTime" property="UpdateTime" />
+        <result column="AuthFlag" property="AuthFlag" />
+        <result column="OutToDriver" property="OutToDriver" />
+        <result column="OutToPlateForm" property="OutToPlateForm" />
+        <result column="CreatedBy" property="CreatedBy" />
+        <result column="InToDriver" property="InToDriver" />
+        <result column="CreateTime" property="CreateTime" />
+        <result column="InToPlateForm" property="InToPlateForm" />
+        <result column="UpdateBy" property="UpdateBy" />
+    </resultMap>
+
+</mapper>

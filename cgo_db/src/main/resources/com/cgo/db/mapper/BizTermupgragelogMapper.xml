@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.BizTermupgragelogMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.BizTermupgragelog">
+        <id column="Id" property="Id" />
+        <result column="Version" property="Version" />
+        <result column="OffSet" property="OffSet" />
+        <result column="BeginTime" property="BeginTime" />
+        <result column="UpdateTime" property="UpdateTime" />
+        <result column="Remark" property="Remark" />
+        <result column="State" property="State" />
+        <result column="Process" property="Process" />
+        <result column="SimNum" property="SimNum" />
+        <result column="UpgradeType" property="UpgradeType" />
+    </resultMap>
+
+</mapper>

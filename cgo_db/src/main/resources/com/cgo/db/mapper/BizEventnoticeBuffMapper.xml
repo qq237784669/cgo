@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.BizEventnoticeBuffMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.BizEventnoticeBuff">
+        <id column="Id" property="Id" />
+        <result column="EventType" property="EventType" />
+        <result column="IsNeedAnalysis" property="IsNeedAnalysis" />
+        <result column="InsertTime" property="InsertTime" />
+        <result column="UserId" property="UserId" />
+        <result column="ParamContent" property="ParamContent" />
+        <result column="EventContent" property="EventContent" />
+        <result column="UpdataType" property="UpdataType" />
+        <result column="DistributeType" property="DistributeType" />
+        <result column="EventDescript" property="EventDescript" />
+        <result column="SimNum" property="SimNum" />
+    </resultMap>
+
+</mapper>

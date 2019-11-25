@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.AdasAttachmentfileinfoBuffMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.AdasAttachmentfileinfoBuff">
+        <id column="FileId" property="FileId" />
+        <result column="UpdateTime" property="UpdateTime" />
+        <result column="SimNum" property="SimNum" />
+        <result column="IsUploadCompleted" property="IsUploadCompleted" />
+        <result column="FileName" property="FileName" />
+        <result column="StorageRoute" property="StorageRoute" />
+        <result column="AlarmFlag" property="AlarmFlag" />
+        <result column="CreateTime" property="CreateTime" />
+        <result column="DistributerId" property="DistributerId" />
+        <result column="FileType" property="FileType" />
+        <result column="Size" property="Size" />
+        <result column="AlarmId" property="AlarmId" />
+    </resultMap>
+
+</mapper>

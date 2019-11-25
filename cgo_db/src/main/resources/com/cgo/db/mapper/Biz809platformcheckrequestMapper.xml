@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.Biz809platformcheckrequestMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.Biz809platformcheckrequest">
+        <id column="Id" property="Id" />
+        <result column="InsertTime" property="InsertTime" />
+        <result column="SendUserId" property="SendUserId" />
+        <result column="ObjectType" property="ObjectType" />
+        <result column="PlatformId" property="PlatformId" />
+        <result column="Question" property="Question" />
+        <result column="ObjectId" property="ObjectId" />
+        <result column="NeedSendTime" property="NeedSendTime" />
+        <result column="QueryOperateType" property="QueryOperateType" />
+        <result column="QuestionBankId" property="QuestionBankId" />
+        <result column="QueryPlanId" property="QueryPlanId" />
+    </resultMap>
+
+</mapper>

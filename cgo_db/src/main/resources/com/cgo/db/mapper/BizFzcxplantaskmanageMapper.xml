@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.BizFzcxplantaskmanageMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.BizFzcxplantaskmanage">
+        <id column="Id" property="Id" />
+        <result column="PlanTime" property="PlanTime" />
+        <result column="OrderNum" property="OrderNum" />
+        <result column="PlateNum" property="PlateNum" />
+        <result column="ExPlateNum" property="ExPlateNum" />
+        <result column="DriverName1" property="DriverName1" />
+        <result column="DriverName2" property="DriverName2" />
+        <result column="Destination" property="Destination" />
+        <result column="Station" property="Station" />
+        <result column="PathName" property="PathName" />
+        <result column="TaskState" property="TaskState" />
+        <result column="IsManualEdit" property="IsManualEdit" />
+        <result column="IsComplete" property="IsComplete" />
+        <result column="UserId" property="UserId" />
+        <result column="CompleteTime" property="CompleteTime" />
+        <result column="ArriveStationTime" property="ArriveStationTime" />
+        <result column="LeaveStationTime" property="LeaveStationTime" />
+        <result column="LeaveBaseTime" property="LeaveBaseTime" />
+        <result column="ArriveDestinationTime" property="ArriveDestinationTime" />
+        <result column="ArriveBaseTime" property="ArriveBaseTime" />
+        <result column="Remark" property="Remark" />
+        <result column="CreateTime" property="CreateTime" />
+        <result column="UpdateTime" property="UpdateTime" />
+        <result column="CreateBy" property="CreateBy" />
+        <result column="AlarmId" property="AlarmId" />
+        <result column="VehicleId" property="VehicleId" />
+        <result column="BeginAlarmTime" property="BeginAlarmTime" />
+        <result column="PathId" property="PathId" />
+    </resultMap>
+
+</mapper>

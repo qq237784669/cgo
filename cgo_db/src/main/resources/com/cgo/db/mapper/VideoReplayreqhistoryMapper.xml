@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.VideoReplayreqhistoryMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.VideoReplayreqhistory">
+        <id column="Id" property="Id" />
+        <result column="StorageType" property="StorageType" />
+        <result column="ReqEndTime" property="ReqEndTime" />
+        <result column="FastType" property="FastType" />
+        <result column="ReplayBeginTime" property="ReplayBeginTime" />
+        <result column="UpdateTime" property="UpdateTime" />
+        <result column="PlayMode" property="PlayMode" />
+        <result column="ReplayEndTime" property="ReplayEndTime" />
+        <result column="SimNum" property="SimNum" />
+        <result column="StreamType" property="StreamType" />
+        <result column="ChannelId" property="ChannelId" />
+        <result column="UserId" property="UserId" />
+        <result column="AVType" property="AVType" />
+        <result column="ReqId" property="ReqId" />
+        <result column="InsertTime" property="InsertTime" />
+        <result column="PlayerId" property="PlayerId" />
+        <result column="DistributerId" property="DistributerId" />
+        <result column="DataSize" property="DataSize" />
+        <result column="ReqBeginTime" property="ReqBeginTime" />
+    </resultMap>
+
+</mapper>

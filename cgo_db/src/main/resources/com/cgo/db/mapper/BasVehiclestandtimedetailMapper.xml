@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.BasVehiclestandtimedetailMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.BasVehiclestandtimedetail">
+        <id column="Id" property="Id" />
+        <result column="Under2" property="Under2" />
+        <result column="B9A12" property="b9a12" />
+        <result column="B5A8" property="b5a8" />
+        <result column="AreaId" property="AreaId" />
+        <result column="More24" property="More24" />
+        <result column="B13A24" property="b13a24" />
+        <result column="B2A4" property="b2a4" />
+        <result column="ImportTime" property="ImportTime" />
+    </resultMap>
+
+</mapper>

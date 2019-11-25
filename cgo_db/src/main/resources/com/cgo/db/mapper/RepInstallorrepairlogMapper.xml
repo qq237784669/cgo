@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.RepInstallorrepairlogMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.RepInstallorrepairlog">
+        <id column="ApplyNum" property="ApplyNum" />
+        <result column="PlateNum" property="PlateNum" />
+        <result column="ColorCode" property="ColorCode" />
+        <result column="IMEINum" property="IMEINum" />
+        <result column="SimNum" property="SimNum" />
+        <result column="RealSimNum" property="RealSimNum" />
+        <result column="CheckState" property="CheckState" />
+        <result column="ApplyState" property="ApplyState" />
+        <result column="OrgId" property="OrgId" />
+        <result column="TerminalTypeId" property="TerminalTypeId" />
+        <result column="CameraNum" property="CameraNum" />
+        <result column="CorpName" property="CorpName" />
+        <result column="CorpContact" property="CorpContact" />
+        <result column="CorpTel" property="CorpTel" />
+        <result column="VehicleTypeCode" property="VehicleTypeCode" />
+        <result column="VehicleModel" property="VehicleModel" />
+        <result column="BrandModel" property="BrandModel" />
+        <result column="FrameNo" property="FrameNo" />
+        <result column="Tonnage" property="Tonnage" />
+        <result column="Content" property="Content" />
+        <result column="Place" property="Place" />
+        <result column="WorkTime" property="WorkTime" />
+        <result column="WorkType" property="WorkType" />
+        <result column="StopTime" property="StopTime" />
+        <result column="DriverName" property="DriverName" />
+        <result column="DriverTel" property="DriverTel" />
+        <result column="ApplyTime" property="ApplyTime" />
+        <result column="ApplyUser" property="ApplyUser" />
+        <result column="CheckTime" property="CheckTime" />
+        <result column="CheckUser" property="CheckUser" />
+        <result column="InstallerId" property="InstallerId" />
+        <result column="InsBeginTime" property="InsBeginTime" />
+        <result column="InsEndTime" property="InsEndTime" />
+        <result column="UpdateTime" property="UpdateTime" />
+        <result column="Remark" property="Remark" />
+        <result column="DispatchOfficer" property="DispatchOfficer" />
+        <result column="DispatchTime" property="DispatchTime" />
+    </resultMap>
+
+</mapper>

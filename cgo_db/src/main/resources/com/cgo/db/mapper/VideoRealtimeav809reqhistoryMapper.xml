@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.VideoRealtimeav809reqhistoryMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.VideoRealtimeav809reqhistory">
+        <id column="Id" property="Id" />
+        <result column="GovId" property="GovId" />
+        <result column="PlateColor" property="PlateColor" />
+        <result column="AuthOrizeCode" property="AuthOrizeCode" />
+        <result column="HistoryId" property="HistoryId" />
+        <result column="GNSSData" property="GNSSData" />
+        <result column="PlayerId" property="PlayerId" />
+        <result column="InsertTime" property="InsertTime" />
+        <result column="ReqId" property="ReqId" />
+        <result column="PlateNum" property="PlateNum" />
+    </resultMap>
+
+</mapper>

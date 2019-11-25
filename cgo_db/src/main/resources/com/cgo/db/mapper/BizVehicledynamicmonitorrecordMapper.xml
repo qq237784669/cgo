@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.BizVehicledynamicmonitorrecordMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.BizVehicledynamicmonitorrecord">
+        <id column="Id" property="Id" />
+        <result column="ProcessResult" property="ProcessResult" />
+        <result column="ADRSpeed" property="ADRSpeed" />
+        <result column="TrackLineState" property="TrackLineState" />
+        <result column="IsOnline" property="IsOnline" />
+        <result column="CameraLocation" property="CameraLocation" />
+        <result column="IsFill" property="IsFill" />
+        <result column="IsADRDataNormal" property="IsADRDataNormal" />
+        <result column="Processor" property="Processor" />
+        <result column="OtherIllegal" property="OtherIllegal" />
+        <result column="IsOverTimeDrive" property="IsOverTimeDrive" />
+        <result column="LastQueryTime" property="LastQueryTime" />
+        <result column="Remark" property="Remark" />
+        <result column="GpsSpeed" property="GpsSpeed" />
+        <result column="LastQueryPos" property="LastQueryPos" />
+        <result column="CameraState" property="CameraState" />
+        <result column="VehicleId" property="VehicleId" />
+        <result column="FeedbackTime" property="FeedbackTime" />
+        <result column="TrackState" property="TrackState" />
+        <result column="ProcessMethod" property="ProcessMethod" />
+        <result column="ADRUnnormalData" property="ADRUnnormalData" />
+        <result column="RecordTime" property="RecordTime" />
+        <result column="OtherTrackState" property="OtherTrackState" />
+        <result column="ProcessTime" property="ProcessTime" />
+        <result column="IsOverSpeed" property="IsOverSpeed" />
+        <result column="BadCameraNum" property="BadCameraNum" />
+        <result column="IsDriveBeforeDawn" property="IsDriveBeforeDawn" />
+    </resultMap>
+
+</mapper>

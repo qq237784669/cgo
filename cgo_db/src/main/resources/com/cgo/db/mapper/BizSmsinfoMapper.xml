@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.BizSmsinfoMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.BizSmsinfo">
+        <id column="Id" property="Id" />
+        <result column="SmsType" property="SmsType" />
+        <result column="ToTelephone" property="ToTelephone" />
+        <result column="SmsMsg" property="SmsMsg" />
+        <result column="Result" property="Result" />
+        <result column="SendType" property="SendType" />
+        <result column="SendTime" property="SendTime" />
+        <result column="LastSendTime" property="LastSendTime" />
+        <result column="ReSendTimes" property="ReSendTimes" />
+        <result column="SimNum" property="SimNum" />
+        <result column="TemplateId" property="TemplateId" />
+        <result column="NetType" property="NetType" />
+        <result column="AlarmID" property="AlarmID" />
+        <result column="CreateTime" property="CreateTime" />
+        <result column="FromInfo" property="FromInfo" />
+        <result column="Content" property="Content" />
+        <result column="ClientInfo" property="ClientInfo" />
+        <result column="Remark" property="Remark" />
+    </resultMap>
+
+</mapper>

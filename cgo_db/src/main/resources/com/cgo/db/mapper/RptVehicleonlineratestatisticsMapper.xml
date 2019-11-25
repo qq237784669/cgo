@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.RptVehicleonlineratestatisticsMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.RptVehicleonlineratestatistics">
+        <id column="Id" property="Id" />
+        <result column="Speed2" property="Speed2" />
+        <result column="Latitude2" property="Latitude2" />
+        <result column="Longitude1" property="Longitude1" />
+        <result column="EndTime" property="EndTime" />
+        <result column="Latitude1" property="Latitude1" />
+        <result column="SimNum" property="SimNum" />
+        <result column="Mileage1" property="Mileage1" />
+        <result column="GpsDate" property="GpsDate" />
+        <result column="Mileage2" property="Mileage2" />
+        <result column="Speed1" property="Speed1" />
+        <result column="BeginTime" property="BeginTime" />
+        <result column="Longitude2" property="Longitude2" />
+    </resultMap>
+
+</mapper>

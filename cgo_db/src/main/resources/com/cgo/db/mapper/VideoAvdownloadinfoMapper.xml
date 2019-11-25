@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.VideoAvdownloadinfoMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.VideoAvdownloadinfo">
+        <id column="Id" property="Id" />
+        <result column="StorageType" property="StorageType" />
+        <result column="BeginLatitude" property="BeginLatitude" />
+        <result column="AlarmFlag" property="AlarmFlag" />
+        <result column="EndTime" property="EndTime" />
+        <result column="OrderId" property="OrderId" />
+        <result column="SimNum" property="SimNum" />
+        <result column="BeginTime" property="BeginTime" />
+        <result column="IsDel" property="IsDel" />
+        <result column="StreamType" property="StreamType" />
+        <result column="CreateUserId" property="CreateUserId" />
+        <result column="EndLatitude" property="EndLatitude" />
+        <result column="Path" property="Path" />
+        <result column="TaskName" property="TaskName" />
+        <result column="AVDataType" property="AVDataType" />
+        <result column="FtpId" property="FtpId" />
+        <result column="ExecCondition" property="ExecCondition" />
+        <result column="Status" property="Status" />
+        <result column="BeginLongitude" property="BeginLongitude" />
+        <result column="CreateTime" property="CreateTime" />
+        <result column="Size" property="Size" />
+        <result column="ChannelId" property="ChannelId" />
+        <result column="UpdateTime" property="UpdateTime" />
+        <result column="EndLongitude" property="EndLongitude" />
+    </resultMap>
+
+</mapper>

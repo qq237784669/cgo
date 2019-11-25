@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.BizMosmsMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.BizMosms">
+        <id column="ID" property="id" />
+        <result column="MsgContent" property="MsgContent" />
+        <result column="bSend" property="bSend" />
+        <result column="DeviceType" property="DeviceType" />
+        <result column="IsResend" property="IsResend" />
+        <result column="Phone" property="Phone" />
+        <result column="MsgCode" property="MsgCode" />
+        <result column="SystemID" property="SystemID" />
+        <result column="AddTime" property="AddTime" />
+    </resultMap>
+
+</mapper>

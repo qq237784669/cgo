@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.RptCountstatMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.RptCountstat">
+        <id column="Id" property="Id" />
+        <result column="PicCount" property="PicCount" />
+        <result column="2048" property="2048" />
+        <result column="8" property="8" />
+        <result column="2147483648" property="2147483648" />
+        <result column="562949953421312" property="562949953421312" />
+        <result column="67108864" property="67108864" />
+        <result column="EndMileage" property="EndMileage" />
+        <result column="BeginLatitude" property="BeginLatitude" />
+        <result column="576460752303423488" property="576460752303423488" />
+        <result column="64" property="64" />
+        <result column="2097152" property="2097152" />
+        <result column="70368744177664" property="70368744177664" />
+        <result column="BeginTime" property="BeginTime" />
+        <result column="4503599627370496" property="4503599627370496" />
+        <result column="4611686018427387904" property="4611686018427387904" />
+        <result column="DifWorktime" property="DifWorktime" />
+        <result column="1" property="1" />
+        <result column="18014398509481984" property="18014398509481984" />
+        <result column="536870912" property="536870912" />
+        <result column="8388608" property="8388608" />
+        <result column="140737488355328" property="140737488355328" />
+        <result column="EndTime" property="EndTime" />
+        <result column="128" property="128" />
+        <result column="17179869184" property="17179869184" />
+        <result column="DifOil" property="DifOil" />
+        <result column="144115188075855872" property="144115188075855872" />
+        <result column="16" property="16" />
+        <result column="17592186044416" property="17592186044416" />
+        <result column="16384" property="16384" />
+        <result column="524288" property="524288" />
+        <result column="134217728" property="134217728" />
+        <result column="SimNum" property="SimNum" />
+        <result column="1125899906842624" property="1125899906842624" />
+        <result column="DifSpeedingtime" property="DifSpeedingtime" />
+        <result column="1152921504606846976" property="1152921504606846976" />
+        <result column="512" property="512" />
+        <result column="4194304" property="4194304" />
+        <result column="35184372088832" property="35184372088832" />
+        <result column="1048576" property="1048576" />
+        <result column="GpsDate" property="GpsDate" />
+        <result column="9007199254740992" property="9007199254740992" />
+        <result column="2305843009213693952" property="2305843009213693952" />
+        <result column="2" property="2" />
+        <result column="4096" property="4096" />
+        <result column="36028797018963968" property="36028797018963968" />
+        <result column="1073741824" property="1073741824" />
+        <result column="33554432" property="33554432" />
+        <result column="BeginMileage" property="BeginMileage" />
+        <result column="256" property="256" />
+        <result column="EndLongitude" property="EndLongitude" />
+        <result column="TransportCount" property="TransportCount" />
+        <result column="288230376151711744" property="288230376151711744" />
+        <result column="72057594037927936" property="72057594037927936" />
+        <result column="32" property="32" />
+        <result column="8192" property="8192" />
+        <result column="2251799813685248" property="2251799813685248" />
+        <result column="268435456" property="268435456" />
+        <result column="DifTimeout" property="DifTimeout" />
+        <result column="262144" property="262144" />
+        <result column="EndLatitude" property="EndLatitude" />
+        <result column="TransportWorktime" property="TransportWorktime" />
+        <result column="1024" property="1024" />
+        <result column="16777216" property="16777216" />
+        <result column="281474976710656" property="281474976710656" />
+        <result column="BeginLongitude" property="BeginLongitude" />
+        <result column="4" property="4" />
+        <result column="LastOil" property="LastOil" />
+    </resultMap>
+
+</mapper>

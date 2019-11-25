@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.SysUserauthVehicleMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.SysUserauthVehicle">
+        <id column="UserId" property="UserId" />
+        <result column="VehicleId" property="VehicleId" />
+        <result column="Id" property="Id" />
+    </resultMap>
+
+</mapper>

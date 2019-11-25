@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.RptAdasAlarmcountdayMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cgo.db.entity.RptAdasAlarmcountday">
+        <id column="Id" property="Id" />
+        <result column="OrgId" property="OrgId" />
+        <result column="SafetyCount" property="SafetyCount" />
+        <result column="Dots" property="Dots" />
+        <result column="TrackDay" property="TrackDay" />
+        <result column="GeoCode" property="GeoCode" />
+        <result column="FlagId" property="FlagId" />
+    </resultMap>
+
+</mapper>
