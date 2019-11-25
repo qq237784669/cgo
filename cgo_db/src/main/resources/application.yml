@@ -70,3 +70,18 @@ globalConfig:
   #查岗应答时效 单位分钟 默认15分钟
   isWorkRspTime: 15
   #查岗功能相关配置---End---
+
+
+
+# redis 配置
+spring:
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    jedis:
+      pool:
+        max-active: 200
+        max-idle: 10
+        min-idle: 0
+    timeout: 3000
+
