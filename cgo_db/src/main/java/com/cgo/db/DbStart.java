@@ -11,6 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @MapperScan("com.cgo.db.mapper")
 public class DbStart {
 
+    //test推送
     public static void main(String[] args) {
         SpringApplication.run(DbStart.class);
     }
