@@ -11,7 +11,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 
-public class UserJwtExpansion extends DefaultUserAuthenticationConverter {
+public class UserJwtExtension extends DefaultUserAuthenticationConverter {
 
 
     @Override

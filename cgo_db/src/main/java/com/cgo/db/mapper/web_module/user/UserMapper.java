@@ -1,6 +1,4 @@
-package com.cgo.db.mapper.svc.web_module.user;
-
-import org.apache.ibatis.annotations.Param;
+package com.cgo.db.mapper.web_module.user;
 
 import java.util.List;
 import java.util.Map;

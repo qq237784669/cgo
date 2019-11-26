@@ -7,8 +7,8 @@ import com.cgo.api.service.web_module.user.IUserService;
 import com.cgo.common.response.ResponseResult;
 import com.cgo.common.utlis.EncryptionUtil;
 
-import com.cgo.db.entity.login.GlobalConfig;
-import com.cgo.db.mapper.svc.web_module.user.UserMapper;
+import com.cgo.db.entity.login_module.login.GlobalConfig;
+import com.cgo.db.mapper.web_module.user.UserMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 

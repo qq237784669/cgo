@@ -1,4 +1,4 @@
-package com.cgo.db.config.typeconvert;
+package com.cgo.db.config.typeconvertor;
 
 import org.apache.ibatis.type.LocalDateTimeTypeHandler;
 import org.springframework.stereotype.Component;

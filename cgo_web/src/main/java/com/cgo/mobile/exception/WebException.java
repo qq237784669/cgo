@@ -16,10 +16,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
  **/
 @RestControllerAdvice//控制器增强
 @Slf4j
-public class ExceptionCatch {
-
-
-
+public class WebException {
     //定义map，配置异常类型所对应的错误代码  volatile 防止汇编指令重排序的情况
     private  static ImmutableMap<Class<? extends Throwable>,ResultCode> EXCEPTIONS;
     //定义map的builder对象，去构建ImmutableMap
@@ -34,6 +31,7 @@ public class ExceptionCatch {
         ResultCode resultCode = customException.getResultCode();
         return new ResponseResult(null,resultCode);
     }
+
     //捕获Exception此类异常
     @ExceptionHandler(Exception.class)
     @ResponseBody
@@ -43,7 +41,7 @@ public class ExceptionCatch {
 
         //  预防并发情况下的重复创建 双重锁
         if(EXCEPTIONS == null){
-            synchronized (ExceptionCatch.class){
+            synchronized (WebException.class){
                 if (EXCEPTIONS==null){
                     EXCEPTIONS = builder.build();//EXCEPTIONS构建成功
                 }
@@ -58,8 +56,6 @@ public class ExceptionCatch {
             //返回99999异常
             return new ResponseResult(null,CommonCode.SERVER_ERROR);
         }
-
-
     }
 
     static {

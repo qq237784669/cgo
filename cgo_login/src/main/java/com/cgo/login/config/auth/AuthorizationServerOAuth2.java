@@ -24,7 +24,7 @@ import org.springframework.security.oauth2.provider.token.store.KeyStoreKeyFacto
 
 @Configuration
 @EnableAuthorizationServer
-public class AuthticationServerOAuth2 extends AuthorizationServerConfigurerAdapter {
+public class AuthorizationServerOAuth2 extends AuthorizationServerConfigurerAdapter {
     @Autowired
     private AuthenticationManager authenticationManager;
 
@@ -96,7 +96,7 @@ public class AuthticationServerOAuth2 extends AuthorizationServerConfigurerAdapt
         DefaultAccessTokenConverter accessTokenConverter = (DefaultAccessTokenConverter) converter.getAccessTokenConverter();
         //将修改后的 respoenesConvert 类 覆盖 默认的 增加jwt Json字符串的内容
 
-        accessTokenConverter.setUserTokenConverter(new UserJwtExpansion());
+        accessTokenConverter.setUserTokenConverter(new UserJwtExtension());
         return converter;
     }
 
