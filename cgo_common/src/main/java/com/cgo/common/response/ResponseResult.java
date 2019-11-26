@@ -12,39 +12,39 @@ import java.io.Serializable;
 @Data
 @AllArgsConstructor
 public class ResponseResult implements Serializable {
-
     private Object data;
 
     //操作是否成功
-    boolean success;
+    private boolean success;
 
     //操作代码
-    int code;
+    private int code;
 
     //提示信息
-    String message;
+    private String message;
 
 
-    public ResponseResult(Object data, ResultCode resultCode){
-        setCommonRespones(resultCode);
-        this.data=data;
-    }
-    public ResponseResult(){
-       setCommonRespones(CommonCode.SUCCESS);
+    public ResponseResult(Object data, ResultCode resultCode) {
+        setCommonResponse(resultCode);
+        this.data = data;
     }
 
-    public void setCommonRespones(ResultCode resultCode){
+    public ResponseResult() {
+        setCommonResponse(CommonCode.SUCCESS);
+    }
+
+    public void setCommonResponse(ResultCode resultCode) {
         this.success = resultCode.success();
         this.code = resultCode.code();
         this.message = resultCode.message();
     }
 
 
-    public static ResponseResult success(){
-        return new ResponseResult(null,CommonCode.SUCCESS);
+    public static ResponseResult success() {
+        return new ResponseResult(null, CommonCode.SUCCESS);
     }
 
-    public static ResponseResult fail(){
-        return new ResponseResult(null,CommonCode.FAIL);
+    public static ResponseResult fail() {
+        return new ResponseResult(null, CommonCode.FAIL);
     }
 }

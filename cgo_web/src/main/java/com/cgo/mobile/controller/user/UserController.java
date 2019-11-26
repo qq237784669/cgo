@@ -9,7 +9,7 @@ import com.cgo.common.response.CommonCode;
 import com.cgo.common.response.ResponseResult;
 
 
-import com.cgo.common.utlis.ResponseUtils;
+import com.cgo.common.utlis.ResponseUtil;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -37,6 +37,6 @@ public class UserController implements IUserController {
         }
 
         List list=iUserService.getVehicleList(userId,userType);
-        return new ResponseResult(ResponseUtils.put("orgList",list),CommonCode.SUCCESS);
+        return new ResponseResult(ResponseUtil.put("orgList",list),CommonCode.SUCCESS);
     }
 }

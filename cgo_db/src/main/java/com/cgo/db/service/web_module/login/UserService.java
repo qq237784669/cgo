@@ -52,7 +52,7 @@ public class UserService implements IUserService {
 
 
             if (platformType != null && !platformType.isEmpty() && platformType.equals("top6")) {
-                responseResult.setCommonRespones(LoginCode.FAIL_1);
+                responseResult.setCommonResponse(LoginCode.FAIL_1);
                 if (mobileOs != null && mobileOs == 0) {
                     responseResult.setData(globalConfig.getAndroidTop6AppDownloadUrl());
                 } else if (mobileOs != null && mobileOs == 1) {
