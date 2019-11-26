@@ -1,4 +1,4 @@
-package com.cgo.mobile.controller;
+package com.cgo.mobile.controller.user;
 
 
 import com.alibaba.dubbo.config.annotation.Reference;

@@ -1,4 +1,4 @@
-package com.cgo.db.mapper.svc.user;
+package com.cgo.db.mapper.svc.web_module.user;
 
 import org.apache.ibatis.annotations.Param;
 

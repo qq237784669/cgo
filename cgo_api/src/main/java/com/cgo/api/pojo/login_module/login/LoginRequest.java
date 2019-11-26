@@ -1,4 +1,4 @@
-package com.cgo.api.pojo.login_module;
+package com.cgo.api.pojo.login_module.login;
 
 import java.io.Serializable;
 

@@ -1,6 +1,6 @@
 package com.cgo.login.pojo;
-import com.cgo.api.pojo.login_module.AppMenuAuth;
-import com.cgo.api.pojo.login_module.VehicleIcon;
+import com.cgo.api.pojo.login_module.login.AppMenuAuth;
+import com.cgo.api.pojo.login_module.login.VehicleIcon;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.User;
