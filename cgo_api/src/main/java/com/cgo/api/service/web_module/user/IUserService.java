@@ -12,14 +12,4 @@ public interface IUserService {
      * @return
      */
     ResponseResult login(LoginRequest loginRequest);
-
-    /**
-     * 通过 用户id   用户类型 查询  对应的车辆
-     * @param userId
-     * @param userType
-     * @return
-     */
-    List getVehicleList(String userId, String userType);
-
-
 }

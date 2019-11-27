@@ -18,24 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 import java.util.Map;
 
-@RestController("/api/v1/vehicle")
+@RestController("/api/v1/user")
 public class UserController implements IUserController {
 
-
-    @Reference
-    IUserService iUserService;
-
-
-    @RequestMapping("/getVehicleList")
-    public ResponseResult findList(@RequestBody Map<String, String> param) {
-        String userId = param.get("userId");
-        String userType = param.get("userType");
-
-        if (StringUtils.isEmpty(userId) || StringUtils.isEmpty(userType)) {
-            throw new CustomException(CommonCode.INVALID_PARAM);
-        }
-
-        List list = iUserService.getVehicleList(userId, userType);
-        return new ResponseResult(ResponseUtil.put("orgList", list), CommonCode.SUCCESS);
-    }
 }
