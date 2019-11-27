@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController("/api/v1/vehicle")
-public class VehicleController implements IUserController {
+public class UserController implements IUserController {
 
 
     @Reference
