@@ -98,84 +98,33 @@
 
 
     <select id="findOrganizationListByUserTypeEqZero" resultType="map" parameterType="map">
-                ;WITH CTEOrg
-                AS (SELECT b.OrgId,
-                b.SearchCode,
-                b.OrgName,
-                b.ParentId,
-                levels=Len(b.SearchCode),
-                t.OrgTypeName,
-                b.Remark,
-                b.Contact,
-                b.Telephone
-                FROM   View_UserOrg a
-                INNER JOIN bas_Org b WITH(NOLOCK)
-                ON a.OrgId = b.OrgId
-                LEFT JOIN bas_OrgType t
-                ON b.OrgType = t.OrgType
-                WHERE  a.UserId = #{userId} )
-                SELECT OrgId,
-                SearchCode,
-                aa.OrgName,
-                OrgType,
-                ParentId
-                FROM  (SELECT a.OrgId,
-                a.SearchCode,
-                a.OrgName,
-                t.OrgTypeName AS OrgType,
-                ParentId=0
-                FROM   bas_Org a
-                INNER JOIN bas_OrgType t
-                ON a.OrgType = t.OrgType
-                WHERE  ParentId = 0
-                UNION
-                SELECT OrgId,
-                SearchCode,
-                a.OrgName,
-                OrgTypeName AS OrgType,
-                ParentId
-                FROM   CTEOrg a)aa
-                ORDER  BY ParentId ASC,
-                aa.OrgName COLLATE Chinese_PRC_CS_AS_KS_WS
+              ;WITH CTEOrg AS(
+			                SELECT b.OrgId,b.SearchCode,b.OrgName,b.ParentId,levels=Len(b.SearchCode),t.OrgTypeName,b.Remark,b.Contact,b.Telephone
+			                FROM View_UserOrg  a
+			                INNER JOIN bas_Org b WITH(NOLOCK) ON a.OrgId=b.OrgId
+			                LEFT JOIN bas_OrgType t ON b.OrgType=t.OrgType
+			                WHERE  a.UserId =#{userId}
+		                    )
+							select OrgId,SearchCode,aa.OrgName,OrgType,ParentId from(SELECT a.OrgId,a.SearchCode,a.OrgName,t.OrgTypeName as	OrgType,ParentId=0 FROM bas_Org a
+                            INNER JOIN bas_OrgType t ON a.OrgType=t.OrgType
+                            WHERE ParentId=0
+		                    UNION
+		                    SELECT OrgId,SearchCode,a.OrgName,OrgTypeName as OrgType,ParentId
+		                    FROM CTEOrg a )aa
+		                    ORDER BY ParentId asc, aa.OrgName collate Chinese_PRC_CS_AS_KS_WS
     </select>
 
     <select id="findVehicleListByUserTypeEqZero" resultType="map">
-              SELECT uv.VehicleId,
-                uv.SimNum,
-                uv.PlateNum,
-                uv.OrgId,
-                t.VehicleTypeName,
-                Isnull(tp.TerminalTypeName, '未知') AS TerminalTypeName,
-                Isnull(v.DVRTypeCode, 0)          AS DVRTypeCode,
-                Isnull(v.DVRChannelNum, 0)        AS DVRChannelNum,
-                bvc.VehicleOfflineTimeOut,
-                IsOnline=( CASE
-                WHEN cp.recetime IS NOT NULL
-                AND cp.recetime &gt; Dateadd(second, -( CASE
-                WHEN bvc.VehicleOfflineTimeOut IS NULL THEN 5 * 60
-                WHEN bvc.VehicleOfflineTimeOut &gt; 0 THEN bvc.VehicleOfflineTimeOut
-                ELSE 5 * 60
-                END ), Getdate()) THEN 1
-                ELSE 0
-                END ),
-                ''                                AS DVRDeviceId,
-                o.SearchCode
-                FROM   View_UserVehicle uv
-                INNER JOIN bas_Vehicle v WITH(NOLOCK)
-                ON uv.VehicleId = v.VehicleId
-                INNER JOIN bas_Org o WITH(NOLOCK)
-                ON uv.OrgId = o.OrgId
-                LEFT JOIN bas_TerminalType tp WITH(NOLOCK)
-                ON v.TerminalTypeId = tp.TerminalTypeId
-                LEFT JOIN std_VehicleType t WITH(NOLOCK)
-                ON v.VehicleTypeCode = t.VehicleTypeCode
-                LEFT JOIN [bas_VehicleConfig] bvc WITH(NOLOCK)
-                ON v.VehicleId = bvc.VehicleId
-                LEFT JOIN biz_CurrentPos cp WITH(NOLOCK)
-                ON uv.SimNum = cp.SimNum
-                WHERE  uv.UserId = #{userId}
-                ORDER  BY o.SearchCode,
-                PlateNum
+                            SELECT uv.VehicleId,uv.SimNum,uv.PlateNum,uv.OrgId,t.VehicleTypeName,tp.TerminalTypeName,ISNULL(v.DVRTypeCode,0) as DVRTypeCode,ISNULL(v.DVRChannelNum,0) as DVRChannelNum, IsOnline=(case when cp.SimNum is null then 0 else 1 end), '' as DVRDeviceId,o.SearchCode
+                            FROM View_UserVehicle uv
+                            INNER JOIN bas_Vehicle v ON uv.VehicleId=v.VehicleId
+                            INNER JOIN bas_Org o ON uv.OrgId=o.OrgId
+                            INNER JOIN bas_TerminalType tp  ON v.TerminalTypeId = tp.TerminalTypeId
+                            LEFT JOIN std_VehicleType t ON v.VehicleTypeCode=t.VehicleTypeCode
+                            LEFT JOIN biz_CurrentPos cp  WITH(NOLOCK)
+                            ON uv.SimNum=cp.SimNum
+                            WHERE uv.UserId=#{userId} and v.DVRTypeCode='999'
+                            ORDER BY o.SearchCode,PlateNum
     </select>
 
     <select id="findVehicleListByUserTypeEqOne" resultType="map">

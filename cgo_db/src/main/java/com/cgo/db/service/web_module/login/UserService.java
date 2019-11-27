@@ -229,7 +229,7 @@ public class UserService implements IUserService {
         String parentId = node.remove("ParentId").toString();
 
         node.put("id",orgId);
-        node.put("label",orgName);
+        node.put("name",orgName);
 
         //获取节点 id
        // String nodeId=node.get("OrgId").toString();
@@ -258,7 +258,21 @@ public class UserService implements IUserService {
                 if (orgId.equals(VorgId)){
                     Map<String,Object> nodeVehicleNode=new HashMap<>();
                     nodeVehicleNode.put("id",map.get("VehicleId"));
-                    nodeVehicleNode.put("label",map.get("PlateNum"));
+                    nodeVehicleNode.put("name",map.get("PlateNum"));
+                    nodeVehicleNode.put("orgid",map.get("OrgId"));
+                    nodeVehicleNode.put("vehicletype",map.get("VehicleTypeName"));
+                    nodeVehicleNode.put("simnum",map.get("SimNum"));
+                    nodeVehicleNode.put("IsOnline",map.get("IsOnline"));
+
+                    nodeVehicleNode.put("hascamera","1"); //写死字段
+
+                    nodeVehicleNode.put("dvrdeviceid",map.get("DVRDeviceId"));
+                    nodeVehicleNode.put("searchcode",map.get("SearchCode"));
+                    nodeVehicleNode.put("terminaltype",map.get("TerminalTypeName"));
+                    nodeVehicleNode.put("dvrchannlnum","0"); //写死
+                    nodeVehicleNode.put("chanelnuminfo",""); //写死
+                    nodeVehicleNode.put("vehicleofflinetimeout",""); //写死
+                    nodeVehicleNode.put("recetime",""); //写死
                     vehicleListConvert.add(nodeVehicleNode);
                 }
             }
