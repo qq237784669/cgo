@@ -254,8 +254,8 @@ public class UserService implements IUserService {
             List<Map<String, Object>> vehicleListConvert=new ArrayList<>();
             for (Map<String, Object> map : vehicleList) {
 
-                String VorgId = map.get("OrgId").toString();
-                if (orgId.equals(VorgId)){
+                String vorgId = map.get("OrgId").toString();
+                if (orgId.equals(vorgId)){
                     Map<String,Object> vehicleNode=new HashMap<>();
                     vehicleNode.put("id",map.get("VehicleId"));
                     vehicleNode.put("name",map.get("PlateNum"));
