@@ -214,10 +214,11 @@ public class UserService implements IUserService {
     }
 
     /**
-     * 查询一级节点的子节点
-     * @param node
+     *
+     * @param node   一级节点
      * @param organizationList
-     * @return
+     * @param userId
+     * @param vehicleList  车辆列表
      */
     private void findchildNode(Map<String, Object> node, List<Map<String, Object>> organizationList,String userId,List<Map<String,Object>> vehicleList) {
 
@@ -254,8 +255,8 @@ public class UserService implements IUserService {
             List<Map<String, Object>> vehicleListConvert=new ArrayList<>();
             for (Map<String, Object> map : vehicleList) {
 
-                String VorgId = map.get("OrgId").toString();
-                if (orgId.equals(VorgId)){
+                String vehicleOrgId = map.get("OrgId").toString();
+                if (orgId.equals(vehicleOrgId)){
                     Map<String,Object> vehicleNode=new HashMap<>();
                     vehicleNode.put("id",map.get("VehicleId"));
                     vehicleNode.put("name",map.get("PlateNum"));
