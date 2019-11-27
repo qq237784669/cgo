@@ -34,7 +34,7 @@ public class UserLoginController implements IUserLoginController {
             String access_token = loginService.login(loginRequest);
             data.put("access_token",access_token);
         }catch (Exception e){
-            responseResult.setCommonResponse(CommonCode.FAIL);
+            responseResult.setCommonResponse(CommonCode.FAILURE);
             data.put("access_token","");
            log.error(" login_module error >>>  ",e);
         }

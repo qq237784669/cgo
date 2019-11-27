@@ -13,9 +13,8 @@ public interface UserMapper {
      * @return
      */
     List<Map<String,String>> findByUserTypeZero(String userId);
+
     List<Map<String,String>> findByUserTypeOne(String userId);
-
-
 
     List<Map<String, String>> findUserAuth(String userId);
 

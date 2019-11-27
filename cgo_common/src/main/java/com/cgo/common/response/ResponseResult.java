@@ -45,6 +45,6 @@ public class ResponseResult implements Serializable {
     }
 
     public static ResponseResult fail() {
-        return new ResponseResult(null, CommonCode.FAIL);
+        return new ResponseResult(null, CommonCode.FAILURE);
     }
 }

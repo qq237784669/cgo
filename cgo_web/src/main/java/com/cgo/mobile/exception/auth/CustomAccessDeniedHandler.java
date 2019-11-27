@@ -23,6 +23,6 @@ public class CustomAccessDeniedHandler  implements AccessDeniedHandler {
         response.setStatus(HttpStatus.OK.value());
         response.setHeader("Content-Type", "application/json;charset=UTF-8");
 
-        response.getWriter().append(JSON.toJSONString(new ResponseResult(null, CommonCode.UNAUTHORISE)));
+        response.getWriter().append(JSON.toJSONString(new ResponseResult(null, CommonCode.PERMISSION_DENIED)));
     }
 }

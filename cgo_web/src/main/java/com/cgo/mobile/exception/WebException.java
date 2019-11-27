@@ -54,7 +54,7 @@ public class WebException {
             return new ResponseResult(null,resultCode);
         }else{
             //返回99999异常
-            return new ResponseResult(null,CommonCode.SERVER_ERROR);
+            return new ResponseResult(null,CommonCode.SYSTEM_BUSY);
         }
     }
 

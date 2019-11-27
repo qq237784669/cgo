@@ -6,10 +6,10 @@ public enum  CommonCode implements ResultCode  {
 
     INVALID_PARAM(false,10001,"非法参数！"),
     SUCCESS(true,10000,"操作成功！"),
-    FAIL(false,10002,"操作失败！"),
+    FAILURE(false,10002,"操作失败！"),
     UNAUTHENTICATED(false,10003,"此操作需要登陆系统！"),
-    UNAUTHORISE(false,10004,"权限不足，无权操作！"),
-    SERVER_ERROR(false,10005,"抱歉，系统繁忙，请稍后重试！");
+    PERMISSION_DENIED(false,10004,"权限不足，无权操作！"),
+    SYSTEM_BUSY(false,10005,"抱歉，系统繁忙，请稍后重试！");
     //    private static ImmutableMap<Integer, CommonCode> codes ;
     //操作是否成功
     boolean success;

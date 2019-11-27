@@ -3,7 +3,7 @@
 <mapper namespace="com.cgo.db.mapper.web_module.user.UserMapper">
 
 
-    <resultMap id="byUserTypeZero" type="map">
+    <resultMap id="userTypeZeroUser" type="map">
         <result column="OrgId" property="OrgId" javaType="string"></result>
         <result column="AlarmType" property="AlarmType" javaType="string"></result>
         <result column="ExpiryDay" property="ExpiryDay" javaType="string"></result>
@@ -15,7 +15,7 @@
     </resultMap>
 
 
-    <select id="findByUserTypeZero" resultMap="byUserTypeZero" parameterType="string" >
+    <select id="findByUserTypeZero" resultMap="userTypeZeroUser" parameterType="string" >
                    SELECT u.UserId,
                    u.UserPwd,
                    u.UserName,
