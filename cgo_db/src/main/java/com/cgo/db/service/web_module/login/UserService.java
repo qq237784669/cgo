@@ -259,18 +259,28 @@ public class UserService implements IUserService {
                     Map<String,Object> vehicleNode=new HashMap<>();
                     vehicleNode.put("id",map.get("VehicleId"));
                     vehicleNode.put("name",map.get("PlateNum"));
-                    vehicleNode.put("orgid",map.get("OrgId"));
-                    vehicleNode.put("vehicletype",map.get("VehicleTypeName"));
-                    vehicleNode.put("simnum",map.get("SimNum"));
-                    vehicleNode.put("IsOnline",map.get("IsOnline"));
-                    vehicleNode.put("hascamera","1"); //写死字段
-                    vehicleNode.put("dvrdeviceid",map.get("DVRDeviceId"));
-                    vehicleNode.put("searchcode",map.get("SearchCode"));
-                    vehicleNode.put("terminaltype",map.get("TerminalTypeName"));
-                    vehicleNode.put("dvrchannlnum","0"); //写死
-                    vehicleNode.put("chanelnuminfo",""); //写死
-                    vehicleNode.put("vehicleofflinetimeout",""); //写死
-                    vehicleNode.put("recetime",""); //写死
+                    vehicleNode.put("orgId",map.get("OrgId"));
+                    vehicleNode.put("vehicleType",map.get("VehicleTypeName"));
+                    vehicleNode.put("simNum",map.get("SimNum"));
+                    vehicleNode.put("isOnline",map.get("IsOnline"));
+                    vehicleNode.put("hasCamera","1");
+                    vehicleNode.put("dvrDeviceId",map.get("DVRDeviceId"));
+                    vehicleNode.put("searchCode",map.get("SearchCode"));
+                    vehicleNode.put("terminalType",map.get("TerminalTypeName"));
+
+                    if ("999".equals(map.get("DVRTypeCode").toString()) && "1".equals(globalConfig.getHasVideo()))
+                    {
+                        vehicleNode.put("dvrChannelNum",map.get("DVRChannelNum"));
+                    }else{
+                        vehicleNode.put("dvrChannelNum","0");
+                    }
+
+                    vehicleNode.put("chanelNumInfo", null); //未翻译
+                    if (map.get("VehicleOfflineTimeOut") != null){
+                        vehicleNode.put("vehicleOfflineTimeOut", map.get("VehicleOfflineTimeOut") );
+                    }
+
+                    vehicleNode.put("receTime","");
                     vehicleListConvert.add(vehicleNode);
                 }
             }
