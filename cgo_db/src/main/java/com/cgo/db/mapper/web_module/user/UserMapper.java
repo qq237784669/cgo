@@ -27,7 +27,14 @@ public interface UserMapper {
 
     List<Map<String, String>> call_spApp_IsWorkMenuAuth(String userId);
 
-    List<Map<String,Object>> finVehicleListByUserTypeEqZero(String userId);
+    /**
+     * 获取车辆列表  和组织列表  userType=0的情况ia
+     * @param userId
+     * @return
+     */
+    List<Map<String,Object>> findVehicleListByUserTypeEqZero(String userId);
+    List<Map<String,Object>> findOrganizationListByUserTypeEqZero(String userId);
 
-    List<Map<String,Object>> finVehicleListByUserTypeEqOne(String userId);
+    List<Map<String,Object>> findVehicleListByUserTypeEqOne(String userId);
+
 }

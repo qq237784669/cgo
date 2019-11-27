@@ -97,7 +97,7 @@
     </select>
 
 
-    <select id="finVehicleListByUserTypeEqZero" resultType="map" parameterType="map">
+    <select id="findOrganizationListByUserTypeEqZero" resultType="map" parameterType="map">
                 ;WITH CTEOrg
                 AS (SELECT b.OrgId,
                 b.SearchCode,
@@ -137,7 +137,10 @@
                 FROM   CTEOrg a)aa
                 ORDER  BY ParentId ASC,
                 aa.OrgName COLLATE Chinese_PRC_CS_AS_KS_WS
-                SELECT uv.VehicleId,
+    </select>
+
+    <select id="findVehicleListByUserTypeEqZero" resultType="map">
+              SELECT uv.VehicleId,
                 uv.SimNum,
                 uv.PlateNum,
                 uv.OrgId,
@@ -175,7 +178,7 @@
                 PlateNum
     </select>
 
-    <select id="finVehicleListByUserTypeEqOne" resultType="map">
+    <select id="findVehicleListByUserTypeEqOne" resultType="map">
 
                 SELECT v.OrgId,
                 o.SearchCode,

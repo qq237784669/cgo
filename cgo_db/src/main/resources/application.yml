@@ -39,8 +39,12 @@ dubbo:
 
 # mybatis -- plus  的基本配置
 mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
   mapper-locations: classpath*:com/cgo/db/mapper/*Mapper.xml
   type-aliases-package: com.cgo.db.entity
+
+
 
 
 

@@ -21,8 +21,10 @@ import org.springframework.core.env.Environment;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 
 @Slf4j
@@ -187,10 +189,92 @@ public class UserService implements IUserService {
     @Override
     public List getVehicleList(String userId, String userType) {
         if ("0".equals(userType)){
-            return userMapper.finVehicleListByUserTypeEqZero(userId);
+            // 查询出所有组织列表
+            List<Map<String, Object>> organizationList = userMapper.findOrganizationListByUserTypeEqZero(userId);
+            // 查询出所有车辆列表
+            List<Map<String, Object>> vehicleList = userMapper.findVehicleListByUserTypeEqZero(userId);
+            //查询到所有一级节点
+            List<Map<String, Object>> levelOneNode = organizationList.stream().filter(item -> "0".equals(item.get("ParentId").toString())).collect(Collectors.toList());
+
+            List<Map<String,Object>> nodeAll=new ArrayList<>();
+            // 分段查找出所有 一级节点的 所有子节点
+            for (Map<String, Object> map : levelOneNode) {
+                 this.findchildNode(map,organizationList,userId,vehicleList);
+
+                 // 当前map 为一级切点 递归完成后 查询出所有 子节点的map
+                nodeAll.add(map);
+            }
+
+
+            return nodeAll;
         }else {
-            return userMapper.finVehicleListByUserTypeEqOne(userId);
+            return userMapper.findVehicleListByUserTypeEqOne(userId);
         }
+
+    }
+
+    /**
+     * 查询一级节点的子节点
+     * @param node
+     * @param organizationList
+     * @return
+     */
+    private void findchildNode(Map<String, Object> node, List<Map<String, Object>> organizationList,String userId,List<Map<String,Object>> vehicleList) {
+
+        node.remove("SearchCode");
+        node.remove("OrgType");
+
+        String orgName = node.remove("OrgName").toString();
+        String orgId = node.remove("OrgId").toString();
+        String parentId = node.remove("ParentId").toString();
+
+        node.put("id",orgId);
+        node.put("label",orgName);
+
+        //获取节点 id
+       // String nodeId=node.get("OrgId").toString();
+        //查找出 当前节点的下一级 节点
+        List<Map<String, Object>> childNode = organizationList.stream().filter(item -> {
+                    Object parentId1 = item.get("ParentId");
+                    if (parentId1 != null){
+                        return parentId1.toString().equals(orgId);
+                    }
+                    return false;
+                }
+            ).collect(Collectors.toList());
+
+        // 如果 下级节点 存在 则 添加到 上级节点的子节点中
+        if (childNode.size() >0 ){
+            node.put("children",childNode);
+        }
+        //如果不存在  代表当前节点是叶子节点那么查询 出车牌号信息然后retrun
+        else {
+            //根据节点OrgId  查询 对应的 车辆信息的车牌号
+
+            List<Map<String, Object>> vehicleListConvert=new ArrayList<>();
+            for (Map<String, Object> map : vehicleList) {
+
+                String VorgId = map.get("OrgId").toString();
+                if (orgId.equals(VorgId)){
+                    Map<String,Object> nodeVehicleNode=new HashMap<>();
+                    nodeVehicleNode.put("id",map.get("VehicleId"));
+                    nodeVehicleNode.put("label",map.get("PlateNum"));
+                    vehicleListConvert.add(nodeVehicleNode);
+                }
+            }
+
+            if (vehicleListConvert.size()>0)
+            node.put("childdren",vehicleListConvert);
+
+            return;
+        }
+
+
+        // 遍历所有节点  递归查询 下级节点
+        for (Map<String, Object> map : childNode) {
+            findchildNode(map,organizationList,userId,vehicleList);
+        }
+
 
     }
 
