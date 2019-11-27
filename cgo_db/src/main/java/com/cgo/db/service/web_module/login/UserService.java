@@ -256,24 +256,22 @@ public class UserService implements IUserService {
 
                 String VorgId = map.get("OrgId").toString();
                 if (orgId.equals(VorgId)){
-                    Map<String,Object> nodeVehicleNode=new HashMap<>();
-                    nodeVehicleNode.put("id",map.get("VehicleId"));
-                    nodeVehicleNode.put("name",map.get("PlateNum"));
-                    nodeVehicleNode.put("orgid",map.get("OrgId"));
-                    nodeVehicleNode.put("vehicletype",map.get("VehicleTypeName"));
-                    nodeVehicleNode.put("simnum",map.get("SimNum"));
-                    nodeVehicleNode.put("IsOnline",map.get("IsOnline"));
-
-                    nodeVehicleNode.put("hascamera","1"); //写死字段
-
-                    nodeVehicleNode.put("dvrdeviceid",map.get("DVRDeviceId"));
-                    nodeVehicleNode.put("searchcode",map.get("SearchCode"));
-                    nodeVehicleNode.put("terminaltype",map.get("TerminalTypeName"));
-                    nodeVehicleNode.put("dvrchannlnum","0"); //写死
-                    nodeVehicleNode.put("chanelnuminfo",""); //写死
-                    nodeVehicleNode.put("vehicleofflinetimeout",""); //写死
-                    nodeVehicleNode.put("recetime",""); //写死
-                    vehicleListConvert.add(nodeVehicleNode);
+                    Map<String,Object> vehicleNode=new HashMap<>();
+                    vehicleNode.put("id",map.get("VehicleId"));
+                    vehicleNode.put("name",map.get("PlateNum"));
+                    vehicleNode.put("orgid",map.get("OrgId"));
+                    vehicleNode.put("vehicletype",map.get("VehicleTypeName"));
+                    vehicleNode.put("simnum",map.get("SimNum"));
+                    vehicleNode.put("IsOnline",map.get("IsOnline"));
+                    vehicleNode.put("hascamera","1"); //写死字段
+                    vehicleNode.put("dvrdeviceid",map.get("DVRDeviceId"));
+                    vehicleNode.put("searchcode",map.get("SearchCode"));
+                    vehicleNode.put("terminaltype",map.get("TerminalTypeName"));
+                    vehicleNode.put("dvrchannlnum","0"); //写死
+                    vehicleNode.put("chanelnuminfo",""); //写死
+                    vehicleNode.put("vehicleofflinetimeout",""); //写死
+                    vehicleNode.put("recetime",""); //写死
+                    vehicleListConvert.add(vehicleNode);
                 }
             }
 
