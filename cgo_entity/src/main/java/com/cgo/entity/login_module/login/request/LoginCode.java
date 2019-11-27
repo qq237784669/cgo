@@ -1,4 +1,4 @@
-package com.cgo.api.pojo.login_module.login;
+package com.cgo.entity.login_module.login.request;
 
 import com.cgo.common.response.ResultCode;
 

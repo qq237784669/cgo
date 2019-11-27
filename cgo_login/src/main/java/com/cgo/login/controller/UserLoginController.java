@@ -1,8 +1,8 @@
 package com.cgo.login.controller;
 
 
-import com.cgo.api.controller.login_module.IUserLoginController;
-import com.cgo.api.pojo.login_module.login.LoginRequest;
+import com.cgo.api.controller.login_module.logo.IUserLoginController;
+import com.cgo.entity.login_module.login.request.LoginRequest;
 import com.cgo.common.response.CommonCode;
 import com.cgo.common.response.ResponseResult;
 import com.cgo.login.service.LoginService;

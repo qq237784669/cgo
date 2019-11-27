@@ -1,6 +1,6 @@
 package com.cgo.api.service.web_module.user;
 
-import com.cgo.api.pojo.login_module.login.LoginRequest;
+import com.cgo.entity.login_module.login.request.LoginRequest;
 import com.cgo.common.response.ResponseResult;
 
 import java.util.List;

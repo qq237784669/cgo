@@ -2,9 +2,9 @@ package com.cgo.login.service;
 
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.alibaba.fastjson.JSON;
-import com.cgo.api.pojo.login_module.login.LoginRequest;
-import com.cgo.api.pojo.login_module.login.LoginResponse;
+import com.cgo.entity.login_module.login.request.LoginRequest;
 import com.cgo.api.service.web_module.user.IUserService;
+import com.cgo.entity.login_module.login.response.LoginResponse;
 import com.cgo.login.pojo.UserExt;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;

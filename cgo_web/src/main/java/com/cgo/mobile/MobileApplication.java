@@ -11,7 +11,7 @@ import org.springframework.context.annotation.ComponentScan;
 @SpringBootApplication()
 @ComponentScan(basePackages ={
         "com.cgo.mobile",
-        "com.cgo.common",
+        //"com.cgo.common", 不扫描 common 因为有redis存在
         "com.cgo.api"
 } )
 public class MobileApplication {

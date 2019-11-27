@@ -1,4 +1,4 @@
-package com.cgo.db.entity.login_module.login;
+package com.cgo.entity.login_module.login.pojo;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;

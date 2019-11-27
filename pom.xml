@@ -13,6 +13,7 @@
         <module>cgo_common</module>
         <module>cgo_login</module>
         <module>cgo_api</module>
+        <module>cgo_entity</module>
     </modules>
     <packaging>pom</packaging>
 

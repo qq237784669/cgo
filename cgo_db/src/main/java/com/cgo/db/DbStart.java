@@ -11,7 +11,11 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
 @EnableDubbo
-@ComponentScan(basePackages = {"com.cgo.common","com.cgo.db"})
+@ComponentScan(basePackages = {
+        "com.cgo.common",
+        "com.cgo.db",
+        "com.cgo.entity"
+})
 @MapperScan("com.cgo.db.mapper")
 public class DbStart {
 

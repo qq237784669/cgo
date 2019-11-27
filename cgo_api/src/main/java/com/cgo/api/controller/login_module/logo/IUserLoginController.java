@@ -1,7 +1,7 @@
-package com.cgo.api.controller.login_module;
+package com.cgo.api.controller.login_module.logo;
 
 
-import com.cgo.api.pojo.login_module.login.LoginRequest;
+import com.cgo.entity.login_module.login.request.LoginRequest;
 import com.cgo.common.response.ResponseResult;
 
 import io.swagger.annotations.Api;

@@ -1,7 +1,7 @@
 package com.cgo.login.service;
 
 import com.alibaba.fastjson.JSON;
-import com.cgo.api.pojo.login_module.login.LoginRequest;
+import com.cgo.entity.login_module.login.request.LoginRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;

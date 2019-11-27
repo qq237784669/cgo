@@ -12,11 +12,13 @@
     <artifactId>cgo_api</artifactId>
 
     <dependencies>
+
         <dependency>
             <groupId>com.xg</groupId>
-            <artifactId>cgo_common</artifactId>
+            <artifactId>cgo_entity</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+
         <!--  =====================sawgger2==============   -->
         <dependency>
             <groupId>io.springfox</groupId>

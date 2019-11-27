@@ -2,15 +2,21 @@ package com.cgo.db.service.web_module.login;
 
 
 import com.alibaba.dubbo.config.annotation.Service;
-import com.cgo.api.pojo.login_module.login.*;
 import com.cgo.api.service.web_module.user.IUserService;
 import com.cgo.common.response.ResponseResult;
 import com.cgo.common.utlis.EncryptionUtil;
 
-import com.cgo.db.entity.login_module.login.GlobalConfig;
 import com.cgo.db.mapper.web_module.user.UserMapper;
+import com.cgo.entity.login_module.login.pojo.AppMenuAuth;
+import com.cgo.entity.login_module.login.pojo.CustomConfig;
+import com.cgo.entity.login_module.login.pojo.GlobalConfig;
+import com.cgo.entity.login_module.login.pojo.VehicleIcon;
+import com.cgo.entity.login_module.login.request.LoginCode;
+import com.cgo.entity.login_module.login.request.LoginRequest;
+import com.cgo.entity.login_module.login.response.LoginResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 
 
 import java.sql.*;

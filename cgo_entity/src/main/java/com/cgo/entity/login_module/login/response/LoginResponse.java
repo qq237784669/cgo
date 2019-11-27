@@ -1,6 +1,9 @@
-package com.cgo.api.pojo.login_module.login;
+package com.cgo.entity.login_module.login.response;
 
 
+
+import com.cgo.entity.login_module.login.pojo.AppMenuAuth;
+import com.cgo.entity.login_module.login.pojo.VehicleIcon;
 
 import java.io.Serializable;
 import java.util.List;

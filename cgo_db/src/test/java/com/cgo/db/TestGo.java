@@ -1,7 +1,7 @@
 package com.cgo.db;
 
 import com.alibaba.fastjson.JSON;
-import com.cgo.api.pojo.login_module.login.LoginRequest;
+import com.cgo.entity.login_module.login.request.LoginRequest;
 import com.cgo.api.service.web_module.user.IUserService;
 import com.cgo.db.mapper.AaMapper;
 import com.cgo.db.mapper.web_module.user.UserMapper;

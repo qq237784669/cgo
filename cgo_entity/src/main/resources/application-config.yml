@@ -1,0 +1,27 @@
+globalConfig:
+  #Android版top6产品线下载地址
+  androidTop6AppDownloadUrl: http://topmobile.c-go.com.cn:8084/Download/AndroidTOP6/TopMobile.apk
+  #iOS版top6产品线下载地址
+  iosTop6AppDownloadUrl:
+  #安卓允许登录使用的最低版本号配置，低于这个版本，则请到360应用商店下载新版本
+  minApkVersionCode: 27
+  minApkVersionCodeErrDesc: 当前软件版本较低，请到平台上扫描二维码下载新版本
+  #设置勾选车辆的限制
+  selectedCars: 500
+  #是否有视频功能 0 没有
+  hasVideo: 1
+  #是否开启视频推送 默认false 不开启
+  startVideoAlarmPush: false
+  #服务端版本号
+  serverVersion: 1.0.0.0
+  #外设数据获取 默认都不显示， 当前油量、温度数据 默认显示，配置值3， 载重数据、电量数据、胎压数据 默认不显示， 按位配置控制（1-当前油量 2-温度数据 4-载重数据 8-电量数据 16-胎压数据） 解析的时候只有1路时，不显示传感器通道名称，直接显示值信息
+  deviceConfig: 31
+
+  #查岗功能相关配置---Begin---
+  #设置是否推送查岗信息 默认0不允许
+  isCheckWork: 0
+  #定时获取查岗定时器间隔 单位秒 默认900秒即15分钟
+  getCheckWorkInterval: 900
+  #查岗应答时效 单位分钟 默认15分钟
+  isWorkRspTime: 15
+  #查岗功能相关配置---End---
