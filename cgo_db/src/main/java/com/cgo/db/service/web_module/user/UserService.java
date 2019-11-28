@@ -60,11 +60,11 @@ public class UserService implements IUserService {
         }
 
         if (mobileOs != null && mobileOs == 0 && loginRequest.getAppVersionCode() < globalConfig.getMinApkVersionCode()) {
-            return new ResponseResult(null, false, -10, globalConfig.getMinApkVersionCodeErrDesc());
+            return new ResponseResult(false, -10, globalConfig.getMinApkVersionCodeErrDesc(), null);
         }
 
         if (userId == null || userId.isEmpty() || password == null || password.isEmpty()) {
-            return new ResponseResult(null, false, -1, "请输入用户名/密码。");
+            return new ResponseResult(false, -1, "请输入用户名/密码。", null);
         }
 
             /*
@@ -92,24 +92,24 @@ public class UserService implements IUserService {
         }
 
         if (userList.size() > 0 && !"0".equals(userType)) {
-            return new ResponseResult(null, false, -1, "您输入的号牌【XXXX】存在不同颜色的多辆车,请在车牌号码后加颜色重新登录,如:测A12345黄。");
+            return new ResponseResult(false, -1, "您输入的号牌【XXXX】存在不同颜色的多辆车,请在车牌号码后加颜色重新登录,如:测A12345黄。", null);
         }
         // 获取登录用户信息
         //endregion
 
         if (!(userList.size() > 0) || !validPassword(loginRequest.getPassword(), userList.get(0).get("UserPwd").toString())) {
-            return new ResponseResult(null, false, -1, "用户名/密码不正确。");
+            return new ResponseResult(false, -1, "用户名/密码不正确。", null);
         }
 
 
         ///新加车辆登录是否有权限，根据IsDenyWebGps判断 0表示无权限
         if (userType.equals("1") && "0".equals(userList.get(0).get("isDenyWebGps"))) {
-            return new ResponseResult(null, false, -1, "该车辆没有权限。");
+            return new ResponseResult(false, -1, "该车辆没有权限。", null);
         }
 
         ///新加车辆登录判断是否到期自动冻结
         if (userType.equals("1") && "1".equals(userList.get(0).get("IsStay"))) {
-            return new ResponseResult(null, false, -1, "登录失败,车辆已到期冻结。");
+            return new ResponseResult( false, -1, "登录失败,车辆已到期冻结。", null);
         }
 
         boolean isUserAuth = false;
@@ -122,7 +122,7 @@ public class UserService implements IUserService {
                 isUserAuth = true;
                 if (userAuth.get("hasModule").equals("0") && userType.equals("0")) {
                     //采用权限功能的话，判断用户是否采用手机模块
-                    return new ResponseResult(null, false, -1, "用户没有登录权限。");
+                    return new ResponseResult( false, -1, "用户没有登录权限。", null);
                 }
             }
         }
