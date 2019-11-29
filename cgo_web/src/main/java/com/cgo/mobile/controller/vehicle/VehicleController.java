@@ -46,8 +46,8 @@ public class VehicleController implements IVehicleController {
 
         String[] vehicleIdList = vehicleIds.split(",");
 
-        List list=iVehicleService.getVehiclePositioningList(vehicleIdList);
-        if (list==null){
+        List list = iVehicleService.getVehiclePositioningList(vehicleIdList);
+        if (list == null) {
             return new ResponseResult(ResponseUtil.put("orgList", list), VehicleCode.FAILURE);
         }
         return new ResponseResult(ResponseUtil.put("orgList", list).put("total",list.size()), CommonCode.SUCCESS);

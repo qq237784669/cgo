@@ -5,13 +5,6 @@ import java.util.Map;
 
 public interface UserMapper {
 
-
-    /**
-     * 根据用户类型   用户id 查询
-     * @param userType
-     * @param userId
-     * @return
-     */
     List<Map<String,String>> findByUserTypeZero(String userId);
 
     List<Map<String,String>> findByUserTypeOne(String userId);
@@ -33,7 +26,6 @@ public interface UserMapper {
      */
     List<Map<String,Object>> findVehicleListByUserTypeEqZero(String userId);
     List<Map<String,Object>> findOrganizationListByUserTypeEqZero(String userId);
-
     List<Map<String,Object>> findVehicleListByUserTypeEqOne(String userId);
 
 }
