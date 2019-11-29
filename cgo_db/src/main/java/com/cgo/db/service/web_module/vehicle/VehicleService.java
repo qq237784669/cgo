@@ -97,10 +97,7 @@ public class VehicleService implements IVehicleService {
                     return false;
                 }).collect(Collectors.toList());
 
-                // 返回有效的数据
-                List<Map<String,String>> vehiclePositioningList = redisUtil.getMapInKeysForList("vehiclePositioningList", filterPostIdList);
-                // 这儿做转换  填坑
-                return  vehiclePositioningList;
+                return  redisUtil.getMapInKeysForList("vehiclePositioningList", filterPostIdList);
 
             }else {
 

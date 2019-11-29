@@ -41,7 +41,7 @@
         END ), Getdate()) THEN 1
         ELSE 0
         END ),
-        v.RealSimNum as simNum,
+        v.RealSimNum,
         CONVERT(VARCHAR(30), v.SVRStartTime, 21)    AS svrStartTime,
         CONVERT(VARCHAR(30), v.SVREndTime, 21)      AS svrEndTime,
         Isnull(d.DriverName, '')                    AS driverName,
@@ -49,14 +49,14 @@
         stopTime=0,
         Isnull(cp.ResidualFuel, 0)                  AS residualFuel,
         cp.Mileage as mileage,
-        v.SimNum,
+        v.SimNum as simNum,,
         CONVERT(VARCHAR(30), cp.LastUpdateTime, 21) AS LastUpdateTime,
         tp.TerminalTypeName as terminalTypeName,
         ( CASE
         WHEN t.Mileage IS NULL
         OR ( cp.Mileage - t.Mileage ) &lt; 0 THEN 0
         ELSE cp.Mileage - t.Mileage
-        END )                                     AS todayMileage
+        END )                                     AS todayMileageCount
         FROM   bas_Vehicle v WITH(NOLOCK)
         LEFT JOIN bas_TerminalType tp WITH(NOLOCK)
         ON v.TerminalTypeId = tp.TerminalTypeId

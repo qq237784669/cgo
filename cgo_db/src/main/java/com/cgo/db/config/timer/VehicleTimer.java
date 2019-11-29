@@ -46,6 +46,16 @@ public class VehicleTimer {
         String dateString = DateUtli.convertDate(new Date(), new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS"));
         List<Map<String, Object>> vehiclePositioningList = vehicleMapper.findAllVehiclePositioning(dateString);
 
+        /* 补充扩展字段*/
+        vehiclePositioningList.stream().forEach(item->{
+            item.put("temperatureControl",value);
+            item.put("height",value);
+            item.put("address",value);
+            item.put("description",value);
+            item.put("alarmName",value);
+        });
+
+
         RLock lock = redissonClient.getLock("vehiclePositioning");
         boolean state=false;
         try {
