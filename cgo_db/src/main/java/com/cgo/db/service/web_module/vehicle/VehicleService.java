@@ -107,8 +107,11 @@ public class VehicleService implements IVehicleService {
                 }else {
                     vehiclePositioningCount.set(  vehiclePositioningCount.get()+1 );
                 }
-                if (vehiclePositioningCount.get() < 3)
-                     getVehiclePositioningList(vehicleIdList);
+                if (vehiclePositioningCount.get() < 10){
+                    Thread.sleep(500);
+                    getVehiclePositioningList(vehicleIdList);
+                }
+
 
             }
 
