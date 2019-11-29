@@ -82,7 +82,7 @@ public class VehicleService implements IVehicleService {
         boolean state=false;
 
         try {
-            state = lock.tryLock(2L, 10L, TimeUnit.SECONDS);
+            state = lock.tryLock(5L, 10L, TimeUnit.SECONDS);
 
             if (state){
                 List<String> vehicleIdListCache = redisTemplate.opsForList().range("vehicleIdList", 0, -1);
@@ -108,7 +108,7 @@ public class VehicleService implements IVehicleService {
                     vehiclePositioningCount.set(  vehiclePositioningCount.get()+1 );
                 }
                 if (vehiclePositioningCount.get() < 10){
-                    Thread.sleep(500);
+                    Thread.sleep(1000);
                     getVehiclePositioningList(vehicleIdList);
                 }
 
