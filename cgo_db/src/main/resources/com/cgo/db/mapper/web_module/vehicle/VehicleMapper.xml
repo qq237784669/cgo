@@ -15,12 +15,13 @@
 
         SET @Now=Getdate()
 
-        SELECT CONVERT(VARCHAR(30), @Now, 21)              AS QueryEndTime,
+        SELECT CONVERT(VARCHAR(30), @Now, 21)              AS queryEndTime,
         CONVERT(VARCHAR(30), cp.GpsTime, 21)        AS gpsTime,
         CONVERT(VARCHAR(30), cp.ReceTime, 20)       AS receTime,
         cp.ADRSpeed as adrSpeed,
         v.OrgId as orgId,
         v.VehicleId                                 AS vehicleId,
+        v.plateNum,
         cp.Longitude as lng,
         cp.Latitude as lat,
         cp.AlarmFlag as alarmFlag,
@@ -28,9 +29,9 @@
         dbo.Fnwmon_getstateflagname(cp.StateFlag)   AS vehicleState,
         cp.speed as speed,
         cp.Direction as direction,
-        cp.Altitude,
+        cp.altitude,
         pc.ColorName as vehicleColor,
-        Isnull(v.DVRTypeCode, 0)                    AS DVRTypeCode,
+        Isnull(v.DVRTypeCode, 0)                    AS dvrTypeCode,
         Isnull(v.DVRChannelNum, 0)                  AS dvrChannelNum,
         isOnline=( CASE
         WHEN cp.recetime IS NOT NULL
@@ -41,7 +42,7 @@
         END ), Getdate()) THEN 1
         ELSE 0
         END ),
-        v.RealSimNum,
+        v.realSimNum,
         CONVERT(VARCHAR(30), v.SVRStartTime, 21)    AS svrStartTime,
         CONVERT(VARCHAR(30), v.SVREndTime, 21)      AS svrEndTime,
         Isnull(d.DriverName, '')                    AS driverName,
@@ -50,7 +51,7 @@
         Isnull(cp.ResidualFuel, 0)                  AS residualFuel,
         cp.Mileage as mileage,
         v.SimNum as simNum,
-        CONVERT(VARCHAR(30), cp.LastUpdateTime, 21) AS LastUpdateTime,
+        CONVERT(VARCHAR(30), cp.LastUpdateTime, 21) AS lastUpdateTime,
         tp.TerminalTypeName as terminalTypeName,
         ( CASE
         WHEN t.Mileage IS NULL

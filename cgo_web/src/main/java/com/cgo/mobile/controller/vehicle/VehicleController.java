@@ -51,7 +51,7 @@ public class VehicleController implements IVehicleController {
         if (list == null) {
             return new ResponseResult(null,VehicleCode.FAILURE) ;
         }
-        Map data = ResponseUtil.put("orgList", list);
+        Map data = ResponseUtil.put("vehicles", list);
         data.put("total",list.size());
         return new ResponseResult(data,CommonCode.SUCCESS) ;
     }
