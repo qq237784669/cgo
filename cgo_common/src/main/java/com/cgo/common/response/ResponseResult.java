@@ -27,9 +27,7 @@ public class ResponseResult implements Serializable {
 
     public ResponseResult(Object data, ResultCode resultCode) {
         setCommonResponse(resultCode);
-        Map map=new HashMap();
-        map.put("data",data);
-        this.data = map;
+        this.data=data;
     }
 
     public ResponseResult() {

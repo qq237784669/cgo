@@ -50,6 +50,6 @@ public class VehicleController implements IVehicleController {
         if (list==null){
             return new ResponseResult(ResponseUtil.put("orgList", list), VehicleCode.FAILURE);
         }
-        return new ResponseResult(ResponseUtil.put("orgList", list), CommonCode.SUCCESS);
+        return new ResponseResult(ResponseUtil.put("orgList", list).put("total",list.size()), CommonCode.SUCCESS);
     }
 }
