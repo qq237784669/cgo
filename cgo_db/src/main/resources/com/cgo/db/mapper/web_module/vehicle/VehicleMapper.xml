@@ -49,7 +49,7 @@
         stopTime=0,
         Isnull(cp.ResidualFuel, 0)                  AS residualFuel,
         cp.Mileage as mileage,
-        v.SimNum as simNum,,
+        v.SimNum as simNum,
         CONVERT(VARCHAR(30), cp.LastUpdateTime, 21) AS LastUpdateTime,
         tp.TerminalTypeName as terminalTypeName,
         ( CASE
@@ -72,6 +72,7 @@
         ON cp.SimNum = t.SimNum
         AND t.GpsTime > @nowDay
         WHERE  cp.LastUpdateTime &lt;= @Now
+
         AND cp.LastUpdateTime &gt; #{date}
     </select>
 

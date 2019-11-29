@@ -48,8 +48,10 @@ public class VehicleController implements IVehicleController {
 
         List list = iVehicleService.getVehiclePositioningList(vehicleIdList);
         if (list == null) {
-            return new ResponseResult(ResponseUtil.put("orgList", list), VehicleCode.FAILURE);
+            return new ResponseResult(null,VehicleCode.FAILURE) ;
         }
-        return new ResponseResult(ResponseUtil.put("orgList", list).put("total",list.size()), CommonCode.SUCCESS);
+        Map data = ResponseUtil.put("orgList", list);
+        data.put("total",list.size());
+        return new ResponseResult(data,CommonCode.SUCCESS) ;
     }
 }

@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.cgo.common.utlis.DateUtli;
 import com.cgo.common.utlis.RedisUtil;
 import com.cgo.db.mapper.web_module.vehicle.VehicleMapper;
+import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.redisson.api.RLock;
 import org.redisson.api.RedissonClient;
@@ -13,17 +14,22 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
-@Component
+//@Component
 @Slf4j
 public class VehicleTimer {
+
+
+
     @Autowired
     VehicleMapper vehicleMapper;
+
 
     @Autowired
     StringRedisTemplate redisTemplate;
@@ -35,8 +41,18 @@ public class VehicleTimer {
      */
     @Scheduled(fixedRate = 10000)
     public void vehicle() {
+
+
         log.info(" =============================定时器 10s/次 获取车辆定位中  =============================");
-        String dateString = DateUtli.convertDate(new Date(), new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS"));
+
+
+        Date initDate=null;
+        try {
+            initDate = new SimpleDateFormat("yyyy-MM-dd").parse("1971-1-1 01:01:01.000");
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        String dateString = DateUtli.convertDate(initDate, new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS"));
         List<Map<String, Object>> vehiclePositioningList = vehicleMapper.findAllVehiclePositioning(dateString);
 
         /* 补充扩展字段*/
@@ -48,6 +64,7 @@ public class VehicleTimer {
             item.put("description","");
             item.put("alarmName","");
         });
+
 
         RLock lock = redissonClient.getLock("vehiclePositioning");
         boolean state=false;

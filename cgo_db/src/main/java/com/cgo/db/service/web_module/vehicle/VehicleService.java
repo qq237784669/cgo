@@ -87,17 +87,17 @@ public class VehicleService implements IVehicleService {
             if (state){
                 List<String> vehicleIdListCache = redisTemplate.opsForList().range("vehicleIdList", 0, -1);
 
-                // 过滤
-                List<String> filterPostIdList = vehicleIdListCache.stream().filter(item -> {
-                    for (String vehicleId : vehicleIdList) {
-                        if (vehicleId.equals(item)){
-                            return true;
+                List<String> filterVehicleIds =new ArrayList<>();
+                for (String vehicleId : vehicleIdList) {
+                    for (String vehicleIdCache : vehicleIdListCache) {
+                        if (vehicleId.equals(vehicleIdCache)) {
+                            if (!filterVehicleIds.contains(vehicleId))filterVehicleIds.add(vehicleId);
                         }
                     }
-                    return false;
-                }).collect(Collectors.toList());
+                }
 
-                return  redisUtil.getMapInKeysForList("vehiclePositioningList", filterPostIdList);
+                List vehiclePositioningList = redisUtil.getMapInKeysForList("vehiclePositioningList", filterVehicleIds);
+                return  redisUtil.getMapInKeysForList("vehiclePositioningList", filterVehicleIds);
 
             }else {
 
@@ -107,7 +107,7 @@ public class VehicleService implements IVehicleService {
                 }else {
                     vehiclePositioningCount.set(  vehiclePositioningCount.get()+1 );
                 }
-                if (vehiclePositioningCount.get() < 10)
+                if (vehiclePositioningCount.get() < 3)
                      getVehiclePositioningList(vehicleIdList);
 
             }

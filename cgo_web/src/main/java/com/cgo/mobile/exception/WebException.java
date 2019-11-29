@@ -26,8 +26,9 @@ public class WebException {
     @ExceptionHandler(CustomException.class)
     @ResponseBody
     public ResponseResult customException(CustomException customException){
+
         //记录日志
-        log.error("catch exception:  >>>>>  ",customException.getMessage());
+        log.error("catch exception:  >>>>>"+customException.getResultCode().message());
         ResultCode resultCode = customException.getResultCode();
         log.info("========================================== end ==========================================");
         return new ResponseResult(null,resultCode);
@@ -38,7 +39,7 @@ public class WebException {
     @ResponseBody
     public ResponseResult exception(Exception exception){
         //记录日志
-        log.error("catch exception:  >>>>>  ",exception);
+        log.error("catch exception:  >>>>>  "+exception);
 
         //  预防并发情况下的重复创建 双重锁
         if(EXCEPTIONS == null){
