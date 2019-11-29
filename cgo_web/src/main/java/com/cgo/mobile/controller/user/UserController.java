@@ -18,7 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 import java.util.Map;
 
-@RestController("/api/v1/user")
+@RestController
+@RequestMapping("/api/v1/user")
 public class UserController implements IUserController {
 
 }
