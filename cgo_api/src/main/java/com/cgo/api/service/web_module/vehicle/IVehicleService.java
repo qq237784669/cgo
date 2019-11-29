@@ -13,4 +13,11 @@ public interface IVehicleService {
      * @return 车辆列表
      */
     List getVehicleList(String userId, String userType);
+
+    /**
+     * 获取车辆定位 列表
+     * @param vehicleIdList
+     * @return
+     */
+    List getVehiclePositioningList(String[] vehicleIdList);
 }

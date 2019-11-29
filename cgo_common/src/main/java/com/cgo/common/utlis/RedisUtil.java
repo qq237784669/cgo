@@ -1,5 +1,6 @@
 package com.cgo.common.utlis;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import java.util.Map;
@@ -8,6 +9,7 @@ import java.util.Set;
 
 import java.util.concurrent.TimeUnit;
 
+import com.alibaba.fastjson.JSON;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.data.redis.core.RedisTemplate;
@@ -36,6 +38,16 @@ public final class RedisUtil {
 
     // =============================common============================
 
+
+    // 车辆定位列表 转换
+    public  List getMapInKeysForList(String key,List<String> list){
+        List result=new ArrayList();
+        for (String s : list) {
+            Object o = redisTemplate.opsForHash().get(key, s);
+            result.add(JSON.parseObject(o.toString(),Map.class));
+        }
+        return result;
+    }
     /**
      * 26
      * 指定缓存失效时间

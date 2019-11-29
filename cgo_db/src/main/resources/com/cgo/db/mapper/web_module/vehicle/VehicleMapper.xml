@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgo.db.mapper.web_module.vehicle.VehicleMapper">
+
+
+
+
+    <select id="findAllVehiclePositioning" resultType="java.util.Map">
+
+        DECLARE @nowDay DATETIME
+
+        SELECT @nowDay = Cast(CONVERT(VARCHAR, Getdate(), 112) AS DATETIME)
+
+        DECLARE @Now DATETIME
+
+        SET @Now=Getdate()
+
+        SELECT CONVERT(VARCHAR(30), @Now, 21)              AS QueryEndTime,
+        CONVERT(VARCHAR(30), cp.GpsTime, 21)        AS GpsTime,
+        CONVERT(VARCHAR(30), cp.ReceTime, 20)       AS ReceTime,
+        cp.ADRSpeed,
+        v.OrgId,
+        v.VehicleId                                 AS VEHICLEID,
+        cp.Longitude,
+        cp.Latitude,
+        cp.AlarmFlag,
+        cp.StateFlag,
+        dbo.Fnwmon_getstateflagname(cp.StateFlag)   AS VehicleState,
+        cp.speed,
+        cp.Direction,
+        cp.Altitude,
+        pc.ColorName,
+        Isnull(v.DVRTypeCode, 0)                    AS DVRTypeCode,
+        Isnull(v.DVRChannelNum, 0)                  AS DVRChannelNum,
+        IsOnline=( CASE
+        WHEN cp.recetime IS NOT NULL
+        AND cp.recetime > Dateadd(SECOND, -( CASE
+        WHEN bvc.VehicleOfflineTimeOut IS NULL THEN 5 * 60
+        WHEN bvc.VehicleOfflineTimeOut > 0 THEN bvc.VehicleOfflineTimeOut
+        ELSE 5 * 60
+        END ), Getdate()) THEN 1
+        ELSE 0
+        END ),
+        v.RealSimNum,
+        CONVERT(VARCHAR(30), v.SVRStartTime, 21)    AS SVRStartTime,
+        CONVERT(VARCHAR(30), v.SVREndTime, 21)      AS SVREndTime,
+        Isnull(d.DriverName, '')                    AS DriverName,
+        Isnull(d.DriverTelephone, '')               AS DriverTelephone,
+        StopTime=0,
+        Isnull(cp.ResidualFuel, 0)                  AS ResidualFuel,
+        cp.Mileage,
+        v.SimNum,
+        CONVERT(VARCHAR(30), cp.LastUpdateTime, 21) AS LastUpdateTime,
+        tp.TerminalTypeName,
+        ( CASE
+        WHEN t.Mileage IS NULL
+        OR ( cp.Mileage - t.Mileage ) &lt; 0 THEN 0
+        ELSE cp.Mileage - t.Mileage
+        END )                                     AS todayMileage
+        FROM   bas_Vehicle v WITH(NOLOCK)
+        LEFT JOIN bas_TerminalType tp WITH(NOLOCK)
+        ON v.TerminalTypeId = tp.TerminalTypeId
+        LEFT JOIN std_PlateColor pc WITH(NOLOCK)
+        ON v.ColorCode = pc.ColorCode
+        LEFT JOIN bas_Driver d WITH(NOLOCK)
+        ON v.SimNum = d.SimNum
+        LEFT JOIN [bas_VehicleConfig] bvc
+        ON v.VehicleId = bvc.VehicleId
+        INNER JOIN biz_CurrentPos cp WITH(NOLOCK)
+        ON v.SimNum = cp.SimNum
+        LEFT JOIN biz_TodayStartPos t WITH(NOLOCK)
+        ON cp.SimNum = t.SimNum
+        AND t.GpsTime > @nowDay
+        WHERE  cp.LastUpdateTime &lt;= @Now
+        AND cp.LastUpdateTime &lt; #{date}
+    </select>
+
+
+</mapper>

@@ -4,20 +4,22 @@ package com.cgo.db.service.web_module.vehicle;
 import com.alibaba.dubbo.config.annotation.Service;
 import com.cgo.api.service.web_module.vehicle.IVehicleService;
 import com.cgo.common.utlis.EncryptionUtil;
+import com.cgo.common.utlis.RedisUtil;
 import com.cgo.db.mapper.web_module.user.UserMapper;
 import com.cgo.entity.login_module.login.pojo.AppMenuAuth;
 import com.cgo.entity.login_module.login.pojo.CustomConfig;
 import com.cgo.entity.login_module.login.pojo.GlobalConfig;
 import com.cgo.entity.login_module.login.pojo.VehicleIcon;
 import lombok.extern.slf4j.Slf4j;
+import org.redisson.api.RLock;
+import org.redisson.api.RedissonClient;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.StringRedisTemplate;
 
 import java.sql.CallableStatement;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
 
@@ -32,6 +34,19 @@ public class VehicleService implements IVehicleService {
 
     @Autowired
     private UserMapper userMapper;
+
+    @Autowired
+    private RedisUtil redisUtil;
+
+
+    @Autowired
+    private StringRedisTemplate redisTemplate;
+
+    @Autowired
+    private RedissonClient redissonClient;
+
+    // 获取 车辆定位 计数器
+    private ThreadLocal<Integer> vehiclePositioningCount=new ThreadLocal<>();
 
     @Override
     public List getVehicleList(String userId, String userType) {
@@ -55,6 +70,62 @@ public class VehicleService implements IVehicleService {
         } else {
             return userMapper.findVehicleListByUserTypeEqOne(userId);
         }
+    }
+
+
+
+
+    @Override
+    public List getVehiclePositioningList(String[] vehicleIdList) {
+
+        RLock lock = redissonClient.getLock("vehiclePositioning");
+        boolean state=false;
+
+        try {
+            state = lock.tryLock(2L, 10L, TimeUnit.SECONDS);
+
+            if (state){
+                List<String> vehicleIdListCache = redisTemplate.opsForList().range("vehicleIdList", 0, -1);
+
+                // 过滤
+                List<String> filterPostIdList = vehicleIdListCache.stream().filter(item -> {
+                    for (String vehicleId : vehicleIdList) {
+                        if (vehicleId.equals(item)){
+                            return true;
+                        }
+                    }
+                    return false;
+                }).collect(Collectors.toList());
+
+                // 返回有效的数据
+                List<Map<String,String>> vehiclePositioningList = redisUtil.getMapInKeysForList("vehiclePositioningList", filterPostIdList);
+                // 这儿做转换  填坑
+                return  vehiclePositioningList;
+
+            }else {
+
+                Integer count = vehiclePositioningCount.get();
+                if (count==null) {
+                    vehiclePositioningCount.set(1);
+                }else {
+                    vehiclePositioningCount.set(  vehiclePositioningCount.get()+1 );
+                }
+                if (vehiclePositioningCount.get() < 10)
+                     getVehiclePositioningList(vehicleIdList);
+
+            }
+
+
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }finally {
+            if (state){
+                lock.unlock();
+            }
+        }
+
+
+        return null;
     }
 
     /**

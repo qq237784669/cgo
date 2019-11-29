@@ -9,7 +9,9 @@ import com.cgo.common.exception.CustomException;
 import com.cgo.common.response.CommonCode;
 import com.cgo.common.response.ResponseResult;
 import com.cgo.common.utlis.ResponseUtil;
-import org.springframework.util.StringUtils;
+import com.cgo.entity.web_module.vehicle.pojo.VehiclePositioning;
+import com.cgo.entity.web_module.vehicle.response.VehicleCode;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -32,6 +34,22 @@ public class VehicleController implements IVehicleController {
         }
 
         List list = iVehicleService.getVehicleList(userId, userType);
+        return new ResponseResult(ResponseUtil.put("orgList", list), CommonCode.SUCCESS);
+    }
+
+    @RequestMapping("/getVehiclePositioningList")
+    public ResponseResult getVehiclePositioningList(@RequestBody VehiclePositioning param) {
+        String vehicleIds = param.getVehicleIds();
+
+        if (StringUtils.isBlank(vehicleIds))
+            throw new CustomException(VehicleCode.INVALID_PARAM);
+
+        String[] vehicleIdList = vehicleIds.split(",");
+
+        List list=iVehicleService.getVehiclePositioningList(vehicleIdList);
+        if (list==null){
+            return new ResponseResult(ResponseUtil.put("orgList", list), VehicleCode.FAILURE);
+        }
         return new ResponseResult(ResponseUtil.put("orgList", list), CommonCode.SUCCESS);
     }
 }

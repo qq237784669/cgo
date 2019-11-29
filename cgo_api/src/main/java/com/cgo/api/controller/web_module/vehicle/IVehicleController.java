@@ -1,6 +1,7 @@
 package com.cgo.api.controller.web_module.vehicle;
 
 import com.cgo.common.response.ResponseResult;
+import com.cgo.entity.web_module.vehicle.pojo.VehiclePositioning;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -18,4 +19,8 @@ public interface IVehicleController {
             }
     )
     ResponseResult getVehicleList(Map<String, String> param);
+
+
+    @ApiOperation(value = "获取车辆定位列表", httpMethod = "POST")
+    ResponseResult getVehiclePositioningList(VehiclePositioning param);
 }
