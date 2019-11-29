@@ -16,23 +16,23 @@
         SET @Now=Getdate()
 
         SELECT CONVERT(VARCHAR(30), @Now, 21)              AS QueryEndTime,
-        CONVERT(VARCHAR(30), cp.GpsTime, 21)        AS GpsTime,
-        CONVERT(VARCHAR(30), cp.ReceTime, 20)       AS ReceTime,
-        cp.ADRSpeed,
-        v.OrgId,
-        v.VehicleId                                 AS VEHICLEID,
-        cp.Longitude,
-        cp.Latitude,
-        cp.AlarmFlag,
-        cp.StateFlag,
-        dbo.Fnwmon_getstateflagname(cp.StateFlag)   AS VehicleState,
-        cp.speed,
-        cp.Direction,
+        CONVERT(VARCHAR(30), cp.GpsTime, 21)        AS gpsTime,
+        CONVERT(VARCHAR(30), cp.ReceTime, 20)       AS receTime,
+        cp.ADRSpeed as adrSpeed,
+        v.OrgId as orgId,
+        v.VehicleId                                 AS vehicleId,
+        cp.Longitude as lng,
+        cp.Latitude as lat,
+        cp.AlarmFlag as alarmFlag,
+        cp.StateFlag as stateFlag,
+        dbo.Fnwmon_getstateflagname(cp.StateFlag)   AS vehicleState,
+        cp.speed as speed,
+        cp.Direction as direction,
         cp.Altitude,
-        pc.ColorName,
+        pc.ColorName as vehicleColor,
         Isnull(v.DVRTypeCode, 0)                    AS DVRTypeCode,
-        Isnull(v.DVRChannelNum, 0)                  AS DVRChannelNum,
-        IsOnline=( CASE
+        Isnull(v.DVRChannelNum, 0)                  AS dvrChannelNum,
+        isOnline=( CASE
         WHEN cp.recetime IS NOT NULL
         AND cp.recetime > Dateadd(SECOND, -( CASE
         WHEN bvc.VehicleOfflineTimeOut IS NULL THEN 5 * 60
@@ -41,17 +41,17 @@
         END ), Getdate()) THEN 1
         ELSE 0
         END ),
-        v.RealSimNum,
-        CONVERT(VARCHAR(30), v.SVRStartTime, 21)    AS SVRStartTime,
-        CONVERT(VARCHAR(30), v.SVREndTime, 21)      AS SVREndTime,
-        Isnull(d.DriverName, '')                    AS DriverName,
-        Isnull(d.DriverTelephone, '')               AS DriverTelephone,
-        StopTime=0,
-        Isnull(cp.ResidualFuel, 0)                  AS ResidualFuel,
-        cp.Mileage,
+        v.RealSimNum as simNum,
+        CONVERT(VARCHAR(30), v.SVRStartTime, 21)    AS svrStartTime,
+        CONVERT(VARCHAR(30), v.SVREndTime, 21)      AS svrEndTime,
+        Isnull(d.DriverName, '')                    AS driverName,
+        Isnull(d.DriverTelephone, '')               AS driverTel,
+        stopTime=0,
+        Isnull(cp.ResidualFuel, 0)                  AS residualFuel,
+        cp.Mileage as mileage,
         v.SimNum,
         CONVERT(VARCHAR(30), cp.LastUpdateTime, 21) AS LastUpdateTime,
-        tp.TerminalTypeName,
+        tp.TerminalTypeName as terminalTypeName,
         ( CASE
         WHEN t.Mileage IS NULL
         OR ( cp.Mileage - t.Mileage ) &lt; 0 THEN 0

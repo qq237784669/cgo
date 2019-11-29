@@ -37,7 +37,7 @@ public class VehicleController implements IVehicleController {
         return new ResponseResult(ResponseUtil.put("orgList", list), CommonCode.SUCCESS);
     }
 
-    @RequestMapping("/getVehiclePositioningList")
+    @RequestMapping("GetMoreVehicleLocation")
     public ResponseResult getVehiclePositioningList(@RequestBody VehiclePositioning param) {
         String vehicleIds = param.getVehicleIds();
 

@@ -54,7 +54,7 @@ public class VehicleTimer {
 
                 for (Map<String, Object> map : vehiclePositioningList) {
 
-                    Object vehicleid = map.get("VEHICLEID");
+                    Object vehicleid = map.get("vehicleId");
 
                     if (vehicleid == null) {
                         log.error(" 该车辆 id = null  >>>  "+map);
