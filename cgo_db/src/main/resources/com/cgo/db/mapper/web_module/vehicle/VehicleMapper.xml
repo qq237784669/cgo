@@ -72,7 +72,7 @@
         ON cp.SimNum = t.SimNum
         AND t.GpsTime > @nowDay
         WHERE  cp.LastUpdateTime &lt;= @Now
-        AND cp.LastUpdateTime &lt; #{date}
+        AND cp.LastUpdateTime &gt; #{date}
     </select>
 
 
