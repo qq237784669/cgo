@@ -134,8 +134,5 @@ public class VehicleTimer {
 
     }
 
-    public static void main(String[] args) {
-
-    }
 }
 

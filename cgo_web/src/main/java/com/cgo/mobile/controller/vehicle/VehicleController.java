@@ -19,7 +19,8 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 import java.util.Map;
 
-@RestController("/api/v1/vehicle")
+@RestController
+@RequestMapping("/api/v1/vehicle")
 public class VehicleController implements IVehicleController {
     @Reference
     IVehicleService iVehicleService;
