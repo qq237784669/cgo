@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * 统一的返回响应 格式
@@ -25,7 +27,9 @@ public class ResponseResult implements Serializable {
 
     public ResponseResult(Object data, ResultCode resultCode) {
         setCommonResponse(resultCode);
-        this.data = data;
+        Map map=new HashMap();
+        map.put("data",data);
+        this.data = map;
     }
 
     public ResponseResult() {
