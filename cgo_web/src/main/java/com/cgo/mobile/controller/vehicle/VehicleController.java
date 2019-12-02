@@ -14,6 +14,7 @@ import com.cgo.entity.web_module.vehicle.response.VehicleCode;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -26,7 +27,7 @@ public class VehicleController implements IVehicleController {
     IVehicleService iVehicleService;
 
     @RequestMapping("/getVehicleList")
-    public ResponseResult getVehicleList(@RequestBody Map<String, String> param) {
+    public ResponseResult getVehicleList(@RequestParam Map<String, String> param) {
         String userId = param.get("userId");
         String userType = param.get("userType");
 
@@ -38,7 +39,7 @@ public class VehicleController implements IVehicleController {
         return new ResponseResult(ResponseUtil.put("orgList", list), CommonCode.SUCCESS);
     }
 
-    @RequestMapping("GetMoreVehicleLocation")
+    @RequestMapping("/GetMoreVehicleLocation")
     public ResponseResult getVehiclePositioningList(VehiclePositioning param) {
         String vehicleIds = param.getVehicleIds();
 

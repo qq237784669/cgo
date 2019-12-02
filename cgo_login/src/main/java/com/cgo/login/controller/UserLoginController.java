@@ -27,7 +27,7 @@ public class UserLoginController implements IUserLoginController {
 
     // 登录接口
     @RequestMapping("/login")
-    public ResponseResult login(@RequestBody LoginRequest loginRequest){
+    public ResponseResult login( LoginRequest loginRequest){
         ResponseResult responseResult = new ResponseResult();
         Map data=new HashMap();
         try {
