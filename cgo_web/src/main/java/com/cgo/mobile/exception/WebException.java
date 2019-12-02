@@ -7,6 +7,7 @@ import com.cgo.common.response.ResultCode;
 import com.google.common.collect.ImmutableMap;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.converter.HttpMessageNotReadableException;
+import org.springframework.web.HttpMediaTypeNotSupportedException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -63,5 +64,6 @@ public class WebException {
     static {
         //定义异常类型所对应的错误代码
         builder.put(HttpMessageNotReadableException.class,CommonCode.INVALID_PARAM);
+        builder.put(HttpMediaTypeNotSupportedException.class,CommonCode.INVALID_CONTENTTYPE);
     }
 }

@@ -5,6 +5,7 @@ public enum  CommonCode implements ResultCode  {
 
 
     INVALID_PARAM(false,10001,"非法参数！"),
+    INVALID_CONTENTTYPE(false,10006,"请求类型格 content-type 有误"),
     SUCCESS(true,1,""),
     FAILURE(false,10002,"操作失败！"),
     UNAUTHENTICATED(false,10003,"此操作需要登陆系统！"),
