@@ -1,6 +1,7 @@
 package com.cgo.login.controller;
 
 
+import com.alibaba.fastjson.JSON;
 import com.cgo.api.controller.login_module.logo.IUserLoginController;
 import com.cgo.entity.login_module.login.request.LoginRequest;
 import com.cgo.common.response.CommonCode;
@@ -13,6 +14,7 @@ import org.springframework.security.jwt.Jwt;
 import org.springframework.security.jwt.JwtHelper;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
@@ -35,6 +37,9 @@ public class UserLoginController implements IUserLoginController {
         String access_token = loginService.login(loginRequest);
         if (StringUtils.isBlank(access_token)){
             responseResult.setCommonResponse(CommonCode.FAILURE);
+        }else {
+            String claims = JwtHelper.decode(access_token).getClaims();
+            data.put("userInfo", JSON.parseObject(claims,Map.class));
         }
         data.put("access_token",access_token);
 
@@ -45,10 +50,10 @@ public class UserLoginController implements IUserLoginController {
 
     // 将jwt 转换为  用户信息 接口
     @RequestMapping("/userInfo")
-    public ResponseResult userInfo(@RequestBody Map<String,String> map){
+    public ResponseResult userInfo(@RequestParam Map<String,String> map){
         ResponseResult responseResult =new ResponseResult();
 
-        String access_token = map.get("access_token");
+            String access_token = map.get("access_token");
         Jwt decode = JwtHelper.decode(access_token);
         String data = decode.getClaims();
 

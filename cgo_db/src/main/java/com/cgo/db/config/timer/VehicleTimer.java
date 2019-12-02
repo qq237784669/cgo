@@ -38,6 +38,8 @@ public class VehicleTimer {
 
     @Autowired
     RedissonClient redissonClient;
+
+    private static String queryEndTime="1971-1-1 01:01:01.000";
     /**
      * 获取车辆定位 载入缓存 定时器
      */
@@ -52,12 +54,17 @@ public class VehicleTimer {
 
         Date initDate=null;
         try {
-            initDate = new SimpleDateFormat("yyyy-MM-dd").parse("1971-1-1 01:01:01.000");
+            initDate = new SimpleDateFormat("yyyy-MM-dd").parse(queryEndTime);
         } catch (ParseException e) {
             e.printStackTrace();
         }
         String dateString = DateUtli.convertDate(initDate, new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS"));
         List<Map<String, Object>> vehiclePositioningList = vehicleMapper.findAllVehiclePositioning(dateString);
+
+        // 更改 下次查询 的时间节点
+        queryEndTime = vehiclePositioningList.get(0).get("queryEndTime").toString();
+
+
 
         /* 补充扩展字段*/
         // 获取外设数据的部分暂不翻译
