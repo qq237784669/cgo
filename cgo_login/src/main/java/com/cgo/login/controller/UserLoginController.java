@@ -7,6 +7,7 @@ import com.cgo.common.response.CommonCode;
 import com.cgo.common.response.ResponseResult;
 import com.cgo.login.service.LoginService;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.jwt.Jwt;
 import org.springframework.security.jwt.JwtHelper;
@@ -30,14 +31,13 @@ public class UserLoginController implements IUserLoginController {
     public ResponseResult login( LoginRequest loginRequest){
         ResponseResult responseResult = new ResponseResult();
         Map data=new HashMap();
-        try {
-            String access_token = loginService.login(loginRequest);
-            data.put("access_token",access_token);
-        }catch (Exception e){
+
+        String access_token = loginService.login(loginRequest);
+        if (StringUtils.isBlank(access_token)){
             responseResult.setCommonResponse(CommonCode.FAILURE);
-            data.put("access_token","");
-           log.error(" login_module error >>>  ",e);
         }
+        data.put("access_token",access_token);
+
         responseResult.setData(data);
         return responseResult;
     }
