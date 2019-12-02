@@ -39,7 +39,7 @@ public class VehicleController implements IVehicleController {
     }
 
     @RequestMapping("GetMoreVehicleLocation")
-    public ResponseResult getVehiclePositioningList(@RequestBody VehiclePositioning param) {
+    public ResponseResult getVehiclePositioningList(VehiclePositioning param) {
         String vehicleIds = param.getVehicleIds();
 
         if (StringUtils.isBlank(vehicleIds))
