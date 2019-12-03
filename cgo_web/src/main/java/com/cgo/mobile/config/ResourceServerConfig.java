@@ -101,6 +101,6 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
                         "/swagger-resources/configuration/security",
                         "/swagger-ui.html",
                         "/webjars/**").permitAll()
-                .anyRequest().permitAll();
+                .anyRequest().authenticated(); //设置 上面之外的所有 path 统统需要 授权
     }
 }
