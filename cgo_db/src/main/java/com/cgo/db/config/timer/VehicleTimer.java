@@ -2,15 +2,11 @@ package com.cgo.db.config.timer;
 
 import com.alibaba.fastjson.JSON;
 import com.cgo.common.utlis.DateUtli;
-import com.cgo.common.utlis.RedisUtil;
 import com.cgo.db.mapper.web_module.vehicle.VehicleMapper;
 import com.cgo.entity.login_module.login.pojo.GlobalConfig;
-import jodd.typeconverter.Convert;
-import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.redisson.api.RLock;
 import org.redisson.api.RedissonClient;
-import org.redisson.client.RedisClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -41,7 +37,7 @@ public class VehicleTimer {
     @Autowired
     RedissonClient redissonClient;
 
-    private static String queryEndTime = "1971-1-1 01:01:01.000";
+    private static String queryStartTime = "1971-1-1 01:01:01.000";
 
     /**
      * 获取车辆定位 载入缓存 定时器
@@ -52,17 +48,17 @@ public class VehicleTimer {
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
 
-        Date initDate = null;
+        Date queryStartTime = null;
         try {
-            initDate = new SimpleDateFormat("yyyy-MM-dd").parse(queryEndTime);
+            queryStartTime = new SimpleDateFormat("yyyy-MM-dd").parse(VehicleTimer.queryStartTime);
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        String dateString = DateUtli.convertDate(initDate, new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS"));
+        String dateString = DateUtli.convertDate(queryStartTime, new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS"));
         List<Map<String, Object>> vehiclePositioningList = vehicleMapper.findAllVehiclePositioning(dateString);
 
-        // 更改 下次查询 的时间节点
-        queryEndTime = vehiclePositioningList.get(0).get("queryEndTime").toString();
+        // 本次查询结束时间作为下次查询的开始时间
+        VehicleTimer.queryStartTime = vehiclePositioningList.get(0).get("queryEndTime").toString();
 
         // 返回与输出参数格式匹配的json数据前的额外处理
         vehiclePositioningList.stream()
@@ -121,6 +117,11 @@ public class VehicleTimer {
                         pos.put("todayMileageCount", String.format("%.2f", Double.parseDouble(pos.get("todayMileageCount").toString())));
                     }
 
+                    // 解析报警状态用于消息列表(未翻译)
+                    if (Long.parseLong(pos.get("alarmFlag").toString()) > 0) {
+
+                    }
+
                     // 获取外设数据的部分暂不翻译
                     pos.put("temperatureControl", "");
                     pos.put("height", "");
@@ -128,7 +129,6 @@ public class VehicleTimer {
                     pos.put("description", "");
                     pos.put("alarmName", "");
                 });
-
 
         RLock lock = redissonClient.getLock("vehiclePositioning");
         boolean state = false;
