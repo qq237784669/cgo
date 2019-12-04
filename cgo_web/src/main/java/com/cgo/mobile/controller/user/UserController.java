@@ -10,16 +10,20 @@ import com.cgo.common.response.ResponseResult;
 
 
 import com.cgo.common.utlis.ResponseUtil;
+import org.apache.commons.io.IOUtils;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.ServletInputStream;
+import javax.servlet.http.HttpServletRequest;
+import java.util.Enumeration;
 import java.util.List;
 import java.util.Map;
 
 @RestController
 @RequestMapping("/api/v1/user")
 public class UserController implements IUserController {
-
 }

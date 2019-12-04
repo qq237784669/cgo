@@ -56,7 +56,9 @@ public class VehicleService implements IVehicleService {
             // 查询出所有车辆列表
             List<Map<String, Object>> vehicleList = userMapper.findVehicleListByUserTypeEqZero(userId);
             //查询到所有一级节点
-            List<Map<String, Object>> levelOneNode = organizationList.stream().filter(item -> "0".equals(item.get("ParentId").toString())).collect(Collectors.toList());
+            List<Map<String, Object>> levelOneNode = organizationList.stream()
+                    .filter(item -> "0".equals(item.get("ParentId").toString()))
+                    .collect(Collectors.toList());
 
             List<Map<String, Object>> nodeAll = new ArrayList<>();
             // 分段查找出所有 一级节点的 所有子节点
@@ -166,6 +168,7 @@ public class VehicleService implements IVehicleService {
             //根据节点OrgId  查询 对应的 车辆信息的车牌号
 
             List<Map<String, Object>> vehicleListConvert = new ArrayList<>();
+
             for (Map<String, Object> map : vehicleList) {
 
                 String vehicleOrgId = map.get("OrgId").toString();
@@ -204,7 +207,7 @@ public class VehicleService implements IVehicleService {
             return;
         }
 
-        // 遍历所有节点  递归查询 下级节点
+        // 遍历当前节点 得所有子节点
         for (Map<String, Object> map : childNode) {
             findChildNode(map, organizationList, userId, vehicleList);
         }

@@ -115,6 +115,46 @@
     </select>
 
     <select id="findVehicleListByUserTypeEqZero" resultType="map">
+      SELECT uv.VehicleId,
+       uv.SimNum,
+       uv.PlateNum,
+       uv.OrgId,
+       t.VehicleTypeName,
+       Isnull(tp.TerminalTypeName, '未知') AS TerminalTypeName,
+       Isnull(v.DVRTypeCode, 0)          AS DVRTypeCode,
+       Isnull(v.DVRChannelNum, 0)        AS DVRChannelNum,
+       bvc.VehicleOfflineTimeOut,
+       IsOnline=( CASE
+                    WHEN cp.recetime IS NOT NULL
+                         AND cp.recetime > Dateadd(second, -( CASE
+                                                                WHEN bvc.VehicleOfflineTimeOut IS NULL THEN 5 * 60
+                                                                WHEN bvc.VehicleOfflineTimeOut > 0 THEN bvc.VehicleOfflineTimeOut
+                                                                ELSE 5 * 60
+                                                              END ), Getdate()) THEN 1
+                    ELSE 0
+                  END ),
+       ''                                AS DVRDeviceId,
+       o.SearchCode
+FROM   View_UserVehicle uv
+       INNER JOIN bas_Vehicle v WITH(NOLOCK)
+               ON uv.VehicleId = v.VehicleId
+       INNER JOIN bas_Org o WITH(NOLOCK)
+               ON uv.OrgId = o.OrgId
+       LEFT JOIN bas_TerminalType tp WITH(NOLOCK)
+              ON v.TerminalTypeId = tp.TerminalTypeId
+       LEFT JOIN std_VehicleType t WITH(NOLOCK)
+              ON v.VehicleTypeCode = t.VehicleTypeCode
+       LEFT JOIN [bas_VehicleConfig] bvc WITH(NOLOCK)
+              ON v.VehicleId = bvc.VehicleId
+       LEFT JOIN biz_CurrentPos cp WITH(NOLOCK)
+              ON uv.SimNum = cp.SimNum
+WHERE  uv.UserId = #{userId}
+ORDER  BY o.SearchCode,
+          PlateNum
+
+    </select>
+
+    <!--
                             SELECT uv.VehicleId,uv.SimNum,uv.PlateNum,uv.OrgId,t.VehicleTypeName,tp.TerminalTypeName,ISNULL(v.DVRTypeCode,0) as DVRTypeCode,ISNULL(v.DVRChannelNum,0) as DVRChannelNum, IsOnline=(case when cp.SimNum is null then 0 else 1 end), '' as DVRDeviceId,o.SearchCode
                             FROM View_UserVehicle uv
                             INNER JOIN bas_Vehicle v ON uv.VehicleId=v.VehicleId
@@ -125,7 +165,7 @@
                             ON uv.SimNum=cp.SimNum
                             WHERE uv.UserId=#{userId} and v.DVRTypeCode='999'
                             ORDER BY o.SearchCode,PlateNum
-    </select>
+    -->
 
     <select id="findVehicleListByUserTypeEqOne" resultType="map">
 
