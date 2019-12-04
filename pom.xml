@@ -14,6 +14,7 @@
         <module>cgo_login</module>
         <module>cgo_api</module>
         <module>cgo_entity</module>
+        <module>cgo_service</module>
     </modules>
     <packaging>pom</packaging>
 

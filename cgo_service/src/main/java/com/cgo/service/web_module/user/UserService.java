@@ -1,11 +1,10 @@
-package com.cgo.db.service.web_module.user;
+package com.cgo.service.web_module.user;
 
 
 import com.alibaba.dubbo.config.annotation.Service;
 import com.cgo.api.service.web_module.user.IUserService;
 import com.cgo.common.response.ResponseResult;
 import com.cgo.common.utlis.EncryptionUtil;
-
 import com.cgo.db.mapper.web_module.user.UserMapper;
 import com.cgo.entity.login_module.login.pojo.AppMenuAuth;
 import com.cgo.entity.login_module.login.pojo.CustomConfig;
@@ -17,8 +16,8 @@ import com.cgo.entity.login_module.login.response.LoginResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 
-
-import java.sql.*;
+import java.sql.CallableStatement;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;

@@ -1,24 +1,21 @@
-package com.cgo.db.service.web_module.vehicle;
+package com.cgo.service.web_module.vehicle;
 
 
 import com.alibaba.dubbo.config.annotation.Service;
 import com.cgo.api.service.web_module.vehicle.IVehicleService;
-import com.cgo.common.utlis.EncryptionUtil;
 import com.cgo.common.utlis.RedisUtil;
 import com.cgo.db.mapper.web_module.user.UserMapper;
-import com.cgo.entity.login_module.login.pojo.AppMenuAuth;
-import com.cgo.entity.login_module.login.pojo.CustomConfig;
 import com.cgo.entity.login_module.login.pojo.GlobalConfig;
-import com.cgo.entity.login_module.login.pojo.VehicleIcon;
 import lombok.extern.slf4j.Slf4j;
 import org.redisson.api.RLock;
 import org.redisson.api.RedissonClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 
-import java.sql.CallableStatement;
-import java.sql.SQLException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
