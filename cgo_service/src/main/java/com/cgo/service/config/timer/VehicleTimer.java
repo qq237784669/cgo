@@ -3,6 +3,7 @@ package com.cgo.db.config.timer;
 import com.alibaba.fastjson.JSON;
 import com.cgo.common.utlis.DateUtli;
 import com.cgo.common.utlis.RedisUtil;
+import com.cgo.db.entity.BasAlarmflag;
 import com.cgo.db.mapper.web_module.vehicle.VehicleMapper;
 import com.cgo.entity.login_module.login.pojo.GlobalConfig;
 import lombok.Data;
@@ -33,6 +34,8 @@ public class VehicleTimer {
     @Autowired
     GlobalConfig globalConfig;
 
+    @Value("${dbconst.basAlarmFlag}")
+    String basAlarmFlag;
 
     @Value("${timer.vehicleLock}")
     String VEHICLE_LOCK;
@@ -210,6 +213,9 @@ public class VehicleTimer {
                     // 解析报警状态用于消息列表(未翻译)
                     if (Long.parseLong(pos.get("alarmFlag").toString()) > 0) {
 
+                        String basAlarmflagString = (String) redisTemplate.opsForHash().get(basAlarmFlag, pos.get("alarmFlag").toString());
+                        String alarmName = JSON.parseObject(basAlarmflagString, BasAlarmflag.class).getAlarmName();
+                        pos.put("alarmName", alarmName);
                     }
 
                     // 获取外设数据的部分暂不翻译
@@ -217,7 +223,7 @@ public class VehicleTimer {
                     pos.put("height", "");
                     pos.put("address", "");
                     pos.put("description", "");
-                    pos.put("alarmName", "");
+
                 });
     }
 
