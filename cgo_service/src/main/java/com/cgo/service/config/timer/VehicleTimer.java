@@ -14,6 +14,7 @@ import org.redisson.client.RedisClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.DependsOn;
+import org.springframework.context.annotation.Description;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
@@ -30,6 +31,7 @@ import java.util.stream.Collectors;
 
 @Component
 @Slf4j
+@Description("basAlarmFlagConst")
 public class VehicleTimer {
 
 
