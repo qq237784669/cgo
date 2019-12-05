@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.cgo.common.utlis.DateUtli;
 import com.cgo.common.utlis.RedisUtil;
 import com.cgo.db.mapper.web_module.vehicle.VehicleMapper;
+import com.cgo.entity.login_module.login.pojo.GlobalConfig;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.redisson.api.RLock;
@@ -28,6 +29,8 @@ import java.util.stream.Collectors;
 public class VehicleTimer {
 
 
+    @Autowired
+    GlobalConfig globalConfig;
 
 
     @Autowired
@@ -69,6 +72,74 @@ public class VehicleTimer {
 
         /* 补充扩展字段*/
         // 获取外设数据的部分暂不翻译
+        this.addExtField(dateFormat, vehiclePositioningList);
+
+
+        RLock lock = redissonClient.getLock("vehiclePositioning");
+        boolean state=false;
+        try {
+            state = lock.tryLock(2L, 10L, TimeUnit.SECONDS);
+            if (state){
+
+                for (Map<String, Object> map : vehiclePositioningList) {
+
+                    Object vehicleid = map.get("vehicleId");
+
+                    if (vehicleid == null) {
+                        log.error(" 该车辆 id = null  >>>  "+map);
+                        continue;
+                    }
+
+                    List<String> vehicleIdListCache = redisTemplate.opsForList().range("vehicleIdList", 0, -1);
+                    if (vehicleIdListCache != null ){
+
+                        List<String> filterPost = vehicleIdListCache.stream().filter(vehicleIdCache -> vehicleIdCache.equals(vehicleid.toString())).collect(Collectors.toList());
+                        if (filterPost.size() >0 ){
+                            //在push之前 已经存在 则比较时间 谁 更接近当前时间
+
+                            Map<String,String> vehiclePositioningCache = JSON.parseObject(
+                                    (redisTemplate.opsForHash().get("vehiclePositioningList", filterPost.get(0))).toString(),
+                                    Map.class
+                            );
+                            String gpsTime = vehiclePositioningCache.get("gpsTime");
+                            try {
+                                long timePre = dateFormat.parse(gpsTime).getTime();
+                                long timeCur = dateFormat.parse(map.get("gpsTime").toString()).getTime();
+                                if (timeCur<timePre){
+                                    continue;
+                                }
+                            } catch (ParseException e) {
+                                e.printStackTrace();
+                            }
+
+                        }else {
+                            // 增加id列表
+                            redisTemplate.opsForList().rightPush("vehicleIdList",vehicleid.toString());
+                        }
+
+                    }else {
+                        // 增加id列表
+                        redisTemplate.opsForList().rightPush("vehicleIdList",vehicleid.toString());
+                    }
+
+                    // 格式  车辆定位列表【key】 ： 车辆id   ：数据
+                    redisTemplate.opsForHash().put("vehiclePositioningList",vehicleid.toString(), JSON.toJSONString(map) );
+                }
+
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }finally {
+            if (state){
+                lock.unlock();
+            }
+        }
+
+        log.info(" =============================定时器 10s/次 获取车辆定位结束 =============================");
+
+    }
+
+    private void addExtField(SimpleDateFormat dateFormat, List<Map<String, Object>> vehiclePositioningList) {
         vehiclePositioningList.stream()
                 .filter(pos -> pos.get("vehicleId") != null && !pos.get("vehicleId").toString().isEmpty())
                 .forEach(pos -> {
@@ -137,70 +208,6 @@ public class VehicleTimer {
                     pos.put("description", "");
                     pos.put("alarmName", "");
                 });
-
-
-        RLock lock = redissonClient.getLock("vehiclePositioning");
-        boolean state=false;
-        try {
-            state = lock.tryLock(2L, 10L, TimeUnit.SECONDS);
-            if (state){
-
-                for (Map<String, Object> map : vehiclePositioningList) {
-
-                    Object vehicleid = map.get("vehicleId");
-
-                    if (vehicleid == null) {
-                        log.error(" 该车辆 id = null  >>>  "+map);
-                        continue;
-                    }
-
-                    List<String> vehicleIdListCache = redisTemplate.opsForList().range("vehicleIdList", 0, -1);
-                    if (vehicleIdListCache != null ){
-
-                        List<String> filterPost = vehicleIdListCache.stream().filter(vehicleIdCache -> vehicleIdCache.equals(vehicleid.toString())).collect(Collectors.toList());
-                        if (filterPost.size() >0 ){
-                            //在push之前 已经存在 则比较时间 谁 更接近当前时间
-
-                            Map<String,String> vehiclePositioningCache = JSON.parseObject(
-                                    (redisTemplate.opsForHash().get("vehiclePositioningList", filterPost.get(0))).toString(),
-                                    Map.class
-                            );
-                            String gpsTime = vehiclePositioningCache.get("gpsTime");
-                            try {
-                                long timePre = dateFormat.parse(gpsTime).getTime();
-                                long timeCur = dateFormat.parse(map.get("gpsTime").toString()).getTime();
-                                if (timeCur<timePre){
-                                    continue;
-                                }
-                            } catch (ParseException e) {
-                                e.printStackTrace();
-                            }
-
-                        }else {
-                            // 增加id列表
-                            redisTemplate.opsForList().rightPush("vehicleIdList",vehicleid.toString());
-                        }
-
-                    }else {
-                        // 增加id列表
-                        redisTemplate.opsForList().rightPush("vehicleIdList",vehicleid.toString());
-                    }
-
-                    // 格式  车辆定位列表【key】 ： 车辆id   ：数据
-                    redisTemplate.opsForHash().put("vehiclePositioningList",vehicleid.toString(), JSON.toJSONString(map) );
-                }
-
-            }
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }finally {
-            if (state){
-                lock.unlock();
-            }
-        }
-
-        log.info(" =============================定时器 10s/次 获取车辆定位结束 =============================");
-
     }
 
 }

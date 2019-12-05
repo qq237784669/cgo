@@ -77,3 +77,8 @@ timer:
   vehicleIdList: vehicleIdList
   # 车辆定位列表在redis中的 key
   vehiclePositioningList: vehiclePositioningList
+
+
+
+# 在这儿把 常量 对应的key 写在这儿 然后在 redis注入
+dbconst:

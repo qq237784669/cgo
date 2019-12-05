@@ -33,6 +33,6 @@ public class BasAlarmFlagConst implements ApplicationRunner {
         // 所有数据
         List<BasAlarmflag> basAlarmflags = basAlarmflagMapper.selectList(null);
         //载入redis
-
+        System.out.println(basAlarmflags);
     }
 }
