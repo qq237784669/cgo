@@ -68,10 +68,6 @@ public class VehicleTimer {
     @Scheduled(fixedRate = 10000)
     public void vehicle() {
 
-
-
-        log.info(" =============================定时器 10s/次 获取车辆定位中  =============================");
-
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
 
         Date initDate=null;
@@ -152,8 +148,6 @@ public class VehicleTimer {
                 lock.unlock();
             }
         }
-
-        log.info(" =============================定时器 10s/次 获取车辆定位结束 =============================");
 
     }
 
