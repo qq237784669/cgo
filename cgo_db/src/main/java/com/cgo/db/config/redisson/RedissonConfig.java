@@ -19,7 +19,11 @@ public class RedissonConfig {
      @Bean
      public RedissonClient getRedisson(@Autowired Environment env){
          Config config = new Config();
-         config.useSingleServer().setAddress("redis://" + env.getProperty("spring.redis.host") + ":" + env.getProperty("spring.redis.port")).setPassword("123456");
+         config.useSingleServer().setAddress("redis://" +
+                 env.getProperty("spring.redis.host") +
+                 ":" +
+                 env.getProperty("spring.redis.port"))
+                 .setPassword("123456");
          return Redisson.create(config);
      }
 

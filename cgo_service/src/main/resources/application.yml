@@ -66,3 +66,14 @@ spring:
     timeout: 3000
     password: 123456
 
+
+
+# redission  lock ---> 车辆定位列表 的 keyword = vehiclePositioning
+
+timer:
+  # 锁标志位
+  vehicleLock: vehiclePositioning
+  # 车辆id 列表在redis中的 key
+  vehicleIdList: vehicleIdList
+  # 车辆定位列表在redis中的 key
+  vehiclePositioningList: vehiclePositioningList

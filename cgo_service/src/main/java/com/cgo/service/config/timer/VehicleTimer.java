@@ -1,15 +1,13 @@
-package com.cgo.db.config.timer;
+package com.cgo.service.config.timer;
 
 import com.alibaba.fastjson.JSON;
 import com.cgo.common.utlis.DateUtli;
-import com.cgo.common.utlis.RedisUtil;
 import com.cgo.db.mapper.web_module.vehicle.VehicleMapper;
-import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.redisson.api.RLock;
 import org.redisson.api.RedissonClient;
-import org.redisson.client.RedisClient;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
@@ -27,6 +25,18 @@ import java.util.stream.Collectors;
 public class VehicleTimer {
 
 
+
+    //锁标志位
+    @Value("${timer.vehicleLock}")
+    String vehiclePositioningLock;
+
+    // 车辆id列表key
+    @Value("${timer.vehicleIdList}")
+    String vehicleIdListKey;
+
+    //车辆定位列表
+    @Value("${timer.vehiclePositioningList}")
+    String vehiclePositioningListKey;
 
 
     @Autowired
@@ -77,7 +87,7 @@ public class VehicleTimer {
         });
 
 
-        RLock lock = redissonClient.getLock("vehiclePositioning");
+        RLock lock = redissonClient.getLock(vehiclePositioningLock);
         boolean state=false;
         try {
             state = lock.tryLock(2L, 10L, TimeUnit.SECONDS);
@@ -92,7 +102,7 @@ public class VehicleTimer {
                         continue;
                     }
 
-                    List<String> vehicleIdListCache = redisTemplate.opsForList().range("vehicleIdList", 0, -1);
+                    List<String> vehicleIdListCache = redisTemplate.opsForList().range(vehicleIdListKey, 0, -1);
                     if (vehicleIdListCache != null ){
 
                         List<String> filterPost = vehicleIdListCache.stream().filter(vehicleIdCache -> vehicleIdCache.equals(vehicleid.toString())).collect(Collectors.toList());
@@ -116,16 +126,16 @@ public class VehicleTimer {
 
                         }else {
                             // 增加id列表
-                            redisTemplate.opsForList().rightPush("vehicleIdList",vehicleid.toString());
+                            redisTemplate.opsForList().rightPush(vehicleIdListKey,vehicleid.toString());
                         }
 
                     }else {
                         // 增加id列表
-                        redisTemplate.opsForList().rightPush("vehicleIdList",vehicleid.toString());
+                        redisTemplate.opsForList().rightPush(vehicleIdListKey,vehicleid.toString());
                     }
 
                     // 格式  车辆定位列表【key】 ： 车辆id   ：数据
-                    redisTemplate.opsForHash().put("vehiclePositioningList",vehicleid.toString(), JSON.toJSONString(map) );
+                    redisTemplate.opsForHash().put(vehiclePositioningListKey,vehicleid.toString(), JSON.toJSONString(map) );
                 }
 
             }
