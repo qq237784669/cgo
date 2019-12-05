@@ -23,7 +23,7 @@ public class BasAlarmFlagConst implements ApplicationRunner {
 
     // redis对应的key
     @Value("${dbconst.}")
-    String field; ?
+    String field;
 
 
 
