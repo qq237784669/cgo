@@ -1,19 +1,22 @@
-package com.cgo.service.config.timer;
+package com.cgo.db.config.timer;
 
 import com.alibaba.fastjson.JSON;
 import com.cgo.common.utlis.DateUtli;
+import com.cgo.common.utlis.RedisUtil;
 import com.cgo.db.mapper.web_module.vehicle.VehicleMapper;
+import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.redisson.api.RLock;
 import org.redisson.api.RedissonClient;
+import org.redisson.client.RedisClient;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -25,18 +28,6 @@ import java.util.stream.Collectors;
 public class VehicleTimer {
 
 
-
-    //锁标志位
-    @Value("${timer.vehicleLock}")
-    String vehiclePositioningLock;
-
-    // 车辆id列表key
-    @Value("${timer.vehicleIdList}")
-    String vehicleIdListKey;
-
-    //车辆定位列表
-    @Value("${timer.vehiclePositioningList}")
-    String vehiclePositioningListKey;
 
 
     @Autowired
@@ -78,16 +69,77 @@ public class VehicleTimer {
 
         /* 补充扩展字段*/
         // 获取外设数据的部分暂不翻译
-        vehiclePositioningList.stream().forEach(item->{
-            item.put("temperatureControl",""); //
-            item.put("height","");
-            item.put("address","");
-            item.put("description","");
-            item.put("alarmName","");
-        });
+        vehiclePositioningList.stream()
+                .filter(pos -> pos.get("vehicleId") != null && !pos.get("vehicleId").toString().isEmpty())
+                .forEach(pos -> {
+
+                    // 修正卫星时间大于当前时间10分的数据
+                    try {
+                        Date gpsTime = dateFormat.parse(pos.get("gpsTime").toString());
+                        Calendar validGpsTime = Calendar.getInstance();
+                        validGpsTime.add(Calendar.MINUTE, 10);
+                        if (gpsTime.compareTo(validGpsTime.getTime()) > 0) {
+                            pos.put("gpsTime", dateFormat.format(new Date()));
+                        }
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+
+                    if ("999".equals(pos.get("dvrTypeCode").toString()) && "1".equals(globalConfig.getHasVideo())) {
+                        pos.put("dvrChannelNum", pos.get("dvrChannelNum").toString());
+                    } else {
+                        pos.put("dvrChannelNum", "0");
+                    }
+
+                    if (pos.get("residualFuel") == null) {
+                        pos.put("residualFuel", "0.0");
+                    } else {
+                        pos.put("residualFuel", String.format("%.1f", Double.parseDouble(pos.get("residualFuel").toString())));
+                    }
+
+                    if (pos.get("mileage") == null) {
+                        pos.put("mileage", "0.0");
+                    } else {
+                        pos.put("mileage", String.format("%.2f", Double.parseDouble(pos.get("mileage").toString())));
+                    }
+
+                    double lat = 0.0;
+                    if (pos.get("lat") != null && !pos.get("lat").toString().isEmpty()) {
+                        lat = Double.parseDouble(pos.get("lat").toString());
+                    }
+                    pos.put("lat", String.format("%.6f", lat));
+
+                    double lng = 0.0;
+                    if (pos.get("lng") != null && !pos.get("lng").toString().isEmpty()) {
+                        lng = Double.parseDouble(pos.get("lng").toString());
+                    }
+                    pos.put("lng", String.format("%.6f", lng));
+
+                    double direction = 0.0;
+                    if (pos.get("direction") != null && !pos.get("direction").toString().isEmpty()) {
+                        direction = Double.parseDouble(pos.get("direction").toString());
+                    }
+                    pos.put("direction", String.format("%.6f", direction));
+
+                    if (pos.get("todayMileageCount") != null) {
+                        pos.put("todayMileageCount", String.format("%.2f", Double.parseDouble(pos.get("todayMileageCount").toString())));
+                    }
+
+                    // 解析报警状态用于消息列表(未翻译)
+                    if (Long.parseLong(pos.get("alarmFlag").toString()) > 0) {
+
+                    }
+
+                    // 获取外设数据的部分暂不翻译
+                    pos.put("temperatureControl", "");
+                    pos.put("height", "");
+                    pos.put("address", "");
+                    pos.put("description", "");
+                    pos.put("alarmName", "");
+                });
 
 
-        RLock lock = redissonClient.getLock(vehiclePositioningLock);
+        RLock lock = redissonClient.getLock("vehiclePositioning");
         boolean state=false;
         try {
             state = lock.tryLock(2L, 10L, TimeUnit.SECONDS);
@@ -102,7 +154,7 @@ public class VehicleTimer {
                         continue;
                     }
 
-                    List<String> vehicleIdListCache = redisTemplate.opsForList().range(vehicleIdListKey, 0, -1);
+                    List<String> vehicleIdListCache = redisTemplate.opsForList().range("vehicleIdList", 0, -1);
                     if (vehicleIdListCache != null ){
 
                         List<String> filterPost = vehicleIdListCache.stream().filter(vehicleIdCache -> vehicleIdCache.equals(vehicleid.toString())).collect(Collectors.toList());
@@ -126,16 +178,16 @@ public class VehicleTimer {
 
                         }else {
                             // 增加id列表
-                            redisTemplate.opsForList().rightPush(vehicleIdListKey,vehicleid.toString());
+                            redisTemplate.opsForList().rightPush("vehicleIdList",vehicleid.toString());
                         }
 
                     }else {
                         // 增加id列表
-                        redisTemplate.opsForList().rightPush(vehicleIdListKey,vehicleid.toString());
+                        redisTemplate.opsForList().rightPush("vehicleIdList",vehicleid.toString());
                     }
 
                     // 格式  车辆定位列表【key】 ： 车辆id   ：数据
-                    redisTemplate.opsForHash().put(vehiclePositioningListKey,vehicleid.toString(), JSON.toJSONString(map) );
+                    redisTemplate.opsForHash().put("vehiclePositioningList",vehicleid.toString(), JSON.toJSONString(map) );
                 }
 
             }

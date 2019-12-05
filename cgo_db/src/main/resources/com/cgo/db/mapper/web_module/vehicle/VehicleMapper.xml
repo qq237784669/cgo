@@ -27,7 +27,7 @@
         cp.AlarmFlag as alarmFlag,
         cp.StateFlag as stateFlag,
         dbo.Fnwmon_getstateflagname(cp.StateFlag)   AS vehicleState,
-        cp.speed as speed,
+        cp.Speed as speed,
         cp.Direction as direction,
         cp.altitude,
         pc.ColorName as vehicleColor,
