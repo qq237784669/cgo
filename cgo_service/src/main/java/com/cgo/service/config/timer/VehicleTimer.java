@@ -31,7 +31,7 @@ import java.util.stream.Collectors;
 
 @Component
 @Slf4j
-@Description("basAlarmFlagConst")
+@DependsOn("basAlarmFlagConst")
 public class VehicleTimer {
 
 
