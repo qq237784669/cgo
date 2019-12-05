@@ -179,8 +179,10 @@ public class VehicleService implements IVehicleService {
             return;
         }
 
-        //递归
+         //遍历当前节点 得所有子节点
         childNode.forEach(item->findChildNode(item, organizationList, userId, vehicleList,node,deleteNode));
+
+
 
         //删除 需要动态删除的 节点，
         deleteNode.forEach(item ->childNode.remove(item));
