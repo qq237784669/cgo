@@ -11,6 +11,7 @@ import org.redisson.api.RLock;
 import org.redisson.api.RedissonClient;
 import org.redisson.client.RedisClient;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
@@ -31,6 +32,14 @@ public class VehicleTimer {
 
     @Autowired
     GlobalConfig globalConfig;
+
+
+    @Value("${timer.vehicleLock}")
+    String VEHICLE_LOCK;
+    @Value("${timer.vehicleIdList}")
+    String VEHICLE_ID_LIST;
+    @Value("${timer.vehiclePositioningList}")
+    String VEHICLE_POSITIONING_LIST;
 
 
     @Autowired
@@ -75,7 +84,7 @@ public class VehicleTimer {
         this.addExtField(dateFormat, vehiclePositioningList);
 
 
-        RLock lock = redissonClient.getLock("vehiclePositioning");
+        RLock lock = redissonClient.getLock(VEHICLE_LOCK);
         boolean state=false;
         try {
             state = lock.tryLock(2L, 10L, TimeUnit.SECONDS);
@@ -90,7 +99,7 @@ public class VehicleTimer {
                         continue;
                     }
 
-                    List<String> vehicleIdListCache = redisTemplate.opsForList().range("vehicleIdList", 0, -1);
+                    List<String> vehicleIdListCache = redisTemplate.opsForList().range(VEHICLE_ID_LIST, 0, -1);
                     if (vehicleIdListCache != null ){
 
                         List<String> filterPost = vehicleIdListCache.stream().filter(vehicleIdCache -> vehicleIdCache.equals(vehicleid.toString())).collect(Collectors.toList());
@@ -98,7 +107,7 @@ public class VehicleTimer {
                             //在push之前 已经存在 则比较时间 谁 更接近当前时间
 
                             Map<String,String> vehiclePositioningCache = JSON.parseObject(
-                                    (redisTemplate.opsForHash().get("vehiclePositioningList", filterPost.get(0))).toString(),
+                                    (redisTemplate.opsForHash().get(VEHICLE_POSITIONING_LIST, filterPost.get(0))).toString(),
                                     Map.class
                             );
                             String gpsTime = vehiclePositioningCache.get("gpsTime");
@@ -114,16 +123,16 @@ public class VehicleTimer {
 
                         }else {
                             // 增加id列表
-                            redisTemplate.opsForList().rightPush("vehicleIdList",vehicleid.toString());
+                            redisTemplate.opsForList().rightPush(VEHICLE_ID_LIST,vehicleid.toString());
                         }
 
                     }else {
                         // 增加id列表
-                        redisTemplate.opsForList().rightPush("vehicleIdList",vehicleid.toString());
+                        redisTemplate.opsForList().rightPush(VEHICLE_ID_LIST,vehicleid.toString());
                     }
 
                     // 格式  车辆定位列表【key】 ： 车辆id   ：数据
-                    redisTemplate.opsForHash().put("vehiclePositioningList",vehicleid.toString(), JSON.toJSONString(map) );
+                    redisTemplate.opsForHash().put(VEHICLE_POSITIONING_LIST,vehicleid.toString(), JSON.toJSONString(map) );
                 }
 
             }
