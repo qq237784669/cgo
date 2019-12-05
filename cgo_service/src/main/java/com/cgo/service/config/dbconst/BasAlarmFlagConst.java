@@ -4,6 +4,7 @@ import com.cgo.common.utlis.RedisUtil;
 import com.cgo.db.entity.BasAlarmflag;
 import com.cgo.db.mapper.BasAlarmflagMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -18,6 +19,12 @@ import java.util.List;
  */
 @Component
 public class BasAlarmFlagConst implements ApplicationRunner {
+
+
+    // redis对应的key
+    @Value("${dbconst.}")
+    String field; ?
+
 
 
     @Autowired
