@@ -36,8 +36,10 @@ public class VehicleTimer {
 
     @Value("${timer.vehicleLock}")
     String VEHICLE_LOCK;
+
     @Value("${timer.vehicleIdList}")
     String VEHICLE_ID_LIST;
+
     @Value("${timer.vehiclePositioningList}")
     String VEHICLE_POSITIONING_LIST;
 

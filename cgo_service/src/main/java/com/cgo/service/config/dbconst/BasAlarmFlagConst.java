@@ -1,5 +1,6 @@
 package com.cgo.service.config.dbconst;
 
+import com.alibaba.fastjson.JSON;
 import com.cgo.common.utlis.RedisUtil;
 import com.cgo.db.entity.BasAlarmflag;
 import com.cgo.db.mapper.BasAlarmflagMapper;
@@ -22,8 +23,8 @@ public class BasAlarmFlagConst implements ApplicationRunner {
 
 
     // redis对应的key
-    @Value("${dbconst.}")
-    String field;
+    @Value("${dbconst.basAlarmFlag}")
+    String basAlarmFlag;
 
 
 
@@ -40,6 +41,14 @@ public class BasAlarmFlagConst implements ApplicationRunner {
         // 所有数据
         List<BasAlarmflag> basAlarmflags = basAlarmflagMapper.selectList(null);
         //载入redis
-        System.out.println(basAlarmflags);
+        basAlarmflags.forEach(item->{
+            // id
+            String alarmFlag = item.getAlarmFlag().toString();
+            redisTemplate.opsForHash().put(
+                    basAlarmFlag,
+                    alarmFlag,
+                    JSON.toJSONString(item)  //存储字符串  不要Object
+                    );
+        });
     }
 }
