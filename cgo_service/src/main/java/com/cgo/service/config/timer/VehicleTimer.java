@@ -13,9 +13,11 @@ import org.redisson.api.RedissonClient;
 import org.redisson.client.RedisClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.DependsOn;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
+import org.springframework.util.StringUtils;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -214,8 +216,10 @@ public class VehicleTimer {
                     if (Long.parseLong(pos.get("alarmFlag").toString()) > 0) {
 
                         String basAlarmflagString = (String) redisTemplate.opsForHash().get(basAlarmFlag, pos.get("alarmFlag").toString());
-                        String alarmName = JSON.parseObject(basAlarmflagString, BasAlarmflag.class).getAlarmName();
-                        pos.put("alarmName", alarmName);
+                        if (!StringUtils.isEmpty(basAlarmflagString)){
+                            String alarmName = JSON.parseObject(basAlarmflagString, BasAlarmflag.class).getAlarmName();
+                            pos.put("alarmName", alarmName);
+                        }
                     }
 
                     // 获取外设数据的部分暂不翻译
