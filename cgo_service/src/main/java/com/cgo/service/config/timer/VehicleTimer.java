@@ -2,6 +2,7 @@ package com.cgo.db.config.timer;
 
 import com.alibaba.fastjson.JSON;
 import com.cgo.common.utlis.DateUtli;
+import com.cgo.common.utlis.LngLonUtil;
 import com.cgo.common.utlis.RedisUtil;
 import com.cgo.db.entity.BasAlarmflag;
 import com.cgo.db.mapper.web_module.vehicle.VehicleMapper;
@@ -88,6 +89,8 @@ public class VehicleTimer {
         // 获取外设数据的部分暂不翻译
         this.addExtField(dateFormat, vehiclePositioningList);
 
+        //将GPS 坐标  转换成 高德地图对应 的  坐标
+        this.convertAmapPositioning(vehiclePositioningList);
 
         RLock lock = redissonClient.getLock(VEHICLE_LOCK);
         boolean state=false;
@@ -149,6 +152,20 @@ public class VehicleTimer {
             }
         }
 
+    }
+
+    /**
+     * 转换坐标
+     * @param vehiclePositioningList
+     */
+    private void convertAmapPositioning(List<Map<String, Object>> vehiclePositioningList) {
+    vehiclePositioningList.forEach(item->{
+        String lng = (String) item.get("lng"); //经
+        String lat = (String) item.get("lat");// 维
+        double[] lat_lng = LngLonUtil.gps84_To_Gcj02(Double.parseDouble(lat), Double.parseDouble(lng));
+        item.put("lng",lat_lng[1]);
+        item.put("lat",lat_lng[0]);
+    });
     }
 
     private void addExtField(SimpleDateFormat dateFormat, List<Map<String, Object>> vehiclePositioningList) {
