@@ -22,9 +22,9 @@ public interface IVehicleController {
     ResponseResult getVehicleList(Map<String, String> param);
 
 
-    @ApiOperation(value = "获取车辆定位列表", httpMethod = "POST")
+    @ApiOperation(value = "获取车辆定位列表", httpMethod = "POST",consumes = "application/x-www-form-urlencoded")
     ResponseResult getVehiclePositioningList(VehiclePositioning param);
 
-    @ApiOperation(value = "获取车辆轨迹列表", httpMethod = "POST")
+    @ApiOperation(value = "获取车辆轨迹列表", httpMethod = "POST",consumes = "application/x-www-form-urlencoded")
     ResponseResult getTrack(VehicleTrack vehicleTrack);
 }
