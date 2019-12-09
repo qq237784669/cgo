@@ -1,4 +1,4 @@
-package com.cgo.entity.web_module.vehicle.pojo;
+package com.cgo.entity.web_module.vehicle.request;
 
 
 import lombok.Data;

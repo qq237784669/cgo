@@ -1,7 +1,8 @@
 package com.cgo.api.controller.web_module.vehicle;
 
 import com.cgo.common.response.ResponseResult;
-import com.cgo.entity.web_module.vehicle.pojo.VehiclePositioning;
+import com.cgo.entity.web_module.vehicle.request.VehiclePositioning;
+import com.cgo.entity.web_module.vehicle.request.VehicleTrack;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -23,4 +24,7 @@ public interface IVehicleController {
 
     @ApiOperation(value = "获取车辆定位列表", httpMethod = "POST")
     ResponseResult getVehiclePositioningList(VehiclePositioning param);
+
+    @ApiOperation(value = "获取车辆轨迹列表", httpMethod = "POST")
+    ResponseResult getTrack(VehicleTrack vehicleTrack);
 }

@@ -5,7 +5,7 @@
 
 
 
-    <select id="findAllVehiclePositioning" resultType="java.util.Map">
+    <select id="findAllVehiclePositioning" resultType="map">
 
         DECLARE @nowDay DATETIME
 
@@ -75,6 +75,50 @@
         WHERE  cp.LastUpdateTime &lt;= @Now
 
         AND cp.LastUpdateTime &gt; #{date}
+    </select>
+
+    <select id="findTrack" resultType="java.util.Map" parameterType="vehicleTrack">
+        DECLARE @simNum VARCHAR(20)
+
+        SELECT @simNum = SimNum
+        FROM   bas_Vehicle WITH(NOLOCK)
+        WHERE  VehicleId = 1148
+
+        SELECT CONVERT(VARCHAR(20), GpsTime, 120)     AS gpsTime,
+        Longitude as lng,
+        Latitude as lat,
+        AlarmFlag as alarmFlag,
+        StateFlag as stateFlag,
+        dbo.Fnwmon_getstateflagname(StateFlag) AS vehicleState,
+        speed,
+        direction,
+        altitude,
+        TotalCount,
+        mileage
+        FROM   (SELECT td.GpsTime,
+        td.Longitude,
+        td.Latitude,
+        td.AlarmFlag,
+        td.StateFlag,
+        td.speed,
+        td.Direction,
+        td.Altitude,
+        td.Mileage,
+        Row_number()
+        OVER(
+        ORDER BY GpsTime) AS RowNum,
+        Count(*)
+        OVER()              AS TotalCount
+        FROM   View_TrackData td WITH(NOLOCK)
+        WHERE  SimNum = @simNum
+        AND gpstime >= #{beginTime}
+        AND gpstime &lt;= #{endTime}
+        AND speed >= #{minSpeed}
+        AND td.Latitude > 0
+        AND td.Longitude > 0) T
+        WHERE  T.RowNum >= #{startRow}
+        AND ( #{endRow} = 0
+        OR T.RowNum &lt;= #{endRow} )
     </select>
 
 

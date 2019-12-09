@@ -74,6 +74,11 @@ public class GlobalConfig {
      */
     private String isWorkRspTime;
 
+    /**
+     * 增加了记录报警推送通知的报警编号机制。要定时清除旧数据，默认保留10天数据，单位：天
+     */
+    private Integer oldAlarmPostDataClearInterval;
+
     public GlobalConfig() {
     }
 
@@ -205,7 +210,12 @@ public class GlobalConfig {
     public void setIsWorkRspTime(String isWorkRspTime) {
         this.isWorkRspTime = isWorkRspTime;
     }
-
+    public Integer getOldAlarmPostDataClearInterval() {
+        if (oldAlarmPostDataClearInterval == null) {
+            oldAlarmPostDataClearInterval = 10;
+        }
+        return oldAlarmPostDataClearInterval;
+    }
     @Override
     public String toString() {
         return "GlobalConfig{" +

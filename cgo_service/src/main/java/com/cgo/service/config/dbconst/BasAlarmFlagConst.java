@@ -36,7 +36,7 @@ public class BasAlarmFlagConst implements ApplicationRunner {
 
     @Autowired
     RedisUtil redisUtil;
-
+    // pojo - map
     public void run(ApplicationArguments args) throws Exception {
         // 所有数据
         List<BasAlarmflag> basAlarmflags = basAlarmflagMapper.selectList(null);

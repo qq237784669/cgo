@@ -2,6 +2,7 @@ package com.cgo.api.service.web_module.vehicle;
 
 import com.cgo.common.response.ResponseResult;
 import com.cgo.entity.login_module.login.request.LoginRequest;
+import com.cgo.entity.web_module.vehicle.request.VehicleTrack;
 
 import java.util.List;
 
@@ -20,4 +21,11 @@ public interface IVehicleService {
      * @return
      */
     List getVehiclePositioningList(String[] vehicleIdList);
+
+    /**
+     * 获取车辆轨迹
+     * @param vehicleTrack
+     * @return
+     */
+    List getTrack(VehicleTrack vehicleTrack);
 }

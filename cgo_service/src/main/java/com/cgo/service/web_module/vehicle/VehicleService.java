@@ -5,7 +5,9 @@ import com.alibaba.dubbo.config.annotation.Service;
 import com.cgo.api.service.web_module.vehicle.IVehicleService;
 import com.cgo.common.utlis.RedisUtil;
 import com.cgo.db.mapper.web_module.user.UserMapper;
+import com.cgo.db.mapper.web_module.vehicle.VehicleMapper;
 import com.cgo.entity.login_module.login.pojo.GlobalConfig;
+import com.cgo.entity.web_module.vehicle.request.VehicleTrack;
 import lombok.extern.slf4j.Slf4j;
 import org.redisson.api.RLock;
 import org.redisson.api.RedissonClient;
@@ -32,6 +34,8 @@ public class VehicleService implements IVehicleService {
     @Autowired
     private RedisUtil redisUtil;
 
+    @Autowired
+    private VehicleMapper vehicleMapper;
 
     @Autowired
     private StringRedisTemplate redisTemplate;
@@ -72,6 +76,8 @@ public class VehicleService implements IVehicleService {
 
 
 
+
+
     @Override
     public List getVehiclePositioningList(String[] vehicleIdList) {
 
@@ -79,7 +85,7 @@ public class VehicleService implements IVehicleService {
         boolean state=false;
 
         try {
-            state = lock.tryLock(5L, 10L, TimeUnit.SECONDS);
+            state = lock.tryLock(5L, 10L, TimeUnit.SECONDS);// 获取锁 5s 超时 获取到锁执行10s超时 1/3 时间加时
 
             if (state){
                 List<String> vehicleIdListCache = redisTemplate.opsForList().range("vehicleIdList", 0, -1);
@@ -88,12 +94,12 @@ public class VehicleService implements IVehicleService {
                 for (String vehicleId : vehicleIdList) {
                     for (String vehicleIdCache : vehicleIdListCache) {
                         if (vehicleId.equals(vehicleIdCache)) {
-                            if (!filterVehicleIds.contains(vehicleId))filterVehicleIds.add(vehicleId);
+                            if (!filterVehicleIds.contains(vehicleId))
+                                filterVehicleIds.add(vehicleId);
                         }
                     }
                 }
 
-                List vehiclePositioningList = redisUtil.getMapInKeysForList("vehiclePositioningList", filterVehicleIds);
                 return  redisUtil.getMapInKeysForList("vehiclePositioningList", filterVehicleIds);
 
             }else {
@@ -109,9 +115,7 @@ public class VehicleService implements IVehicleService {
                     getVehiclePositioningList(vehicleIdList);
                 }
 
-
             }
-
 
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -123,6 +127,16 @@ public class VehicleService implements IVehicleService {
 
 
         return null;
+    }
+
+    @Override
+    public List getTrack(VehicleTrack vehicleTrack) {
+        List<Map<String,Object>> list=vehicleMapper.findTrack(vehicleTrack);
+        list.forEach(item -> {
+            Object alarmFlag = ((Long) item.get("alarmFlag")) >0 ? item.get("alarmFlag")  :"无报警信息" ;
+            item.put("alarmFlag",alarmFlag);
+        });
+        return list;
     }
 
     /**

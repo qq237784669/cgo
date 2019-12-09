@@ -2,17 +2,16 @@ package com.cgo.mobile.controller.vehicle;
 
 
 import com.alibaba.dubbo.config.annotation.Reference;
-import com.cgo.api.controller.web_module.user.IUserController;
 import com.cgo.api.controller.web_module.vehicle.IVehicleController;
 import com.cgo.api.service.web_module.vehicle.IVehicleService;
 import com.cgo.common.exception.CustomException;
 import com.cgo.common.response.CommonCode;
 import com.cgo.common.response.ResponseResult;
 import com.cgo.common.utlis.ResponseUtil;
-import com.cgo.entity.web_module.vehicle.pojo.VehiclePositioning;
+import com.cgo.entity.web_module.vehicle.request.VehiclePositioning;
+import com.cgo.entity.web_module.vehicle.request.VehicleTrack;
 import com.cgo.entity.web_module.vehicle.response.VehicleCode;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -55,5 +54,14 @@ public class VehicleController implements IVehicleController {
         Map data = ResponseUtil.put("vehicles", list);
         data.put("total",list.size());
         return new ResponseResult(data,CommonCode.SUCCESS) ;
+    }
+
+    @RequestMapping("/getVehicleTrack")
+    public ResponseResult getTrack(VehicleTrack vehicleTrack){
+        List list=iVehicleService.getTrack(vehicleTrack);
+        Map result = ResponseUtil.put("track", list);
+        result.put("vehicleId",vehicleTrack.getVehicleId());
+        result.put("total",result.size());
+        return new ResponseResult(result,CommonCode.SUCCESS);
     }
 }
