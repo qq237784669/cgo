@@ -100,8 +100,7 @@ public class VehicleService implements IVehicleService {
                     }
                 }
 
-                return  redisUtil.getMapInKeysForList("vehiclePositioningList", filterVehicleIds);
-
+                return filterVehicleIds.isEmpty() ? new ArrayList() : filterVehicleIds;
             }else {
 
                 Integer count = vehiclePositioningCount.get();
