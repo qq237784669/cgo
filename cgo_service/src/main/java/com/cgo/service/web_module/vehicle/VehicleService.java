@@ -132,7 +132,7 @@ public class VehicleService implements IVehicleService {
     @Override
     public List getTrack(VehicleTrack vehicleTrack) {
         List<Map<String,Object>> list=vehicleMapper.findTrack(vehicleTrack);
-        if (list.isEmpty())
+        if (list==null || list.isEmpty())
             return new ArrayList<>();
 
         list.forEach(item -> {
