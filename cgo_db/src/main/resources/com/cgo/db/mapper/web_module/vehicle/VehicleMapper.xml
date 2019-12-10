@@ -82,7 +82,7 @@
 
         SELECT @simNum = SimNum
         FROM   bas_Vehicle WITH(NOLOCK)
-        WHERE  VehicleId = 1148
+        WHERE  VehicleId = #{vehicleId}
 
         SELECT CONVERT(VARCHAR(20), GpsTime, 120)     AS gpsTime,
         Longitude as lng,

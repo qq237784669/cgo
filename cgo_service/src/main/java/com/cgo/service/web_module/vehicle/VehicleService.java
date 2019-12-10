@@ -132,6 +132,9 @@ public class VehicleService implements IVehicleService {
     @Override
     public List getTrack(VehicleTrack vehicleTrack) {
         List<Map<String,Object>> list=vehicleMapper.findTrack(vehicleTrack);
+        if (list.isEmpty())
+            return new ArrayList<>();
+
         list.forEach(item -> {
             Object alarmFlag = ((Long) item.get("alarmFlag")) >0 ? item.get("alarmFlag")  :"无报警信息" ;
             item.put("alarmFlag",alarmFlag);

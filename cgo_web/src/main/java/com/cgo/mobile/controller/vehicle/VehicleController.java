@@ -12,6 +12,7 @@ import com.cgo.entity.web_module.vehicle.request.VehiclePositioning;
 import com.cgo.entity.web_module.vehicle.request.VehicleTrack;
 import com.cgo.entity.web_module.vehicle.response.VehicleCode;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -57,7 +58,7 @@ public class VehicleController implements IVehicleController {
     }
 
     @RequestMapping("/getVehicleTrack")
-    public ResponseResult getTrack(VehicleTrack vehicleTrack){
+    public ResponseResult getTrack(@RequestBody VehicleTrack vehicleTrack){
         List list=iVehicleService.getTrack(vehicleTrack);
         Map result = ResponseUtil.put("track", list);
         result.put("vehicleId",vehicleTrack.getVehicleId());
