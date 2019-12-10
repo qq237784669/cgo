@@ -27,7 +27,7 @@ public class VehicleController implements IVehicleController {
     IVehicleService iVehicleService;
 
     @RequestMapping("/getVehicleList")
-    public ResponseResult getVehicleList(@RequestParam Map<String, String> param) {
+    public ResponseResult getVehicleList(@RequestBody Map<String, String> param) {
         String userId = param.get("userId");
         String userType = param.get("userType");
 

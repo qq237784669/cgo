@@ -30,7 +30,7 @@ public class UserLoginController implements IUserLoginController {
 
     // 登录接口
     @RequestMapping("/login")
-    public ResponseResult login( LoginRequest loginRequest){
+    public ResponseResult login( @RequestBody LoginRequest loginRequest){
         ResponseResult responseResult = new ResponseResult();
         Map data=new HashMap();
 
@@ -50,7 +50,7 @@ public class UserLoginController implements IUserLoginController {
 
     // 将jwt 转换为  用户信息 接口
     @RequestMapping("/userInfo")
-    public ResponseResult userInfo(@RequestParam Map<String,String> map){
+    public ResponseResult userInfo(@RequestBody Map<String,String> map){
         ResponseResult responseResult =new ResponseResult();
 
             String access_token = map.get("access_token");
