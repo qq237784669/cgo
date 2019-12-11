@@ -53,7 +53,7 @@ public class UserLoginController implements IUserLoginController {
     public ResponseResult userInfo(@RequestBody Map<String,String> map){
         ResponseResult responseResult =new ResponseResult();
 
-            String access_token = map.get("access_token");
+        String access_token = map.get("access_token");
         Jwt decode = JwtHelper.decode(access_token);
         String data = decode.getClaims();
 
