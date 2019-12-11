@@ -90,12 +90,12 @@ public class VehicleTimer {
         this.addExtField(dateFormat, vehiclePositioningList);
 
         //将GPS 坐标  转换成 高德地图对应 的  坐标
-        this.convertAmapPositioning(vehiclePositioningList);
+        //this.convertAmapPositioning(vehiclePositioningList);
 
         RLock lock = redissonClient.getLock(VEHICLE_LOCK);
         boolean state=false;
         try {
-            state = lock.tryLock(2L, 10L, TimeUnit.SECONDS);
+            state = lock.tryLock(5L, 10L, TimeUnit.SECONDS);
             if (state){
 
                 for (Map<String, Object> map : vehiclePositioningList) {
