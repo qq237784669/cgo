@@ -35,12 +35,12 @@ public class UserLoginController implements IUserLoginController {
         Map data=new HashMap();
 
         String access_token = loginService.login(loginRequest);
-        if (StringUtils.isBlank(access_token)){
-            responseResult.setCommonResponse(CommonCode.FAILURE);
-        }else {
-            String claims = JwtHelper.decode(access_token).getClaims();
-            data.put("userInfo", JSON.parseObject(claims,Map.class));
-        }
+//        if (StringUtils.isBlank(access_token)){
+//            responseResult.setCommonResponse(CommonCode.FAILURE);
+//        }else {
+//            String claims = JwtHelper.decode(access_token).getClaims();
+//            data.put("userInfo", JSON.parseObject(claims,Map.class));
+//        }
         data.put("access_token",access_token);
 
         responseResult.setData(data);
