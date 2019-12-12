@@ -223,4 +223,48 @@ ORDER  BY o.SearchCode,
 
     </select>
 
+
+    <select id="findOnlineUserInfo" resultType="java.util.Map">
+        SELECT O.UserType as userType ,
+                     O.UserId as userId,
+                     O.UpdateTime as updateTime,
+                     O.MobileOS as mobileOS,
+                     O.LoginTime as loginTime,
+                     O.Id as id,
+                     O.IMEI as imei,
+                     O.BDTokenId bdTokenId,
+                     O.BDChannelId as bdChannelId,
+               AlarmType as alarmType,
+               ReadAlarmTime as readAlarmTime,
+               ReadAlarmTime as readAlarmTime,
+               ReadSafetyAlarmTime as readSafetyAlarmTime,
+               AdasAlarmTypeWithOne as adasAlarmTypeWithOne,
+               AdasAlarmTypeWithTwo as adasAlarmTypeWithTwo
+        FROM   dbo.biz_MobOnLineUser O
+               INNER JOIN biz_MobUserConfig M
+                       ON O.UserId = M.UserId
+        WHERE  O.LoginTime > Dateadd(DAY, -7, CONVERT(VARCHAR(10), Getdate(), 120))
+
+    </select>
+    <select id="findVehicleList" resultType="java.util.Map">
+
+        <choose>
+            <when test="userType == 0 ">
+                SELECT SimNum as simNum,
+                PlateNum as plateNum,
+                VehicleId as vehicleId
+                FROM   View_UserVehicle WITH(NOLOCK)
+                WHERE  UserId = #{userId}
+            </when>
+            <otherwise>
+                SELECT TOP 1 SimNum as simNum,
+                PlateNum as plateNum,
+                VehicleId as vehicleId
+                FROM   bas_Vehicle WITH(NOLOCK)
+                WHERE  PlateNum = #{userId}
+            </otherwise>
+        </choose>
+
+    </select>
+
 </mapper>

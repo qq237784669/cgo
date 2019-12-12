@@ -7,6 +7,7 @@ import com.cgo.common.utlis.RedisUtil;
 import com.cgo.db.entity.BasAlarmflag;
 import com.cgo.db.mapper.web_module.vehicle.VehicleMapper;
 import com.cgo.entity.login_module.login.pojo.GlobalConfig;
+import com.cgo.service.config.dbconst.OnlineUserInfo;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.redisson.api.RLock;
@@ -27,12 +28,11 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 import java.util.stream.Collectors;
 
 @Component
 @Slf4j
-@DependsOn("basAlarmFlagConst")
 public class VehicleTimer {
 
 
@@ -51,6 +51,7 @@ public class VehicleTimer {
     @Value("${timer.vehiclePositioningList}")
     String VEHICLE_POSITIONING_LIST;
 
+    boolean initSuccess=false;
 
     @Autowired
     VehicleMapper vehicleMapper;
@@ -61,6 +62,12 @@ public class VehicleTimer {
 
     @Autowired
     RedissonClient redissonClient;
+
+    @Autowired
+    OnlineUserInfo onlineUserInfo; // 移动用户信息
+
+    //线程池创建 coreThreadCount=1
+    private ExecutorService executor= Executors.newFixedThreadPool(1);
 
     private static String queryEndTime="1971-1-1 01:01:01.000";
     /**
@@ -111,6 +118,8 @@ public class VehicleTimer {
                     if (vehicleIdListCache != null ){
 
                         List<String> filterPost = vehicleIdListCache.stream().filter(vehicleIdCache -> vehicleIdCache.equals(vehicleid.toString())).collect(Collectors.toList());
+
+                        // 这里主要针对重复的 车辆数据 进行去重
                         if (filterPost.size() >0 ){
                             //在push之前 已经存在 则比较时间 谁 更接近当前时间
 
@@ -148,6 +157,11 @@ public class VehicleTimer {
             e.printStackTrace();
         }finally {
             if (state){
+                //当 定位列表 执行完成后 只执行一次
+                if (!initSuccess) {
+                    onlineUserInfo.run();
+                    initSuccess=true;
+                }
                 lock.unlock();
             }
         }

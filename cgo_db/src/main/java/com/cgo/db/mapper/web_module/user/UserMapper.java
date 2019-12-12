@@ -1,5 +1,7 @@
 package com.cgo.db.mapper.web_module.user;
 
+import org.apache.ibatis.annotations.Param;
+
 import java.util.List;
 import java.util.Map;
 
@@ -28,4 +30,8 @@ public interface UserMapper {
     List<Map<String,Object>> findOrganizationListByUserTypeEqZero(String userId);
     List<Map<String,Object>> findVehicleListByUserTypeEqOne(String userId);
 
+    // 获取 移动端在线用户信息
+    List<Map<String, Object>> findOnlineUserInfo();
+
+    List<Map<String, Object>> findVehicleList(@Param("userType") String userType,@Param("userId") String userId);
 }
