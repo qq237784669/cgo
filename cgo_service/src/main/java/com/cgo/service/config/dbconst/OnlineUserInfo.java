@@ -104,7 +104,6 @@ public class OnlineUserInfo implements Runnable  {
                             userList.add(userInfo);
                     }
                     redisTemplate.opsForHash().put(VEHICLE_POSITIONING_LIST,vehicleId,JSON.toJSONString(vehiclePositioning));
-                    System.out.println(userInfo);
                 }
 
             }
