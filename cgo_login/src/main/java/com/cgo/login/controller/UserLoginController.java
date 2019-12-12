@@ -50,8 +50,8 @@ public class UserLoginController implements IUserLoginController {
 
 
     // 将jwt 转换为  用户信息 接口
-    @RequestMapping("/userInfo")
-    public ResponseResult userInfo(@RequestBody Map<String,String> map){
+    @RequestMapping("/getUserInfo")
+    public ResponseResult getUserInfo(@RequestBody Map<String,String> map){
         ResponseResult responseResult =new ResponseResult();
 
         String access_token = map.get("access_token");

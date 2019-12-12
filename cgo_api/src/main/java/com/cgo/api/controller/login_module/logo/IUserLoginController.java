@@ -25,7 +25,7 @@ public interface IUserLoginController {
                     @ApiImplicitParam(name = "access_token",value = "jwt_token"),
             }
     )
-    ResponseResult userInfo( Map<String,String> map);
+    ResponseResult getUserInfo( Map<String,String> map);
 
 
 
