@@ -57,7 +57,9 @@ public class UserLoginController implements IUserLoginController {
         Jwt decode = JwtHelper.decode(access_token);
         String data = decode.getClaims();
 
-        responseResult.setData(data);
+        Map result=new HashMap<>();
+        result.put("userInfo",JSON.parseObject(data,Map.class));
+        responseResult.setData(result);
 
         return responseResult;
     }
