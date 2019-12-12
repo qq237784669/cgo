@@ -3,6 +3,7 @@ package com.cgo.login.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.cgo.api.controller.login_module.logo.IUserLoginController;
+import com.cgo.common.utlis.ResponseUtil;
 import com.cgo.entity.login_module.login.request.LoginRequest;
 import com.cgo.common.response.CommonCode;
 import com.cgo.common.response.ResponseResult;
@@ -57,9 +58,7 @@ public class UserLoginController implements IUserLoginController {
         Jwt decode = JwtHelper.decode(access_token);
         String data = decode.getClaims();
 
-        Map result=new HashMap<>();
-        result.put("userInfo",JSON.parseObject(data,Map.class));
-        responseResult.setData(result);
+        responseResult.setData(ResponseUtil.put("userInfo",JSON.parseObject(data,Map.class)));
 
         return responseResult;
     }
