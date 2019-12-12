@@ -57,8 +57,10 @@ public class UserLoginController implements IUserLoginController {
         String access_token = map.get("access_token");
         Jwt decode = JwtHelper.decode(access_token);
         String data = decode.getClaims();
-
-        responseResult.setData(ResponseUtil.put("userInfo",JSON.parseObject(data,Map.class)));
+        Map result = JSON.parseObject(data, Map.class);
+        result.remove("jti");
+        result.remove("exp");
+        responseResult.setData(result);
 
         return responseResult;
     }
