@@ -34,14 +34,6 @@ public class OnlineUserInfo implements Runnable  {
     @Value("${dbconst.mobileOnlineUserInfo}")
     String MOBILE_ONLINE_USERINFO;
 
-
-
-    @Value("${dbconst.basAlarmFlag}")
-    String basAlarmFlag;
-
-    @Value("${timer.vehicleLock}")
-    String VEHICLE_LOCK;
-
     @Value("${timer.vehicleIdList}")
     String VEHICLE_ID_LIST;
 
