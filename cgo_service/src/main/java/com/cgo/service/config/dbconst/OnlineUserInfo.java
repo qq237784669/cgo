@@ -60,7 +60,7 @@ public class OnlineUserInfo implements Runnable  {
             item.put("vehicleList",vehicleList);
 
             redisTemplate.opsForHash().put(MOBILE_ONLINE_USERINFO,
-                    userId_bdChannelId_redisKey, //以用户id 和bdChannelId 作为混合key
+                    userId_bdChannelId_redisKey, //以用户id 和bdChannelId 作为混合key  userId_bdChannel
                     JSON.toJSONString(item));
 
 
@@ -73,6 +73,7 @@ public class OnlineUserInfo implements Runnable  {
      *
      * @param vehicleList 当前用户的车辆列表
      * @param vehicleIdListCache 缓存中的 车辆定位ID列表
+     *   @param userInfo  用户id +"_"+imei
      */
     private void vehiclePositioningListAddField(List<Map<String, Object>> vehicleList, List<String> vehicleIdListCache,String userInfo) {
 

@@ -1,5 +1,6 @@
 package com.cgo.db.mapper.web_module.user;
 
+import com.cgo.entity.login_module.login.request.LoginRequest;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -34,4 +35,6 @@ public interface UserMapper {
     List<Map<String, Object>> findOnlineUserInfo();
 
     List<Map<String, Object>> findVehicleList(@Param("userType") String userType,@Param("userId") String userId);
+
+    void spApp_ModifyMobOnlineUser(LoginRequest loginRequest);
 }

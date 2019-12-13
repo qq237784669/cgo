@@ -2,9 +2,11 @@ package com.cgo.service.web_module.user;
 
 
 import com.alibaba.dubbo.config.annotation.Service;
+import com.alibaba.fastjson.JSON;
 import com.cgo.api.service.web_module.user.IUserService;
 import com.cgo.common.response.ResponseResult;
 import com.cgo.common.utlis.EncryptionUtil;
+import com.cgo.common.utlis.RedisUtil;
 import com.cgo.db.mapper.web_module.user.UserMapper;
 import com.cgo.entity.login_module.login.pojo.AppMenuAuth;
 import com.cgo.entity.login_module.login.pojo.CustomConfig;
@@ -15,6 +17,8 @@ import com.cgo.entity.login_module.login.request.LoginRequest;
 import com.cgo.entity.login_module.login.response.LoginResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.util.StringUtils;
 
 import java.sql.CallableStatement;
 import java.sql.SQLException;
@@ -34,6 +38,13 @@ public class UserService implements IUserService {
 
     @Autowired
     private UserMapper userMapper;
+
+    @Autowired
+    private RedisUtil redisUtil;
+
+    //  移动端在线用户信息 key
+    @Value("${dbconst.mobileOnlineUserInfo}")
+    String MOBILE_ONLINE_USERINFO;
 
     public ResponseResult login(LoginRequest loginRequest) {
         ResponseResult responseResult = new ResponseResult();
@@ -128,14 +139,33 @@ public class UserService implements IUserService {
 
 
         if (mobileOs != null && mobileOs != 3) {
-//                CallableStatement cstmt = conn.prepareCall("{call dbo.spApp_ModifyMobOnLineUser(?, ?, ?, ?, ?, ?)}");
-//                cstmt.setString(1, userId);
-//                cstmt.setString(2, bdTokenId);
-//                cstmt.setString(3, bdChannelId);
-//                cstmt.setInt(4, mobileOs);
-//                cstmt.setString(5, imei);
-//                cstmt.setString(6, userType);
-//                int rowsAffected = modifyMobOnLineUser(cstmt);
+            // 如果登录来源不为微信用户，则执行如下 SQL 语句修改移动端在线用户信息，并把移动端在线用户信息存储到全局系统缓存
+            // 执行存储过程
+            userMapper.spApp_ModifyMobOnlineUser(loginRequest);
+
+            String userId_bdChannelId_redisKey = loginRequest.getUserId()+ "_" + (bdChannelId==null ? "" : bdChannelId);
+
+            Object cache = redisUtil.hget(MOBILE_ONLINE_USERINFO, userId_bdChannelId_redisKey);
+
+            if (cache!=null){
+                Map<String,Object> mobileUserInfo = JSON.parseObject(cache.toString(), Map.class);
+
+                String bdTokenIdCache = (String) mobileUserInfo.get("bdTokenId");
+                String userIdCache = (String) mobileUserInfo.get("userId");
+                String userTypeCache = (String) mobileUserInfo.get("userType");
+
+                // 如果 token 想同   user id  和 userType 不同 代表多处登录  得情况 更新 status
+                if ( bdTokenIdCache.equals( loginRequest.getBdTokenId() )
+                        && ( !userIdCache.equals(userId)  ||  !userTypeCache.equals(userType) )){
+                    Map<String,Object> loginUserInfo = JSON.parseObject(JSON.toJSONString(loginRequest), Map.class);
+                    loginUserInfo.remove("password");
+                    mobileUserInfo.putAll(loginUserInfo);
+                    // update
+                    redisUtil.hset(MOBILE_ONLINE_USERINFO,userId_bdChannelId_redisKey,mobileUserInfo);
+                }
+
+            }
+
         }
 
         Map<String, String> userInfo = userList.get(0);

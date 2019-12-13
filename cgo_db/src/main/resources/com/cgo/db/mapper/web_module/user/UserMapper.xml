@@ -15,6 +15,13 @@
     </resultMap>
 
 
+
+    <update id="spApp_ModifyMobOnlineUser"  statementType="CALLABLE" parameterType="loginRequest">
+         { CALL spApp_ModifyMobOnlineUser(
+         #{userId, mode=IN}, #{bdTokenId, mode=IN}, #{bdChannelId, mode=IN}, #{mobileOS, mode=IN}, #{imei, mode=IN}, #{userType, mode=IN}
+         )  }
+    </update>
+
     <select id="findByUserTypeZero" resultMap="userTypeZeroUser" parameterType="string" >
                    SELECT u.UserId,
                    u.UserPwd,
@@ -154,18 +161,7 @@ ORDER  BY o.SearchCode,
 
     </select>
 
-    <!--
-                            SELECT uv.VehicleId,uv.SimNum,uv.PlateNum,uv.OrgId,t.VehicleTypeName,tp.TerminalTypeName,ISNULL(v.DVRTypeCode,0) as DVRTypeCode,ISNULL(v.DVRChannelNum,0) as DVRChannelNum, IsOnline=(case when cp.SimNum is null then 0 else 1 end), '' as DVRDeviceId,o.SearchCode
-                            FROM View_UserVehicle uv
-                            INNER JOIN bas_Vehicle v ON uv.VehicleId=v.VehicleId
-                            INNER JOIN bas_Org o ON uv.OrgId=o.OrgId
-                            INNER JOIN bas_TerminalType tp  ON v.TerminalTypeId = tp.TerminalTypeId
-                            LEFT JOIN std_VehicleType t ON v.VehicleTypeCode=t.VehicleTypeCode
-                            LEFT JOIN biz_CurrentPos cp  WITH(NOLOCK)
-                            ON uv.SimNum=cp.SimNum
-                            WHERE uv.UserId=#{userId} and v.DVRTypeCode='999'
-                            ORDER BY o.SearchCode,PlateNum
-    -->
+
 
     <select id="findVehicleListByUserTypeEqOne" resultType="map">
 

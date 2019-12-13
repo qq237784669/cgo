@@ -421,7 +421,7 @@ public final class RedisUtil {
 
         try {
 
-            redisTemplate.opsForHash().put(key, item, value);
+            redisTemplate.opsForHash().put(key, item, JSON.toJSONString(value));
 
             return true;
 
