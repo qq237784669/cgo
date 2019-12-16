@@ -1,6 +1,8 @@
 package com.cgo.login.service;
 
+import com.alibaba.dubbo.config.annotation.Reference;
 import com.alibaba.fastjson.JSON;
+import com.cgo.api.service.web_module.user.IUserService;
 import com.cgo.entity.login_module.login.request.LoginRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -22,6 +24,11 @@ public class LoginService {
 
     @Autowired
     private RestTemplate restTemplate;
+
+    @Reference
+    private IUserService iUserService;
+
+
 
     @Value("${server.port}")
     private String port;
@@ -69,5 +76,9 @@ public class LoginService {
         //将串进行base64编码
         byte[] encode = Base64Utils.encode(string.getBytes());
         return "Basic "+new String(encode);
+    }
+
+    public void logout(LoginRequest loginRequest) {
+        iUserService.logout(loginRequest);
     }
 }

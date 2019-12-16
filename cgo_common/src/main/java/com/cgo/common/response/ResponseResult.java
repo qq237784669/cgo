@@ -3,6 +3,7 @@ package com.cgo.common.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.experimental.Accessors;
 
 import java.io.Serializable;
 
@@ -11,6 +12,7 @@ import java.io.Serializable;
  */
 @Data
 @AllArgsConstructor
+@Accessors(chain = true)
 public class ResponseResult implements Serializable {
     //操作是否成功
     private boolean success;

@@ -143,28 +143,7 @@ public class UserService implements IUserService {
             // 执行存储过程
             userMapper.spApp_ModifyMobOnlineUser(loginRequest);
 
-            String userId_bdChannelId_redisKey = loginRequest.getUserId()+ "_" + (bdChannelId==null ? "" : bdChannelId);
-
-            Object cache = redisUtil.hget(MOBILE_ONLINE_USERINFO, userId_bdChannelId_redisKey);
-
-            if (cache!=null){
-                Map<String,Object> mobileUserInfo = JSON.parseObject(cache.toString(), Map.class);
-
-                String bdTokenIdCache = (String) mobileUserInfo.get("bdTokenId");
-                String userIdCache = (String) mobileUserInfo.get("userId");
-                String userTypeCache = (String) mobileUserInfo.get("userType");
-
-                // 如果 token 想同   user id  和 userType 不同 代表多处登录  得情况 更新 status
-                if ( bdTokenIdCache.equals( loginRequest.getBdTokenId() )
-                        && ( !userIdCache.equals(userId)  ||  !userTypeCache.equals(userType) )){
-                    Map<String,Object> loginUserInfo = JSON.parseObject(JSON.toJSONString(loginRequest), Map.class);
-                    loginUserInfo.remove("password");
-                    mobileUserInfo.putAll(loginUserInfo);
-                    // update
-                    redisUtil.hset(MOBILE_ONLINE_USERINFO,userId_bdChannelId_redisKey,mobileUserInfo);
-                }
-
-            }
+            userCacheInfoUpdate(loginRequest);
 
         }
 
@@ -197,6 +176,42 @@ public class UserService implements IUserService {
 
         return responseResult;
 
+    }
+
+    // redis中删除 缓存的用户信息。
+    private void userCacheInfoUpdate(LoginRequest loginRequest) {
+        String bdChannelId = loginRequest.getBdChannelId();
+        String userId = loginRequest.getUserId();
+        String userType = loginRequest.getUserType();
+        String bdTokenId = loginRequest.getBdTokenId();
+        String userId_bdChannelId_redisKey = userId+ "_" + (bdChannelId==null ? "" : bdChannelId);
+
+        Object cache = redisUtil.hget(MOBILE_ONLINE_USERINFO, userId_bdChannelId_redisKey);
+
+        if (cache!=null){
+            Map<String,Object> mobileUserInfo = JSON.parseObject(cache.toString(), Map.class);
+
+            String bdTokenIdCache = (String) mobileUserInfo.get("bdTokenId");
+            String userIdCache = (String) mobileUserInfo.get("userId");
+            String userTypeCache = (String) mobileUserInfo.get("userType");
+
+            // 如果 token 想同   user id  和 userType 不同 代表多处登录  得情况 更新 status
+            if ( bdTokenIdCache.equals( bdTokenId )
+                    && ( !userIdCache.equals(userId)  ||  !userTypeCache.equals(userType) )){
+                Map<String,Object> loginUserInfo = JSON.parseObject(JSON.toJSONString(loginRequest), Map.class);
+                loginUserInfo.remove("password");
+                mobileUserInfo.putAll(loginUserInfo);
+                // update
+                redisUtil.hset(MOBILE_ONLINE_USERINFO,userId_bdChannelId_redisKey,mobileUserInfo);
+            }
+
+        }
+    }
+
+    @Override
+    public void logout(LoginRequest loginRequest) {
+        userCacheInfoUpdate(loginRequest);
+        userMapper.deleteUserLoginInfo(loginRequest);
     }
 
     private List<VehicleIcon> getVehicleIcons() {
@@ -526,91 +541,6 @@ public class UserService implements IUserService {
         }
 
         return appMenuAuth;
-    }
-
-//    private String buildGetUserLoginInfoSqlText(String userType) {
-//        StringBuffer sqlTextSb = new StringBuffer();
-//
-//        // 判断是用户登录还是车牌号登录
-//        if (userType.equals("0")) {
-//            sqlTextSb.append("SELECT u.UserId, ");
-//            sqlTextSb.append("       u.UserPwd, ");
-//            sqlTextSb.append("       u.UserName, ");
-//            sqlTextSb.append("       g.RoleName, ");
-//            sqlTextSb.append("       o.OrgId, ");
-//            sqlTextSb.append("       o.OrgName, ");
-//            sqlTextSb.append("       Isnull(B.AlarmType, -1) AS AlarmType, ");
-//            sqlTextSb.append("       ExpiryDay=( CASE ");
-//            sqlTextSb.append("                     WHEN u.ExpiryDate IS NULL ");
-//            sqlTextSb.append("                           OR u.ExpiryDate = '' THEN 8 ");
-//            sqlTextSb.append("                     ELSE ( CASE ");
-//            sqlTextSb.append("                              WHEN Datediff(MINUTE, Getdate(), u.ExpiryDate) >= 0 THEN Datediff(day, Getdate(), u.ExpiryDate) ");
-//            sqlTextSb.append("                              ELSE -1 ");
-//            sqlTextSb.append("                            END ) ");
-//            sqlTextSb.append("                   END ), ");
-//            sqlTextSb.append("       IsStay=0 ");
-//            sqlTextSb.append("FROM   sys_User u ");
-//            sqlTextSb.append("       INNER JOIN sys_Role g ");
-//            sqlTextSb.append("               ON u.RoleId = g.RoleId ");
-//            sqlTextSb.append("       LEFT JOIN bas_Org o ");
-//            sqlTextSb.append("              ON u.OrgId = o.OrgId ");
-//            sqlTextSb.append("       LEFT JOIN biz_MobUserConfig B ");
-//            sqlTextSb.append("              ON u.UserId = B.UserId ");
-//            sqlTextSb.append("WHERE  u.UserId = ? ");
-//        } else {
-//            sqlTextSb.append("SELECT v.PlateNum   AS UserId, ");
-//            sqlTextSb.append("       v.[PassWord] AS UserPwd, ");
-//            sqlTextSb.append("       v.OwnerName  AS UserName, ");
-//            sqlTextSb.append("       v.CorpName   AS RoleName, ");
-//            sqlTextSb.append("       o.OrgId, ");
-//            sqlTextSb.append("       o.OrgName, ");
-//            sqlTextSb.append("       -1           AS AlarmType, ");
-//            sqlTextSb.append("       IsDenyWebGps=( CASE ");
-//            sqlTextSb.append("                        WHEN v.IsDenyWebGps = 1 THEN 1 ");
-//            sqlTextSb.append("                        ELSE 0 ");
-//            sqlTextSb.append("                      END ), ");
-//            sqlTextSb.append("       IsStay=( CASE ");
-//            sqlTextSb.append("                  WHEN v.IsAutoStay = 1 ");
-//            sqlTextSb.append("                       AND v.SVREndTime < CONVERT(VARCHAR(10), Getdate(), 120) THEN 1 ");
-//            sqlTextSb.append("                  ELSE 0 ");
-//            sqlTextSb.append("                END ) ");
-//            sqlTextSb.append("FROM   bas_Vehicle v ");
-//            sqlTextSb.append("       INNER JOIN bas_Org o ");
-//            sqlTextSb.append("               ON v.OrgId = o.OrgId ");
-//            sqlTextSb.append("       LEFT JOIN std_PlateColor c ");
-//            sqlTextSb.append("              ON v.ColorCode = c.ColorCode ");
-//            sqlTextSb.append("WHERE  v.PlateNum = ? ");
-//            sqlTextSb.append("        OR v.PlateNum + ( CASE ");
-//            sqlTextSb.append("                            WHEN c.ColorCode <> 9 THEN LEFT(c.ColorName, 1) ");
-//            sqlTextSb.append("                            ELSE c.ColorName ");
-//            sqlTextSb.append("                          END ) = ? ");
-//        }
-//
-//        return sqlTextSb.toString();
-//    }
-//
-//    private String buildGetUserAuthSqlText() {
-//        StringBuffer sqlTextSb = new StringBuffer();
-//        sqlTextSb.append("SELECT isExist=( Isnull((SELECT MaxAuth ");
-//        sqlTextSb.append("                         FROM   sys_Menu ");
-//        sqlTextSb.append("                         WHERE  MenuCode = 'GetTrackAuth'), '0') ), ");
-//        sqlTextSb.append("       hasModule=( Isnull((SELECT ModuleCode ");
-//        sqlTextSb.append("                           FROM   sys_UserAuth_Module ");
-//        sqlTextSb.append("                           WHERE  UserId = ? ");
-//        sqlTextSb.append("                                  AND ModuleCode = 'TopMobile'), '0') ) ");
-//        return sqlTextSb.toString();
-//    }
-
-
-    private int modifyMobOnLineUser(CallableStatement cstmt) {
-        int rowsAffected = 0;
-        try {
-            cstmt.execute();
-            rowsAffected = cstmt.getUpdateCount();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return rowsAffected;
     }
 
 

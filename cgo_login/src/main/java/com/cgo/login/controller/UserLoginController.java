@@ -47,6 +47,11 @@ public class UserLoginController implements IUserLoginController {
         responseResult.setData(data);
         return responseResult;
     }
+    @RequestMapping("/logout")
+    public ResponseResult logout(@RequestBody LoginRequest loginRequest){
+        loginService.logout(loginRequest);
+        return new ResponseResult().setData("");
+    }
 
 
     // 将jwt 转换为  用户信息 接口

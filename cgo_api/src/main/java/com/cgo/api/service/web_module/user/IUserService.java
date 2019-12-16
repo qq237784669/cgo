@@ -12,4 +12,10 @@ public interface IUserService {
      * @return
      */
     ResponseResult login(LoginRequest loginRequest);
+
+    /**
+     * 登出
+     * @param loginRequest
+     */
+    void logout(LoginRequest loginRequest);
 }

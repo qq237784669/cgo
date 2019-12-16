@@ -21,6 +21,11 @@
          #{userId, mode=IN}, #{bdTokenId, mode=IN}, #{bdChannelId, mode=IN}, #{mobileOS, mode=IN}, #{imei, mode=IN}, #{userType, mode=IN}
          )  }
     </update>
+    <delete id="deleteUserLoginInfo">
+        DELETE dbo.biz_MobOnLineUser
+        WHERE  UserId = #{userId}
+        AND BDChannelId = #{bdChannelId}
+    </delete>
 
     <select id="findByUserTypeZero" resultMap="userTypeZeroUser" parameterType="string" >
                    SELECT u.UserId,

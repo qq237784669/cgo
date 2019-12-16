@@ -37,4 +37,6 @@ public interface UserMapper {
     List<Map<String, Object>> findVehicleList(@Param("userType") String userType,@Param("userId") String userId);
 
     void spApp_ModifyMobOnlineUser(LoginRequest loginRequest);
+
+    void deleteUserLoginInfo(LoginRequest loginRequest);
 }
