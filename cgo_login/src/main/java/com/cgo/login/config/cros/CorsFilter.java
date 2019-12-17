@@ -13,29 +13,35 @@ import java.io.IOException;
 @Component
 @Order(Ordered.HIGHEST_PRECEDENCE)
 public class CorsFilter implements Filter {
+    @Override
+    public void init(FilterConfig filterConfig) throws ServletException {
+
+    }
+
 
     @Override
-    public void doFilter(ServletRequest req, ServletResponse rep, FilterChain chain) throws IOException, ServletException {
-        HttpServletResponse response = (HttpServletResponse) req;
-        HttpServletRequest request = (HttpServletRequest) rep;
+    public void destroy() {
 
-        response.setHeader("Access-Control-Allow-Credentials","true");
-        //允许所有的域访问
+    }
+
+    @Override
+    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
+
+        HttpServletRequest request = (HttpServletRequest) servletRequest;
+        HttpServletResponse response = (HttpServletResponse) servletResponse;
         response.setHeader("Access-Control-Allow-Origin", "*");
-        //允许所有方式的请求
-        response.setHeader("Access-Control-Allow-Methods", "*");
-        //头信息缓存有效时长（如果不设 Chromium 同时规定了一个默认值 5 秒），没有缓存将已OPTIONS进行预请求
-        response.setHeader("Access-Control-Max-Age", "3600");
-        //允许的头信息
-        response.setHeader("Access-Control-Allow-Headers", "x-requested-with, authorization");
-
+        response.setHeader("Access-Control-Allow-Credentials", "true");
+        response.setHeader("Access-Control-Allow-Methods", "POST,GET,OPTIONS,PUT,DELETE,PATCH,HEAD");
+        response.setHeader("Access-Control-Allow-Max-Age", "3600");
+        response.setHeader("Access-Control-Allow-Headers", "*");
         if ("OPTIONS".equalsIgnoreCase(request.getMethod())) {
             response.setStatus(HttpServletResponse.SC_OK);
         } else {
-            chain.doFilter(req, rep);
+            filterChain.doFilter(servletRequest, servletResponse);
+
+
         }
     }
-
 
 
 }
