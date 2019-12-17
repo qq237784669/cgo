@@ -32,6 +32,7 @@ public class UserLoginController implements IUserLoginController {
     // 登录接口
     @RequestMapping("/login")
     public ResponseResult login( @RequestBody LoginRequest loginRequest){
+        System.out.println(loginRequest);
         ResponseResult responseResult = new ResponseResult();
         Map data=new HashMap();
 
@@ -42,7 +43,8 @@ public class UserLoginController implements IUserLoginController {
 //            String claims = JwtHelper.decode(access_token).getClaims();
 //            data.put("userInfo", JSON.parseObject(claims,Map.class));
 //        }
-        data.put("access_token",access_token);
+        System.out.println(access_token);
+        data.put("access_token",StringUtils.isBlank(access_token)? "":access_token);
 
         responseResult.setData(data);
         return responseResult;
