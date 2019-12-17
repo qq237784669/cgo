@@ -16,6 +16,8 @@ public class CorsFilter implements Filter {
     public void doFilter(ServletRequest req, ServletResponse rep, FilterChain chain) throws IOException, ServletException {
         HttpServletResponse response = (HttpServletResponse) req;
         HttpServletRequest request = (HttpServletRequest) rep;
+
+        response.setHeader("Access-Control-Allow-Credentials","true");
         //允许所有的域访问
         response.setHeader("Access-Control-Allow-Origin", "*");
         //允许所有方式的请求
