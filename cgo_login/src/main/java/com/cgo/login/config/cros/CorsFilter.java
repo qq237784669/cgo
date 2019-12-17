@@ -39,8 +39,6 @@ public class CorsFilter implements Filter {
             response.setStatus(HttpServletResponse.SC_OK);
         } else {
             filterChain.doFilter(servletRequest, servletResponse);
-
-
         }
     }
 
